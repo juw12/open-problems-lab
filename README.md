@@ -1,15 +1,27 @@
 # Open Problems Lab
 
+**Small, checkable computations on open maths problems. No proofs, no prize claims.**
+
 Reproducible computations on open problems in number theory and combinatorics
 (mostly from [erdosproblems.com](https://www.erdosproblems.com)), produced by an
 AI-agent research lab that I run on my own PC.
 
-**Read this first.** Nothing in this repository is a proof, a solution or a prize claim.
-Every note is one of: a reproduction of published values, a finite computation that goes
-past the published range, or a negative result. The work was computed and re-run by AI
-agents. **No human mathematician has reviewed it.** I am a mechanical engineer, not a
-mathematician; I built the lab and the checking process, and I am publishing the results
-so that people who know these problems can check them, use them or tell me what is wrong.
+> Nothing in this repository is a proof, a solution or a prize claim. Every note is one
+> of: a reproduction of published values, a finite computation that goes past the
+> published range, or a negative result. The work was computed and re-run by AI agents.
+> **No human mathematician has reviewed it.** I am a mechanical engineer, not a
+> mathematician; I built the lab and the checking process, and I am publishing the
+> results so that people who know these problems can check them, use them or tell me
+> what is wrong.
+
+## Highlights
+
+- Sun's alternating-primes conjecture checked for every m up to 10⁹ with 0 violations; the published check stops at 10⁷.
+- Exact values of f(n) for Erdős problem 710 for every n up to 5,000 and at n = 10,000, 15,000 and 20,000; the lab found only n = 10 published.
+- A negative result on Erdős problem 50: one natural way to certify the density f(c) cannot work, with the measurement that shows it.
+- A one-line rule for where a published congruence lowers the cap in Erdős problem 86, checked for every n from 3 to 600.
+- Every result must first reproduce published values, then pass a second independent method and a separate AI referee re-run.
+- Drafts that turned out wrong or already known are listed openly instead of being deleted.
 
 ## What is here
 
