@@ -1,0 +1,72 @@
+{
+  "verdict": "PASS",
+  "passed": 13,
+  "total": 13,
+  "checks": [
+    {
+      "ok": true,
+      "name": "C1a Bradač v1 published 2026-05-27",
+      "detail": "2026-05-27"
+    },
+    {
+      "ok": true,
+      "name": "C1b abstract has 2s-4 lower",
+      "detail": "Off-diagonal Ramsey numbers"
+    },
+    {
+      "ok": true,
+      "name": "C1c bound is for s>=3",
+      "detail": "latex/plain s>=3 found"
+    },
+    {
+      "ok": true,
+      "name": "C2a 9 arXiv queries",
+      "detail": "n_queries=9"
+    },
+    {
+      "ok": true,
+      "name": "C2b 44 post-cutoff hits, all triaged non-narrowing",
+      "detail": "total=44 post=44"
+    },
+    {
+      "ok": true,
+      "name": "C2c anchor sits ON cutoff (excluded, expected)",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "C3 r5t preprint+lean on record (gap closed claimed, sorry stub)",
+      "detail": "pdf=200 lean_theorem=True sorry=True"
+    },
+    {
+      "ok": true,
+      "name": "C3 fixed_s preprint+lean on record (gap closed claimed, sorry stub)",
+      "detail": "pdf=200 lean_theorem=True sorry=True"
+    },
+    {
+      "ok": true,
+      "name": "C3 no-Lean-build caveat on record",
+      "detail": "No Lean build, axiom audit, or manuscript-to-formal-statement equivale"
+    },
+    {
+      "ok": true,
+      "name": "C3 all six web artifacts HTTP 200",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "C4 RamseyFive.lean still a sorry stub (no formal proof)",
+      "detail": "http=200 sorry=True"
+    },
+    {
+      "ok": true,
+      "name": "C5 erdosproblems.com/986 live (2s-4 lower / s-2 upper / AKS80 / LRZ01 / Erdos-1947)",
+      "detail": "http=200 markers_ok=True"
+    },
+    {
+      "ok": true,
+      "name": "C5b #986 evidence on record (statement + AKS80/LRZ01 attributions)",
+      "detail": ""
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+ "job": "lab_erdos_261112_43_verify",
+ "N": 5000000,
+ "threshold": 0.16666666666666666,
+ "rmax": 24,
+ "omega_mismatches": 0,
+ "omega_max_absdiff": 0,
+ "omega_agree": true,
+ "wt_spot_ok": true,
+ "L_check": [
+  2001,
+  2304,
+  4306
+ ],
+ "L_achieved": [
+  2001,
+  4306
+ ],
+ "o2_W_entry_maxdiff": {
+  "2001": 0.0,
+  "2304": 0.0,
+  "4306": 0.0
+ },
+ "o3_bounds_maxdiff": {
+  "2001": {
+   "dUp": 0.0,
+   "dLp": 0.0
+  },
+  "2304": {
+   "dUp": 0.0,
+   "dLp": 0.0
+  },
+  "4306": {
+   "dUp": 0.0,
+   "dLp": 0.0
+  }
+ },
+ "o4_pin_rows": {
+  "gstar_4_1_indep": 0.25733041535436807,
+  "gstar_4_1_numpy": 0.25733041535436807,
+  "d4_1": 0.0,
+  "gstar_8_2_indep": 0.15963499402245135,
+  "gstar_8_2_numpy": 0.15963499402245135,
+  "d8_2": 0.0,
+  "pin_crosses_1_6": false,
+  "self_consistent": true
+ },
+ "runB_status": "done",
+ "runB_verdict": "EXTENSION: U'(L,k)<=1/6 for every (L,k) 4k<L, L=2001..4306, N=5e6 (as-fits within budget; worst margin 0.113306 at L=2304); d0^all=1/4 pin holds across L=2001..4306 at N=5e6.",
+ "runB_gates_ok": true,
+ "all_ok": false,
+ "elapsed_s": 154.9
+}

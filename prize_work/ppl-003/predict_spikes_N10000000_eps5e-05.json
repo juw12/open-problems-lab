@@ -1,0 +1,107 @@
+{
+  "N": 10000000,
+  "eps": 5e-05,
+  "window": "[0.4999500, 0.5)",
+  "measured": {
+    "M_density": 0.0723393,
+    "C_total": 723393,
+    "gates": {
+      "mean_r_6_pi2": true,
+      "sum_phi_3_pi2": true,
+      "f0_is_0": true,
+      "f1_is_1": true
+    },
+    "all_gates_pass": true
+  },
+  "analytic_tower_A": {
+    "A_density": 0.0723345,
+    "A_count": 723345,
+    "p_range": [
+      10000.0,
+      5000000
+    ],
+    "num_primes_in_window": 347284
+  },
+  "independent_tower_B": {
+    "B_density": 0.0723345,
+    "B_count": 723345,
+    "methods_agree_A_eq_B": true
+  },
+  "comparison": {
+    "ratio_A_over_M": 0.999934,
+    "residual_count": 48,
+    "residual_density": 4.8e-06,
+    "abs_diff_density": 4.8e-06,
+    "kill_ratio_lt_half": false,
+    "within_1e3": true
+  },
+  "two_a_p_q_family": {
+    "gmin_over_feasible": 0.000894295,
+    "gmin_pair_p_q": [
+      2221,
+      2251
+    ],
+    "two_eps": 0.0001,
+    "amgm_pq_min_needed": 400000000.0,
+    "N_over_2": 5000000,
+    "family_contributes_zero": true
+  },
+  "symbolic_identity": {
+    "sympy_symbolic": false,
+    "sympy_ratio": "(p - 1)*totient(2**a)/(2**a*p)",
+    "all_numeric_exact": false,
+    "spots": [
+      {
+        "a": 1,
+        "p": 3,
+        "phi_direct==formula": false,
+        "ratio==(p-1)/(2p)": false,
+        "ratio==1/2-1/(2p)": false
+      },
+      {
+        "a": 1,
+        "p": 7,
+        "phi_direct==formula": false,
+        "ratio==(p-1)/(2p)": false,
+        "ratio==1/2-1/(2p)": false
+      },
+      {
+        "a": 2,
+        "p": 3,
+        "phi_direct==formula": false,
+        "ratio==(p-1)/(2p)": false,
+        "ratio==1/2-1/(2p)": false
+      },
+      {
+        "a": 3,
+        "p": 11,
+        "phi_direct==formula": false,
+        "ratio==(p-1)/(2p)": false,
+        "ratio==1/2-1/(2p)": false
+      },
+      {
+        "a": 5,
+        "p": 10007,
+        "phi_direct==formula": false,
+        "ratio==(p-1)/(2p)": false,
+        "ratio==1/2-1/(2p)": false
+      },
+      {
+        "a": 1,
+        "p": 10007,
+        "phi_direct==formula": false,
+        "ratio==(p-1)/(2p)": false,
+        "ratio==1/2-1/(2p)": false
+      },
+      {
+        "a": 6,
+        "p": 397,
+        "phi_direct==formula": false,
+        "ratio==(p-1)/(2p)": false,
+        "ratio==1/2-1/(2p)": false
+      }
+    ]
+  },
+  "verdict": "SPIKE_IS_TOWER (2^a*p fully accounts for the measured mass; no new interior feature)",
+  "elapsed_s": 18.0
+}

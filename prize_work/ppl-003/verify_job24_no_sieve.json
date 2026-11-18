@@ -1,0 +1,84 @@
+{
+  "file_verified": "scale_N1e8_100000000.json",
+  "N": 100000000,
+  "checks": [
+    {
+      "name": "monotonicity A: w strictly decreasing + slope strictly rising (0 dir-chg)",
+      "ok": true,
+      "detail": "slope 11.93->221027.85, dir_changes=0"
+    },
+    {
+      "name": "monotonicity B: w strictly decreasing + slope strictly rising (0 dir-chg)",
+      "ok": true,
+      "detail": "slope 11.93->221027.85, dir_changes=0"
+    },
+    {
+      "name": "monotonicity: NOT oscillating on either sieve (=> not finite-N artifact)",
+      "ok": true,
+      "detail": "A.dir_changes=0, B.dir_changes=0"
+    },
+    {
+      "name": "diagnostic: window-slope ~ w^-alpha (differential alpha near 1)",
+      "ok": true,
+      "detail": "alpha_A=0.932"
+    },
+    {
+      "name": "kill test: global c* within threshold of 0.5 (not killed)",
+      "ok": true,
+      "detail": "c*=0.499001, |c*-0.5|=0.001, thr=0.005, kill_off_0p5=False"
+    },
+    {
+      "name": "card verifier: dual-sieve A vs B agree < 1e-6",
+      "ok": true,
+      "detail": "dcstar=0.0, max_dspike=0.0, VERDIFIER_PASS=True"
+    },
+    {
+      "name": "turnover RE-DERIVED from raw rows matches stored label",
+      "ok": true,
+      "detail": "1000000: derived=1e-05 stored=1e-05 10000000: derived=1e-06 stored=1e-06 100000000: derived=1e-07 stored=1e-07"
+    },
+    {
+      "name": "turnover scales ~1/N: N*eps_turnover is a constant ~O(1)",
+      "ok": true,
+      "detail": "N*eps_turnover = 1000000:10.0, 10000000:10.0, 100000000:10.0"
+    },
+    {
+      "name": "turnover deepens one decade per decade of N (genuine singularity, not a plateauing finite-N artifact)",
+      "ok": true,
+      "detail": "ratios eps(1e6)/eps(1e7)=10.0, eps(1e7)/eps(1e8)=10.0 (each ~10)"
+    },
+    {
+      "name": "diagnostic: peak left-derivative grows ~10x per decade (divergence deepens)",
+      "ok": true,
+      "detail": "peak_left_deriv 6106 -> 51289 -> 442053"
+    },
+    {
+      "name": "analytic tower matches measured spike mass < 1e-5",
+      "ok": true,
+      "detail": " |A-meas| = eps_5e-05:6.3e-06, eps_2.5e-05:2.7e-06, eps_1e-05:9.8e-07"
+    },
+    {
+      "name": "brute-force spot check: all stored (sieve,brute) pairs agree",
+      "ok": true,
+      "detail": "11/11 agree"
+    },
+    {
+      "name": "sieve correctness gates all true",
+      "ok": true,
+      "detail": "gates={'mean_r_6_pi2': True, 'sum_phi_3_pi2': True, 'f0_is_0': True, 'f1_is_1': True}, all_gates_and_brute=True"
+    }
+  ],
+  "n_pass": 13,
+  "n_fail": 0,
+  "all_pass": true,
+  "derived_turnover_eps": {
+    "1000000": 1e-05,
+    "10000000": 1e-06,
+    "100000000": 1e-07
+  },
+  "N_times_eps_turnover": {
+    "1000000": 10.0,
+    "10000000": 10.0,
+    "100000000": 10.0
+  }
+}

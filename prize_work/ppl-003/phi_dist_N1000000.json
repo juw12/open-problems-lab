@@ -1,0 +1,120 @@
+{
+ "N": 1000000,
+ "elapsed_s": 2.0,
+ "gates": {
+  "mean_r": 0.607927103,
+  "mean_r_limit_6pi2": 0.607927102,
+  "sumphi_over_N2": 0.303963552,
+  "sumphi_limit_3pi2": 0.303963551,
+  "f0": 0.0,
+  "f1": 0.999999,
+  "f1_exact": 0.999999,
+  "PASS": true
+ },
+ "gates_pass": true,
+ "interior_cdf": {
+  "M": 10001,
+  "dc": 9.999000099990002e-05,
+  "f_table_11pt": {
+   "0.1": 0.0,
+   "0.18": 0.0,
+   "0.26": 0.018281,
+   "0.34": 0.171927,
+   "0.42": 0.25239,
+   "0.5": 0.471362,
+   "0.58": 0.555607,
+   "0.66": 0.613094,
+   "0.74": 0.6878,
+   "0.82": 0.745366,
+   "0.9": 0.7867
+  }
+ },
+ "concentration": [
+  {
+   "M": 1001,
+   "n_interior_bins": 801,
+   "interior_total_mass": 0.786772,
+   "empty_interior_bins": 90,
+   "k50_bins": 26,
+   "k50_frac": 0.0325,
+   "k90_bins": 296,
+   "k90_frac": 0.3695
+  },
+  {
+   "M": 10001,
+   "n_interior_bins": 8001,
+   "interior_total_mass": 0.786707,
+   "empty_interior_bins": 1115,
+   "k50_bins": 128,
+   "k50_frac": 0.016,
+   "k90_bins": 2621,
+   "k90_frac": 0.3276
+  }
+ ],
+ "k50_frac_sublinearity": 0.4923,
+ "max_slope_trace": {
+  "1001": {
+   "max_slope": 13.672,
+   "c": 0.4955,
+   "window_width": 0.00999
+  },
+  "5001": {
+   "max_slope": 45.782,
+   "c": 0.4991,
+   "window_width": 0.002
+  },
+  "10001": {
+   "max_slope": 87.989,
+   "c": 0.49955,
+   "window_width": 0.001
+  },
+  "25001": {
+   "max_slope": 216.936,
+   "c": 0.49982,
+   "window_width": 0.0004
+  },
+  "50001": {
+   "max_slope": 426.534,
+   "c": 0.49991,
+   "window_width": 0.0002
+  },
+  "100001": {
+   "max_slope": 829.088,
+   "c": 0.49996,
+   "window_width": 0.0001
+  },
+  "200001": {
+   "max_slope": 1581.808,
+   "c": 0.49998,
+   "window_width": 5e-05
+  }
+ },
+ "max_slope_growth_factor": 115.697,
+ "singular_at_steepest": true,
+ "stable_windowavg_points": {
+  "count": 7829,
+  "note": "resolution artifact (singular structure below finest window + finite-N smearing); NOT verified differentiability",
+  "steepest": {
+   "c": 0.49991,
+   "fine_slope": 426.53,
+   "coarse_slope": 11.75,
+   "ratio": 36.31
+  }
+ },
+ "verdict": "singular at steepest point (max window-avg slope DIVERGES under refinement) -> consistent with #50 (no verified finite-derivative point); the stable-window-average points are a finite-resolution artifact (singular structure below the finest window + finite-N smearing), NOT counterexamples",
+ "n_robustness": null,
+ "thresholds": {
+  "H": 5,
+  "plateau_factor": 1.3,
+  "plateau_min": 0.1,
+  "M_trace": [
+   1001,
+   5001,
+   10001,
+   25001,
+   50001,
+   100001,
+   200001
+  ]
+ }
+}

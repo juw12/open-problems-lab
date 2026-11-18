@@ -1,0 +1,30 @@
+[
+  {
+    "n": 5000,
+    "f": 10081,
+    "ep_lower_asym": 12094.3,
+    "ratio_card": 1.219943,
+    "ratio_proper": 0.83353
+  },
+  {
+    "n": 10000,
+    "f": 20626,
+    "ep_lower_asym": 24706.6,
+    "ratio_card": 1.243974,
+    "ratio_proper": 0.834839
+  },
+  {
+    "n": 15000,
+    "f": 31576,
+    "ep_lower_asym": 37504.7,
+    "ratio_card": 1.26664,
+    "ratio_proper": 0.841922
+  },
+  {
+    "n": 20000,
+    "f": 42561,
+    "ep_lower_asym": 50421.5,
+    "ratio_card": 1.278167,
+    "ratio_proper": 0.844105
+  }
+]

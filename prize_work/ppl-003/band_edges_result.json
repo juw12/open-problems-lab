@@ -1,0 +1,66 @@
+{
+  "job": "lab_erdos_261112_11",
+  "N": 10000000,
+  "gate": {
+    "n_S4": 3008,
+    "mismatch": 0,
+    "pass": true
+  },
+  "left_edge": {
+    "S": [
+      2,
+      3,
+      5,
+      7
+    ],
+    "c_exact": "8/35",
+    "c_float": 0.22857142857142856,
+    "class": "2pqr",
+    "growth": 8.768
+  },
+  "right_edge": {
+    "S": [
+      47,
+      73,
+      83,
+      157
+    ],
+    "c_exact": "42367104/44709361",
+    "c_float": 0.9476114856573324,
+    "class": "pqrs",
+    "growth": 5.095,
+    "caveat": "|S|<=4 complete; |S|>=5 tail via N-stable grid (rightmost stored |S|<=4 tower)"
+  },
+  "divergent_single_primes_inside_band": [
+    2,
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19
+  ],
+  "first_single_prime_above_edge": null,
+  "band": {
+    "percolation_span_S4": [
+      0.45410513141426784,
+      0.9474843554443053
+    ],
+    "grid_c_range_N1e7": [
+      0.22827000000000003,
+      0.9476100000000001
+    ],
+    "grid_measure": null,
+    "grid_n_div_cells": null
+  },
+  "percolation": {
+    "w": 0.0005,
+    "max_local_density_S4": 819,
+    "thr": 16,
+    "dens_left_edge": 1,
+    "dens_left_minus_0p05": 0,
+    "dens_right_edge": 819,
+    "dens_right_plus_0p05": 0
+  }
+}

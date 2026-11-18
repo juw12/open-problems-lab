@@ -1,0 +1,20 @@
+{
+  "url": "https://www.erdosproblems.com/986",
+  "fetched_at": "2026-11-11T00:00:00Z",
+  "route": "webfetch through http://localhost:3128 (live)",
+  "problem_number": 986,
+  "is_problem_6_ramsey_graphs_collection": true,
+  "special_cases": {"s=3": 165, "s=4": 166},
+  "statement": "For any fixed s>=3, R(s,k) >> k^{s-1}/(log k)^c for some constant c=c(s)>0.",
+  "conjecture_origin": "First conjectured by Erdos in 1947 (per Chung & Graham [ChGr98]).",
+  "weak_problem_status": "RESOLVED for all s>=3 by Brada? [Br26] (arXiv:2605.28793), which gives c=2s-4. Spencer [Sp77] had s=3; Mattheus-Verstraete [MaVe23] had s=4.",
+  "best_general_bounds_s_ge_5": {
+    "lower": "k^{s-1}/(log k)^{2s-4}  (Brada? 2026, arXiv:2605.28793; improves Bohman-Keevash [BoKe10])",
+    "upper": "(1+o(1)) k^{s-1}/(log k)^{s-2}  (Ajtai-Komlos-Szemeredi [AKS80], sharp constant (1+o(1)) by Li-Rousseau-Zang [LRZ01])",
+    "gap_polylog_exponent": {"lower_c": "2s-4", "upper_c": "s-2"}
+  },
+  "openai_note_verbatim": "An earlier version of Brada? work had an exponent of s-2 - the adjustment to achieve s-1 was observed by an internal model at OpenAI.",
+  "references_named_on_page": ["ChGr98", "Sp77", "MaVe23", "Br26", "BoKe10", "AKS80", "LRZ01", "Er90b", "165", "166", "920"],
+  "markers_for_gate": ["2s-4", "s-2", "Ajtai", "Li, Rousseau, and Zang", "LRZ01", "Brada", "conjectured by Erd"],
+  "interpretation": "Problem #986 as STATED (exists c>0) is resolved by Brada?. The SHARP question - best possible c, i.e. c=s-2+o(1) matching the AKS/LRZ upper - is the live frontier (the 2s-4 vs s-2 polylog gap). This card pins that sharp gap."
+}

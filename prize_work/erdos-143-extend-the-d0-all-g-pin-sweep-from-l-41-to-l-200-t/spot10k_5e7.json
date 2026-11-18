@@ -1,0 +1,138 @@
+{
+  "job": "lab_erdos_261112_43",
+  "problem": "Erdos #143 / PPL 014 ($500)",
+  "N": 50000000,
+  "TH": 0.16666666666666666,
+  "RMAX": 24,
+  "EXCL": [
+    2,
+    3,
+    4
+  ],
+  "gates": {
+    "gates_ok": true,
+    "G_references": {
+      "U30_7": {
+        "computed": 0.15369943043010403,
+        "ref": 0.15369943043010403,
+        "abs_diff": 0.0
+      },
+      "U42_10": {
+        "computed": 0.12648252591003756,
+        "ref": 0.12648252591003756,
+        "abs_diff": 0.0
+      },
+      "g4_1": {
+        "computed": 0.2615405094298449,
+        "ref": 0.2615405094298449,
+        "abs_diff": 0.0
+      },
+      "g8_2": {
+        "computed": 0.1670668991170045,
+        "ref": 0.1670668991170045,
+        "abs_diff": 0.0
+      }
+    }
+  },
+  "spot_per_L": {
+    "2001": {
+      "kmax": 500,
+      "max_Up": 0.0558945668982214,
+      "k_at_maxUp": 500,
+      "max_Lp": 0.040637247746152495,
+      "margin": 0.11077209976844526,
+      "Lp_crossings": 0,
+      "U_unruled": 0,
+      "d_maxUp_vs_5e6": 0.007567147836807217
+    },
+    "2304": {
+      "kmax": 575,
+      "max_Up": 0.06250682551232076,
+      "k_at_maxUp": 575,
+      "max_Lp": 0.008280903682184253,
+      "margin": 0.1041598411543459,
+      "Lp_crossings": 0,
+      "U_unruled": 0,
+      "d_maxUp_vs_5e6": 0.009146643631243762
+    },
+    "2500": {
+      "kmax": 624,
+      "max_Up": 0.05273210699326604,
+      "k_at_maxUp": 624,
+      "max_Lp": 0.021001197238388968,
+      "margin": 0.11393455967340062,
+      "Lp_crossings": 0,
+      "U_unruled": 0,
+      "d_maxUp_vs_5e6": 0.006576705377637569
+    },
+    "3000": {
+      "kmax": 749,
+      "max_Up": 0.0488756901080354,
+      "k_at_maxUp": 749,
+      "max_Lp": 0.004186930252742697,
+      "margin": 0.11779097655863126,
+      "Lp_crossings": 0,
+      "U_unruled": 0,
+      "d_maxUp_vs_5e6": 0.006298295825111849
+    },
+    "4000": {
+      "kmax": 999,
+      "max_Up": 0.05354340059719232,
+      "k_at_maxUp": 999,
+      "max_Lp": 0.012596737496815336,
+      "margin": 0.11312326606947434,
+      "Lp_crossings": 0,
+      "U_unruled": 0,
+      "d_maxUp_vs_5e6": 0.007765744479480988
+    },
+    "6000": {
+      "kmax": 1499,
+      "max_Up": 0.047927226112793916,
+      "k_at_maxUp": 1499,
+      "max_Lp": 0.003659481706859785,
+      "margin": 0.11873944055387274,
+      "Lp_crossings": 0,
+      "U_unruled": 0,
+      "d_maxUp_vs_5e6": null
+    },
+    "8000": {
+      "kmax": 1999,
+      "max_Up": 0.04829631897483311,
+      "k_at_maxUp": 1997,
+      "max_Lp": 0.010942310742556801,
+      "margin": 0.11837034769183355,
+      "Lp_crossings": 0,
+      "U_unruled": 0,
+      "d_maxUp_vs_5e6": null
+    },
+    "10000": {
+      "kmax": 2499,
+      "max_Up": 0.04458634593722105,
+      "k_at_maxUp": 2499,
+      "max_Lp": 0.010463810613489033,
+      "margin": 0.12208032072944561,
+      "Lp_crossings": 0,
+      "U_unruled": 0,
+      "d_maxUp_vs_5e6": null
+    }
+  },
+  "spot_Ls": [
+    2001,
+    2304,
+    2500,
+    3000,
+    4000,
+    6000,
+    8000,
+    10000
+  ],
+  "worst_5e6_L": 2304,
+  "n_robustness": {
+    "spot_L": 8,
+    "max_abs_diff_maxUp": 0.009146643631243762
+  },
+  "any_5e7_crossing": false,
+  "any_5e7_unruled": 0,
+  "elapsed_s": 32.10229825973511,
+  "verdict": "5e7 SPOT-CONFIRMED: U'(L,k)<=1/6 for every (L,k) 4k<L at all 8 spot L's in 2001..10000 (N=5e7); N-robust vs 5e6 (max|d maxUp|=0.009147); gate G absolute-calibrated."
+}

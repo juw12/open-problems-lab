@@ -1,0 +1,67 @@
+{
+ "job": "lab_erdos_261112_35_verify",
+ "N": 50000000,
+ "threshold": 0.16666666666666666,
+ "rmax": 24,
+ "omega_mismatches": 0,
+ "omega_max_absdiff": 0.0,
+ "omega_agree": true,
+ "wt_spot_ok": true,
+ "L_check": [
+  30,
+  41,
+  42,
+  200
+ ],
+ "o2_W_entry_maxdiff": {
+  "30": 0.0,
+  "41": 0.0,
+  "42": 0.0,
+  "200": 0.0
+ },
+ "o3_bounds_maxdiff": {
+  "30": {
+   "dUp_max": 0.0,
+   "dLp_max": 0.0,
+   "maxUp_indep": 0.15369943043010403,
+   "maxLp_indep": 0.046845699036347846
+  },
+  "41": {
+   "dUp_max": 0.0,
+   "dLp_max": 0.0,
+   "maxUp_indep": 0.10380367538338647,
+   "maxLp_indep": 0.08072859165849815
+  },
+  "42": {
+   "dUp_max": 0.0,
+   "dLp_max": 0.0,
+   "maxUp_indep": 0.12648252591003756,
+   "maxLp_indep": 0.044230076700734325
+  },
+  "200": {
+   "dUp_max": 0.0,
+   "dLp_max": 0.0,
+   "maxUp_indep": 0.07929820187805918,
+   "maxLp_indep": 0.02330696349077116
+  }
+ },
+ "o4_pin_rows": {
+  "gstar_4_1": {
+   "value": 0.2615405094298449,
+   "ref_job23": 0.2615405094298449,
+   "ref_runB": 0.2615405094298449,
+   "ok": true
+  },
+  "gstar_8_2": {
+   "value": 0.1670668991170045,
+   "ref_job23": 0.1670668991170045,
+   "ref_runB": 0.1670668991170045,
+   "ok": true
+  },
+  "pin_crosses_1_6": true
+ },
+ "runB_gates_ok": true,
+ "runB_verdict": "EXTENSION: U'(L,k) <= 1/6 for every (L,k) with 4k<L, L=41..200 (worst margin 0.040184 at L=42); combined with job-261111_23 (L<=40, exact L<=16), the d0^all = 1/4 pin extends to L<=200 at N=5e7.",
+ "all_ok": true,
+ "elapsed_s": 108.9
+}

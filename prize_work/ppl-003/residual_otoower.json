@@ -1,0 +1,884 @@
+{
+  "eps": 5e-05,
+  "per_N": {
+    "10000000": {
+      "measured_M": 0.0723393,
+      "M_count": 723393,
+      "exact_tower_A": 0.0723345,
+      "A_count": 723345,
+      "amax": 9,
+      "residual_count": 48,
+      "residual_R": 4.8e-06,
+      "ratio_R_over_A": 6.6358e-05,
+      "ratio_R_over_A_times_1e4": 0.6636,
+      "tower_in_win_2adic": 723345,
+      "tower_A_eq_2adic_B": true,
+      "residual_v2_hist": {
+        "0": 48
+      },
+      "residual_type_hist": {
+        "odd_n": 48
+      },
+      "residual_exact_genuine": 48,
+      "residual_float_artifact": 0,
+      "residual_top_patterns": {
+        "(3, 3, 3)": 8,
+        "(3, 3, 5)": 6,
+        "(3, 5, 23)": 6,
+        "(3, 5, 5)": 5,
+        "(3, 3, 7)": 5,
+        "(3, 7, 19)": 4,
+        "(3, 5, 29)": 4,
+        "(3, 5, 31)": 3
+      },
+      "residual_first20": [
+        {
+          "n": 64005,
+          "v2": 0,
+          "oddpart": 64005,
+          "pattern": [
+            3,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 4,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 192015,
+          "v2": 0,
+          "oddpart": 192015,
+          "pattern": [
+            3,
+            3,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 266133,
+          "v2": 0,
+          "oddpart": 266133,
+          "pattern": [
+            3,
+            7,
+            19,
+            23,
+            29
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960546,
+          "dist_to_half": 3.9454e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 320025,
+          "v2": 0,
+          "oddpart": 320025,
+          "pattern": [
+            3,
+            5,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 576045,
+          "v2": 0,
+          "oddpart": 576045,
+          "pattern": [
+            3,
+            3,
+            3,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 6,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 798399,
+          "v2": 0,
+          "oddpart": 798399,
+          "pattern": [
+            3,
+            3,
+            7,
+            19,
+            23,
+            29
+          ],
+          "odd_prime_count": 6,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960546,
+          "dist_to_half": 3.9454e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 960075,
+          "v2": 0,
+          "oddpart": 960075,
+          "pattern": [
+            3,
+            3,
+            5,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 6,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 1088085,
+          "v2": 0,
+          "oddpart": 1088085,
+          "pattern": [
+            3,
+            5,
+            17,
+            17,
+            251
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 1600125,
+          "v2": 0,
+          "oddpart": 1600125,
+          "pattern": [
+            3,
+            5,
+            5,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 6,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 1728135,
+          "v2": 0,
+          "oddpart": 1728135,
+          "pattern": [
+            3,
+            3,
+            3,
+            3,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 7,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 1862931,
+          "v2": 0,
+          "oddpart": 1862931,
+          "pattern": [
+            3,
+            7,
+            7,
+            19,
+            23,
+            29
+          ],
+          "odd_prime_count": 6,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960546,
+          "dist_to_half": 3.9454e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 1946955,
+          "v2": 0,
+          "oddpart": 1946955,
+          "pattern": [
+            3,
+            5,
+            31,
+            53,
+            79
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499980739,
+          "dist_to_half": 1.9261e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 2083389,
+          "v2": 0,
+          "oddpart": 2083389,
+          "pattern": [
+            3,
+            7,
+            11,
+            29,
+            311
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499954641,
+          "dist_to_half": 4.5359e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 2096787,
+          "v2": 0,
+          "oddpart": 2096787,
+          "pattern": [
+            3,
+            7,
+            11,
+            29,
+            313
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499964946,
+          "dist_to_half": 3.5054e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 2123583,
+          "v2": 0,
+          "oddpart": 2123583,
+          "pattern": [
+            3,
+            7,
+            11,
+            29,
+            317
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499985167,
+          "dist_to_half": 1.4833e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 2395197,
+          "v2": 0,
+          "oddpart": 2395197,
+          "pattern": [
+            3,
+            3,
+            3,
+            7,
+            19,
+            23,
+            29
+          ],
+          "odd_prime_count": 7,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960546,
+          "dist_to_half": 3.9454e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 2880225,
+          "v2": 0,
+          "oddpart": 2880225,
+          "pattern": [
+            3,
+            3,
+            3,
+            5,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 7,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 3123735,
+          "v2": 0,
+          "oddpart": 3123735,
+          "pattern": [
+            3,
+            5,
+            29,
+            43,
+            167
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499955342,
+          "dist_to_half": 4.4658e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 3264255,
+          "v2": 0,
+          "oddpart": 3264255,
+          "pattern": [
+            3,
+            3,
+            5,
+            17,
+            17,
+            251
+          ],
+          "odd_prime_count": 6,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 3446895,
+          "v2": 0,
+          "oddpart": 3446895,
+          "pattern": [
+            3,
+            5,
+            23,
+            97,
+            103
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499983899,
+          "dist_to_half": 1.6101e-05,
+          "exact_in_window": true
+        }
+      ],
+      "verifier_2a_pq": {
+        "fmax": 0.499549853725267,
+        "argmax_pq": [
+          2221,
+          2221
+        ],
+        "gmin": 0.00045014627473299873,
+        "window_lo": 0.49995,
+        "family_empty_in_window": true,
+        "gmin_over_2eps": 4.501462747329987,
+        "gap_to_window_lo": 0.00040014627473300424
+      },
+      "gate_M_reproduces_stored": true,
+      "gate_A_reproduces_stored": true,
+      "mean_r_6_pi2": true,
+      "sum_phi_3_pi2": true
+    },
+    "20000000": {
+      "measured_M": 0.06934025,
+      "M_count": 1386805,
+      "exact_tower_A": 0.06933475,
+      "A_count": 1386695,
+      "amax": 10,
+      "residual_count": 110,
+      "residual_R": 5.5e-06,
+      "ratio_R_over_A": 7.9325e-05,
+      "ratio_R_over_A_times_1e4": 0.7933,
+      "tower_in_win_2adic": 1386695,
+      "tower_A_eq_2adic_B": true,
+      "residual_v2_hist": {
+        "0": 110
+      },
+      "residual_type_hist": {
+        "odd_n": 110
+      },
+      "residual_exact_genuine": 110,
+      "residual_float_artifact": 0,
+      "residual_top_patterns": {
+        "(3, 5, 19)": 23,
+        "(3, 5, 23)": 17,
+        "(3, 3, 3)": 15,
+        "(3, 3, 5)": 14,
+        "(3, 5, 5)": 10,
+        "(3, 3, 7)": 7,
+        "(3, 7, 7)": 5,
+        "(3, 5, 17)": 4
+      },
+      "residual_first20": [
+        {
+          "n": 64005,
+          "v2": 0,
+          "oddpart": 64005,
+          "pattern": [
+            3,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 4,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 192015,
+          "v2": 0,
+          "oddpart": 192015,
+          "pattern": [
+            3,
+            3,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 266133,
+          "v2": 0,
+          "oddpart": 266133,
+          "pattern": [
+            3,
+            7,
+            19,
+            23,
+            29
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960546,
+          "dist_to_half": 3.9454e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 320025,
+          "v2": 0,
+          "oddpart": 320025,
+          "pattern": [
+            3,
+            5,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 576045,
+          "v2": 0,
+          "oddpart": 576045,
+          "pattern": [
+            3,
+            3,
+            3,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 6,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 798399,
+          "v2": 0,
+          "oddpart": 798399,
+          "pattern": [
+            3,
+            3,
+            7,
+            19,
+            23,
+            29
+          ],
+          "odd_prime_count": 6,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960546,
+          "dist_to_half": 3.9454e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 960075,
+          "v2": 0,
+          "oddpart": 960075,
+          "pattern": [
+            3,
+            3,
+            5,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 6,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 1088085,
+          "v2": 0,
+          "oddpart": 1088085,
+          "pattern": [
+            3,
+            5,
+            17,
+            17,
+            251
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 1600125,
+          "v2": 0,
+          "oddpart": 1600125,
+          "pattern": [
+            3,
+            5,
+            5,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 6,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 1728135,
+          "v2": 0,
+          "oddpart": 1728135,
+          "pattern": [
+            3,
+            3,
+            3,
+            3,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 7,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 1862931,
+          "v2": 0,
+          "oddpart": 1862931,
+          "pattern": [
+            3,
+            7,
+            7,
+            19,
+            23,
+            29
+          ],
+          "odd_prime_count": 6,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960546,
+          "dist_to_half": 3.9454e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 1946955,
+          "v2": 0,
+          "oddpart": 1946955,
+          "pattern": [
+            3,
+            5,
+            31,
+            53,
+            79
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499980739,
+          "dist_to_half": 1.9261e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 2083389,
+          "v2": 0,
+          "oddpart": 2083389,
+          "pattern": [
+            3,
+            7,
+            11,
+            29,
+            311
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499954641,
+          "dist_to_half": 4.5359e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 2096787,
+          "v2": 0,
+          "oddpart": 2096787,
+          "pattern": [
+            3,
+            7,
+            11,
+            29,
+            313
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499964946,
+          "dist_to_half": 3.5054e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 2123583,
+          "v2": 0,
+          "oddpart": 2123583,
+          "pattern": [
+            3,
+            7,
+            11,
+            29,
+            317
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499985167,
+          "dist_to_half": 1.4833e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 2395197,
+          "v2": 0,
+          "oddpart": 2395197,
+          "pattern": [
+            3,
+            3,
+            3,
+            7,
+            19,
+            23,
+            29
+          ],
+          "odd_prime_count": 7,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960546,
+          "dist_to_half": 3.9454e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 2880225,
+          "v2": 0,
+          "oddpart": 2880225,
+          "pattern": [
+            3,
+            3,
+            3,
+            5,
+            5,
+            17,
+            251
+          ],
+          "odd_prime_count": 7,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 3123735,
+          "v2": 0,
+          "oddpart": 3123735,
+          "pattern": [
+            3,
+            5,
+            29,
+            43,
+            167
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499955342,
+          "dist_to_half": 4.4658e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 3264255,
+          "v2": 0,
+          "oddpart": 3264255,
+          "pattern": [
+            3,
+            3,
+            5,
+            17,
+            17,
+            251
+          ],
+          "odd_prime_count": 6,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499960941,
+          "dist_to_half": 3.9059e-05,
+          "exact_in_window": true
+        },
+        {
+          "n": 3446895,
+          "v2": 0,
+          "oddpart": 3446895,
+          "pattern": [
+            3,
+            5,
+            23,
+            97,
+            103
+          ],
+          "odd_prime_count": 5,
+          "is_pq": false,
+          "is_p2": false,
+          "is_odd_prime": false,
+          "phi_over_n": 0.499983899,
+          "dist_to_half": 1.6101e-05,
+          "exact_in_window": true
+        }
+      ],
+      "verifier_2a_pq": {
+        "fmax": 0.4996812749084954,
+        "argmax_pq": [
+          3137,
+          3137
+        ],
+        "gmin": 0.0003187250915046014,
+        "window_lo": 0.49995,
+        "family_empty_in_window": true,
+        "gmin_over_2eps": 3.1872509150460138,
+        "gap_to_window_lo": 0.0002687250915046069
+      },
+      "ratio_nonincreasing_vs_prev": false
+    }
+  },
+  "verdict": "RESIDUAL_o_tower: R=M-A (spike mass beyond the 2^a*p tower). N=1e7: R_count=48, R/A=6.636e-05 (x1e4=0.664). N=2e7: R_count=110, R/A=7.933e-05 (x1e4=0.793). R/A<1e-4 at 1e7: True; at 2e7: True; non-increasing 1e7->2e7: False. VERIFIER (independent, no phi sieve): 2^a*p*q family fmax=0.49968127, gmin=3.187e-04, empty-in-window(2e7)=True, gmin/2eps=3.19 => the residual is NOT the 2^a*p*q layer. Residual type_hist(2e7)={'odd_n': 110}. GATE(1e7): M=0.0723393 (stored 0.0723393, repro=True), A=0.0723345 (stored 0.0723345, repro=True), tower==2adic=True.",
+  "elapsed_s": 12.1
+}

@@ -1,0 +1,377 @@
+{
+  "cutoff": "2026-05-27",
+  "window_start": "2026-05-28",
+  "audit_date": "2026-11-11",
+  "anchor_id": "2605.28793",
+  "n_queries": 9,
+  "queries": [
+    {
+      "label": "not-rsk",
+      "search_query": "(all:\"r(s,k)\") AND submittedDate:[202605280000 TO 202611112359]",
+      "n": 2,
+      "error": null
+    },
+    {
+      "label": "offdiag-term",
+      "search_query": "(all:\"off-diagonal Ramsey\") AND submittedDate:[202605280000 TO 202611112359]",
+      "n": 7,
+      "error": null
+    },
+    {
+      "label": "bradac-author",
+      "search_query": "(all:\"Brada\") AND submittedDate:[202605280000 TO 202611112359]",
+      "n": 0,
+      "error": null
+    },
+    {
+      "label": "ramsey-lb",
+      "search_query": "(ti:\"Ramsey\" AND abs:\"lower bound\") AND submittedDate:[202605280000 TO 202611112359]",
+      "n": 36,
+      "error": null
+    },
+    {
+      "label": "log-exponent",
+      "search_query": "(abs:Ramsey AND abs:\"independent set\" AND abs:\"log\") AND submittedDate:[202605280000 TO 202611112359]",
+      "n": 2,
+      "error": null
+    },
+    {
+      "label": "ks-offdiag",
+      "search_query": "(abs:\"K_s\" AND abs:Ramsey AND abs:\"off-diagonal\") AND submittedDate:[202605280000 TO 202611112359]",
+      "n": 2,
+      "error": null
+    },
+    {
+      "label": "aks-followup",
+      "search_query": "(all:\"Alon\" AND all:\"Kahn\" AND all:\"Ramsey\" AND all:\"Szab\") AND submittedDate:[202605280000 TO 202611112359]",
+      "n": 0,
+      "error": null
+    },
+    {
+      "label": "polylog",
+      "search_query": "(abs:Ramsey AND abs:\"polylog\" AND abs:\"off-diagonal\") AND submittedDate:[202605280000 TO 202611112359]",
+      "n": 0,
+      "error": null
+    },
+    {
+      "label": "erdos-szekeres",
+      "search_query": "(abs:\"Erdos\" AND abs:\"Szekeres\" AND abs:Ramsey AND abs:\"lower bound\") AND submittedDate:[202605280000 TO 202611112359]",
+      "n": 0,
+      "error": null
+    }
+  ],
+  "n_total_hits": 44,
+  "n_post_cutoff": 44,
+  "anchor_recovered": false,
+  "post_cutoff_nonanchor": [
+    {
+      "bare_id": "2610.18258",
+      "v1_date": "2026-10-13",
+      "title": "Optimal Online Regret for Context-Lumpable Bandits",
+      "matched_query": "not-rsk",
+      "triage": ""
+    },
+    {
+      "bare_id": "2611.05366",
+      "v1_date": "2026-11-03",
+      "title": "Transfer of Weisfeiler-Leman equivalence under graph operations",
+      "matched_query": "not-rsk",
+      "triage": ""
+    },
+    {
+      "bare_id": "2609.37987",
+      "v1_date": "2026-09-29",
+      "title": "On the asymptotics of the Erdős-Rogers function",
+      "matched_query": "offdiag-term",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.06081",
+      "v1_date": "2026-10-05",
+      "title": "Polynomial families of incident flags and explicit off-diagonal Ramsey graphs",
+      "matched_query": "offdiag-term",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.14829",
+      "v1_date": "2026-10-10",
+      "title": "New bounds for off-diagonal hypergraph Ramsey numbers",
+      "matched_query": "offdiag-term",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.15293",
+      "v1_date": "2026-10-11",
+      "title": "A note on the logarithmic exponent of Ramsey number $r(4,t)$",
+      "matched_query": "offdiag-term",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.28299",
+      "v1_date": "2026-10-20",
+      "title": "Ordered Trees with Linear Off-Diagonal Ramsey Numbers",
+      "matched_query": "offdiag-term",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.32644",
+      "v1_date": "2026-10-23",
+      "title": "Off-diagonal Ramsey numbers of 3-graphs",
+      "matched_query": "offdiag-term",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.39578",
+      "v1_date": "2026-10-29",
+      "title": "Off-diagonal Ramsey numbers for 3-uniform tight hypergraph cycles",
+      "matched_query": "offdiag-term",
+      "triage": ""
+    },
+    {
+      "bare_id": "2605.31546",
+      "v1_date": "2026-05-29",
+      "title": "Ramsey-Turán theory for partially-ordered sets",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2606.14161",
+      "v1_date": "2026-06-12",
+      "title": "Ramsey-Turán Type Problem for Perfect Transitive Triangle Tilings in Digraphs",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2606.24198",
+      "v1_date": "2026-06-23",
+      "title": "New Tower-Type Lower Bounds for Hypergraph Ramsey Numbers",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2607.05896",
+      "v1_date": "2026-07-07",
+      "title": "On the maximal anti-Ramsey problem of Burr, Erdős, Graham, and Sós for $P_4$",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2607.06817",
+      "v1_date": "2026-07-07",
+      "title": "Computation of small reflective and dihedral Ramsey numbers",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2607.17263",
+      "v1_date": "2026-07-19",
+      "title": "Multicolor vector space Ramsey numbers over the binary field",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2608.02299",
+      "v1_date": "2026-08-03",
+      "title": "Ramsey multiplicity for ordered graphs",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2608.02522",
+      "v1_date": "2026-08-03",
+      "title": "Locally bipartite subgraphs via multicolor Ramsey numbers",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2608.06531",
+      "v1_date": "2026-08-06",
+      "title": "A constructive two-parameter Ramsey increment",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2608.12673",
+      "v1_date": "2026-08-13",
+      "title": "Weakened Gallai-Ramsey Numbers for Books",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2608.18769",
+      "v1_date": "2026-08-19",
+      "title": "An Integer Programming Approach to Compute Lower Bounds for Ramsey Numbers Using Circulant Graphs",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2608.22350",
+      "v1_date": "2026-08-23",
+      "title": "Ramsey-type results for threshold graphs and beyond",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2608.27405",
+      "v1_date": "2026-08-27",
+      "title": "Asymptotic Bounds for Online Ramsey Numbers of Stars versus Long Paths and Cycles",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2608.30481",
+      "v1_date": "2026-08-31",
+      "title": "The Multicolour Size--Ramsey Number of an Even Cycle",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2609.00944",
+      "v1_date": "2026-09-01",
+      "title": "The Ramsey threshold for trees versus odd cycles",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2609.05812",
+      "v1_date": "2026-09-05",
+      "title": "Quantum Query Algorithms for the Constructive Diagonal Ramsey Theorem",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2609.06378",
+      "v1_date": "2026-09-06",
+      "title": "Multicolor Ramsey and list Ramsey numbers for star-like trees",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2609.08157",
+      "v1_date": "2026-09-08",
+      "title": "Multicolor Ramsey numbers of ordered matchings",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2609.14525",
+      "v1_date": "2026-09-13",
+      "title": "Retained-Set Descent for Diagonal Ramsey Numbers",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2609.27157",
+      "v1_date": "2026-09-22",
+      "title": "Monochromatic triangles with empty intersection and Kneser Ramsey numbers",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2609.28455",
+      "v1_date": "2026-09-23",
+      "title": "On the multicolour Ramsey numbers $R(3,3,k)$",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.12122",
+      "v1_date": "2026-10-08",
+      "title": "Lower bounds for Ramsey numbers: $\\mathrm{R}(6,8)\\ge 135$ and $\\mathrm{R}(8,10)\\ge 345$",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.16392",
+      "v1_date": "2026-10-12",
+      "title": "Ramsey Meets Simultaneous Planarity: Vertex Integrity and Pathwidth",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.17891",
+      "v1_date": "2026-10-13",
+      "title": "The logarithmic exponent of the Ramsey number $r(4,t)$",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.20545",
+      "v1_date": "2026-10-14",
+      "title": "The $k$-color poset Ramsey number of the diamond is $2k$",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.22902",
+      "v1_date": "2026-10-16",
+      "title": "Triangle-free Rank--Ramsey graphs from ordered incidence lifts",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.24523",
+      "v1_date": "2026-10-17",
+      "title": "Multicolor Ramsey numbers of unbalanced double stars",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.26061",
+      "v1_date": "2026-10-19",
+      "title": "Single-graph rational exponents in mixed multicolour Ramsey theory",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.29813",
+      "v1_date": "2026-10-21",
+      "title": "The three-colour bipartite Ramsey number of sufficiently long even cycles",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.36522",
+      "v1_date": "2026-10-27",
+      "title": "Constructions for Nearly Diagonal Book Ramsey Numbers",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.38515",
+      "v1_date": "2026-10-28",
+      "title": "The asymptotics of off-diagonal book Ramsey numbers",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2611.03878",
+      "v1_date": "2026-11-02",
+      "title": "On the lower- and upper bounds of three-colored anti-Ramsey numbers",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2611.09347",
+      "v1_date": "2026-11-06",
+      "title": "A Structural Lower Bound for the Ramsey Number of the Petersen Graph",
+      "matched_query": "ramsey-lb",
+      "triage": ""
+    },
+    {
+      "bare_id": "2607.25023",
+      "v1_date": "2026-07-27",
+      "title": "Schrijver Number Quasi-Tensorization and Multicolor Ramsey Bounds via Robust OR Polynomials",
+      "matched_query": "log-exponent",
+      "triage": ""
+    },
+    {
+      "bare_id": "2610.03358",
+      "v1_date": "2026-10-02",
+      "title": "Sharp bounds for off-diagonal and tripartite canonical Ramsey numbers",
+      "matched_query": "ks-offdiag",
+      "triage": ""
+    }
+  ],
+  "verdict": ""
+}

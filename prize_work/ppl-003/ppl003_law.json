@@ -1,0 +1,104 @@
+{
+  "eps": 5e-05,
+  "per_N": {
+    "5000000": {
+      "measured_M": 0.0752172,
+      "exact_tower_A": 0.0752122,
+      "A_count": 376061,
+      "a1_only": 0.0363686,
+      "pnt_tower": 0.07475535,
+      "towerB_count": null,
+      "M_lnN": 1.16022,
+      "A_lnN": 1.16014,
+      "pnt_lnN": 1.1531,
+      "abs_A_minus_M": 5e-06,
+      "a1_ratio_M_over_a1": 2.0682,
+      "pnt_relerr_vs_M": 0.00614
+    },
+    "10000000": {
+      "measured_M": 0.0723393,
+      "exact_tower_A": 0.0723345,
+      "A_count": 723345,
+      "a1_only": 0.0347284,
+      "pnt_tower": 0.07191806,
+      "towerB_count": 723345,
+      "M_lnN": 1.16597,
+      "A_lnN": 1.16589,
+      "pnt_lnN": 1.15918,
+      "abs_A_minus_M": 4.8e-06,
+      "a1_ratio_M_over_a1": 2.083,
+      "pnt_relerr_vs_M": 0.00582
+    },
+    "100000000": {
+      "measured_M": 0.06274806,
+      "measured_source": "stored job-24 (verified, dual sieve, verify_job24 13/13)",
+      "measured_M_sieveB": 0.06274806,
+      "dual_sieve_agree_1e6": true,
+      "exact_tower_A": 0.06274177,
+      "A_count": 6274177,
+      "pnt_tower": 0.06246576,
+      "M_lnN": 1.15586,
+      "A_lnN": 1.15575,
+      "pnt_lnN": 1.15066,
+      "abs_A_minus_M": 6.29e-06
+    }
+  },
+  "law": {
+    "statement": "M(N,eps)*lnN = 1 + (1+2*ln2)/lnN + O(1/lnN^2);  M(N,eps) ~ 1/lnN as N->inf (fixed eps)",
+    "measured_M_lnN": {
+      "5000000": 1.16022,
+      "10000000": 1.16597,
+      "100000000": 1.15586
+    },
+    "measured_min": 1.15586,
+    "measured_max": 1.16597,
+    "measured_range_frac_of_mean": 0.00871,
+    "analytic_rows": [
+      {
+        "N": 5000000,
+        "pnt_lnN": 1.1531,
+        "exact_lnN": 1.16014,
+        "asymptotic_pred": 1.1547
+      },
+      {
+        "N": 10000000,
+        "pnt_lnN": 1.15918,
+        "exact_lnN": 1.16589,
+        "asymptotic_pred": 1.14805
+      },
+      {
+        "N": 100000000,
+        "pnt_lnN": 1.15066,
+        "exact_lnN": 1.15575,
+        "asymptotic_pred": 1.12954
+      },
+      {
+        "N": 1000000000,
+        "pnt_lnN": 1.13341,
+        "asymptotic_pred": 1.11515
+      },
+      {
+        "N": 10000000000,
+        "pnt_lnN": 1.1184,
+        "asymptotic_pred": 1.10364
+      }
+    ],
+    "asymptotic_toward_1": "exact_lnN and pnt_lnN both decrease toward 1 as N grows (see analytic_rows)"
+  },
+  "gate": {
+    "gates": {
+      "mean_r_6_pi2": true,
+      "sum_phi_3_pi2": true,
+      "f0_is_0": true
+    },
+    "all_gates_pass": true,
+    "stored_M_1e7": 0.0723393,
+    "M_reproduces_stored": true,
+    "A_within_1e5_of_M": true,
+    "towerA_eq_towerB": true,
+    "card_verifier_within_1e3": true,
+    "a1_kill_over_2x": true
+  },
+  "elapsed_s": 14.7,
+  "verdict": "LN_N_LAW: M(N,eps)*lnN = 1 + (1+2 ln2)/lnN + O(1/lnN^2). measured M*lnN in [1.1559, 1.1660] across N=5e6..1e8 (range 0.9% of mean); exact-tower A*lnN and PNT A_PNT*lnN both decrease toward 1 (exact to N=1e8, PNT to N=1e10). GATE: fresh totient sieve M(1e7)=0.0723393 reproduces stored 0.0723393 (PASS); exact tower |A-M|=5e-06<1e-5; two tower methods integer-equal (PASS); gates mean/sum/f0={'mean_r_6_pi2': True, 'sum_phi_3_pi2': True, 'f0_is_0': True}. a=1-only '2p' sum = 0.03473, M/a1 = 2.08 (>2 => the literal a=1-only '2p' reading is KILLED; the full 2^a*p tower is the mechanism). PNT closed form (no prime data) predicts M(1e7) to 0.6% rel err. => M(N,eps) ~ 1/ln N: the c=1/2 singular mass in any fixed window decays as 1/ln N (NO point mass at c=1/2)."
+}

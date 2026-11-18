@@ -1,0 +1,56 @@
+{
+  "N": 10000000,
+  "w_small": 0.00025,
+  "w_large": 0.05,
+  "points": [
+    {
+      "label": "LEFT edge   {2,3,5,7}=8/35   (divergent)",
+      "c": 0.22857142857142856,
+      "slope_small": 3.614,
+      "slope_large": 0.4121699999999999,
+      "growth": 8.768226702574182
+    },
+    {
+      "label": "below-left  {2,3,5,7,11}      (not div)",
+      "c": 0.2077922077922078,
+      "slope_small": 0.2516,
+      "slope_large": 0.15545499999999998,
+      "growth": 1.6184747997812874
+    },
+    {
+      "label": "c=1/2 2p-spike (divergent)",
+      "c": 0.5,
+      "slope_small": 146.71419999999998,
+      "slope_large": 2.509623,
+      "growth": 58.46065325349663
+    },
+    {
+      "label": "RIGHT edge  {47,73,83,157}    (divergent)",
+      "c": 0.9476114856573324,
+      "slope_small": 6.3502,
+      "slope_large": 1.246305,
+      "growth": 5.0952214746791515
+    },
+    {
+      "label": "inside      {19}=18/19        (divergent)",
+      "c": 0.9473684210526315,
+      "slope_small": 9.3514,
+      "slope_large": 1.22908,
+      "growth": 7.608455104631107
+    },
+    {
+      "label": "above-edge  {23}=22/23        (not div)",
+      "c": 0.9565217391304348,
+      "slope_small": 7.846799999999999,
+      "slope_large": 2.093268,
+      "growth": 3.7485883317377415
+    },
+    {
+      "label": "above       {89,97,103}       (not div)",
+      "c": 0.9690699157331486,
+      "slope_small": 0.5599999999999999,
+      "slope_large": 1.9579589999999998,
+      "growth": 0.2860121177205447
+    }
+  ]
+}

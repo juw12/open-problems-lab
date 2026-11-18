@@ -1,0 +1,18 @@
+{
+  "bradac2026": {
+    "title": "Off-diagonal Ramsey numbers",
+    "published": "2026-05-27T17:50:42Z",
+    "updated": "2026-06-16T16:04:49Z",
+    "primary_category": "math.CO",
+    "authors": [
+      "Domagoj Bradač"
+    ],
+    "summary": "For positive integers $s$ and $k$, the Ramsey number $r(s,k)$ is the minimum integer $n$ such that any graph on $n$ vertices contains a clique of size $s$ or an independent set of size $k$. We prove that for any fixed $s \\ge 3$ and $k$ tending to infinity, the off-diagonal Ramsey numbers satisfy \\[ r(s, k) \\ge Ω\\left(\\frac{k^{s-1}}{(\\log k)^{2s-4}} \\right), \\] which matches, up to polylogarithmic factors, the upper bound established over 90 years ago by Erdős and Szekeres. For $s \\ge 5,$ this improves the best known lower bound of the form $r(s, k) \\ge k^{\\frac{s+1}{2} + o(1)}$ which was first established by Spencer in 1977 and has since only seen polylogarithmic improvements.",
+    "id": "2605.28793",
+    "who": "Bradač 2026 (s>=5 lower bound)",
+    "expected_v1": "2026-05-27",
+    "claim": "r(s,k) >= k^{s-1} / (log k)^{2s-4}  for s>=5",
+    "v1_date": "2026-05-27",
+    "date_ok": true
+  }
+}

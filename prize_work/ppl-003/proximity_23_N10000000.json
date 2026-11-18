@@ -1,0 +1,460 @@
+{
+  "job": "lab_erdos_261112_24_proximity",
+  "N": 10000000,
+  "W": 5e-05,
+  "W2": 0.00025,
+  "two_thirds": 0.6666666666666666,
+  "two_thirds_below_tower_mass_W2": 0.0372894,
+  "C_of_3_over_lnN_bare": 0.031021034421660845,
+  "top20_non_named_count": 18,
+  "catch_2over3_within_W2": 14,
+  "catch_2over3_within_W": 2,
+  "catchW2_max_min_mass": [
+    0.0372759,
+    0.0357003
+  ],
+  "headline": "the top-20 'growth' (W2 window) is a proximity effect to the 2/3 1/ln N tower; their intrinsic fine-window (W=5e-5) mass is a tiny decaying atom-sum (ln N)^k/N",
+  "rows": [
+    {
+      "c": "13056/19591",
+      "S": [
+        5,
+        11,
+        13,
+        137
+      ],
+      "growth": 70.901,
+      "named": false,
+      "dist_to_2over3": 0.00023820461776657975,
+      "side_2over3": "above_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 6.58e-05,
+      "Mb_W": 4.75e-05,
+      "Ma_W2": 0.0372759,
+      "Mb_W2": 0.0001597
+    },
+    {
+      "c": "2496/3745",
+      "S": [
+        5,
+        7,
+        53,
+        107
+      ],
+      "growth": 70.863,
+      "named": false,
+      "dist_to_2over3": 0.00017801513128612445,
+      "side_2over3": "above_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 0.000118,
+      "Mb_W": 7.31e-05,
+      "Ma_W2": 0.0371974,
+      "Mb_W2": 0.0002158
+    },
+    {
+      "c": "13248/19877",
+      "S": [
+        5,
+        11,
+        13,
+        139
+      ],
+      "growth": 70.857,
+      "named": false,
+      "dist_to_2over3": 0.00016769800942462165,
+      "side_2over3": "above_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 0.0001308,
+      "Mb_W": 8.17e-05,
+      "Ma_W2": 0.0371776,
+      "Mb_W2": 0.0002313
+    },
+    {
+      "c": "122496/183785",
+      "S": [
+        5,
+        7,
+        59,
+        89
+      ],
+      "growth": 70.843,
+      "named": false,
+      "dist_to_2over3": 0.0001487245059897946,
+      "side_2over3": "above_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 0.0001626,
+      "Mb_W": 0.0001004,
+      "Ma_W2": 0.0371363,
+      "Mb_W2": 0.0002633
+    },
+    {
+      "c": "134784/202195",
+      "S": [
+        5,
+        7,
+        53,
+        109
+      ],
+      "growth": 70.788,
+      "named": false,
+      "dist_to_2over3": 6.264579572523576e-05,
+      "side_2over3": "above_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 0.0019709,
+      "Mb_W": 0.0003169,
+      "Ma_W2": 0.0367232,
+      "Mb_W2": 0.0006395
+    },
+    {
+      "c": "163392/245105",
+      "S": [
+        5,
+        7,
+        47,
+        149
+      ],
+      "growth": 70.773,
+      "named": false,
+      "dist_to_2over3": 4.623868682129828e-05,
+      "side_2over3": "above_cS",
+      "catches_2over3_at_W": true,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 0.0364722,
+      "Mb_W": 0.0004778,
+      "Ma_W2": 0.0364954,
+      "Mb_W2": 0.0008587
+    },
+    {
+      "c": "2/3",
+      "S": [
+        3
+      ],
+      "growth": 70.719,
+      "named": true,
+      "dist_to_2over3": 0.0,
+      "side_2over3": "below_cS",
+      "catches_2over3_at_W": true,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 5e-06,
+      "Mb_W": 0.0365277,
+      "Ma_W2": 3.08e-05,
+      "Mb_W2": 0.0372894
+    },
+    {
+      "c": "33120/49679",
+      "S": [
+        5,
+        7,
+        47,
+        151
+      ],
+      "growth": 70.692,
+      "named": false,
+      "dist_to_2over3": -1.3419486436294648e-05,
+      "side_2over3": "below_cS",
+      "catches_2over3_at_W": true,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 4.3e-06,
+      "Mb_W": 0.0362729,
+      "Ma_W2": 3.14e-05,
+      "Mb_W2": 0.0372744
+    },
+    {
+      "c": "4320/6479",
+      "S": [
+        5,
+        11,
+        19,
+        31
+      ],
+      "growth": 70.456,
+      "named": false,
+      "dist_to_2over3": -0.00010289653753159378,
+      "side_2over3": "below_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 4.3e-06,
+      "Mb_W": 5.7e-06,
+      "Ma_W2": 4.26e-05,
+      "Mb_W2": 0.0371315
+    },
+    {
+      "c": "3456/5183",
+      "S": [
+        5,
+        7,
+        71,
+        73
+      ],
+      "growth": 70.345,
+      "named": false,
+      "dist_to_2over3": -0.00012862563508908575,
+      "side_2over3": "below_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 6e-06,
+      "Mb_W": 5.4e-06,
+      "Ma_W2": 4.98e-05,
+      "Mb_W2": 0.0370651
+    },
+    {
+      "c": "19968/29945",
+      "S": [
+        5,
+        7,
+        53,
+        113
+      ],
+      "growth": 70.164,
+      "named": false,
+      "dist_to_2over3": -0.00015584126454060154,
+      "side_2over3": "below_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 6.8e-06,
+      "Mb_W": 4.2e-06,
+      "Ma_W2": 6.26e-05,
+      "Mb_W2": 0.0369548
+    },
+    {
+      "c": "14208/21307",
+      "S": [
+        5,
+        11,
+        13,
+        149
+      ],
+      "growth": 70.162,
+      "named": false,
+      "dist_to_2over3": -0.00015644310946327789,
+      "side_2over3": "below_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 6.1e-06,
+      "Mb_W": 4.8e-06,
+      "Ma_W2": 6.25e-05,
+      "Mb_W2": 0.0369536
+    },
+    {
+      "c": "172224/258265",
+      "S": [
+        5,
+        7,
+        47,
+        157
+      ],
+      "growth": 69.835,
+      "named": false,
+      "dist_to_2over3": -0.00018327428545616975,
+      "side_2over3": "below_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 7.5e-06,
+      "Mb_W": 6.1e-06,
+      "Ma_W2": 7.76e-05,
+      "Mb_W2": 0.0367646
+    },
+    {
+      "c": "14400/21593",
+      "S": [
+        5,
+        11,
+        13,
+        151
+      ],
+      "growth": 68.814,
+      "named": false,
+      "dist_to_2over3": -0.0002161194214175266,
+      "side_2over3": "below_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 8.5e-06,
+      "Mb_W": 5.9e-06,
+      "Ma_W2": 7.43e-05,
+      "Mb_W2": 0.0362269
+    },
+    {
+      "c": "25344/38003",
+      "S": [
+        5,
+        7,
+        61,
+        89
+      ],
+      "growth": 67.816,
+      "named": false,
+      "dist_to_2over3": -0.0002280521713198258,
+      "side_2over3": "below_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": true,
+      "Ma_W": 8.4e-06,
+      "Mb_W": 7.1e-06,
+      "Ma_W2": 7.25e-05,
+      "Mb_W2": 0.0357003
+    },
+    {
+      "c": "1/2",
+      "S": [
+        2
+      ],
+      "growth": 58.461,
+      "named": true,
+      "dist_to_2over3": 0.16666666666666663,
+      "side_2over3": "above_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": false,
+      "Ma_W": 3e-06,
+      "Mb_W": 0.0723393,
+      "Ma_W2": 2.9e-05,
+      "Mb_W2": 0.0733258
+    },
+    {
+      "c": "4608/9215",
+      "S": [
+        3,
+        5,
+        19,
+        97
+      ],
+      "growth": 58.422,
+      "named": false,
+      "dist_to_2over3": 0.16661240730692706,
+      "side_2over3": "above_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": false,
+      "Ma_W": 4.8e-06,
+      "Mb_W": 4.8e-06,
+      "Ma_W2": 2.67e-05,
+      "Mb_W2": 0.0732418
+    },
+    {
+      "c": "264384/330581",
+      "S": [
+        7,
+        19,
+        127,
+        137
+      ],
+      "growth": 58.004,
+      "named": false,
+      "dist_to_2over3": -0.13308891517258004,
+      "side_2over3": "below_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": false,
+      "Ma_W": 4.66e-05,
+      "Mb_W": 3.74e-05,
+      "Ma_W2": 0.0190947,
+      "Mb_W2": 0.0001285
+    },
+    {
+      "c": "1180608/1476209",
+      "S": [
+        7,
+        23,
+        53,
+        173
+      ],
+      "growth": 58.002,
+      "named": false,
+      "dist_to_2over3": -0.1330900073544239,
+      "side_2over3": "below_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": false,
+      "Ma_W": 4.78e-05,
+      "Mb_W": 3.71e-05,
+      "Ma_W2": 0.0190948,
+      "Mb_W2": 0.0001276
+    },
+    {
+      "c": "1936224/2420999",
+      "S": [
+        7,
+        19,
+        109,
+        167
+      ],
+      "growth": 57.997,
+      "named": false,
+      "dist_to_2over3": -0.1330957454615499,
+      "side_2over3": "below_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": false,
+      "Ma_W": 4.94e-05,
+      "Mb_W": 3.8e-05,
+      "Ma_W2": 0.0190903,
+      "Mb_W2": 0.0001313
+    },
+    {
+      "c": "1/3",
+      "S": [
+        2,
+        3
+      ],
+      "growth": 54.651,
+      "named": true,
+      "dist_to_2over3": 0.3333333333333333,
+      "side_2over3": "above_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": false,
+      "Ma_W": 1.18e-05,
+      "Mb_W": 0.0390471,
+      "Ma_W2": 7.34e-05,
+      "Mb_W2": 0.0411828
+    },
+    {
+      "c": "2/5",
+      "S": [
+        2,
+        5
+      ],
+      "growth": 38.056,
+      "named": true,
+      "dist_to_2over3": 0.2666666666666666,
+      "side_2over3": "above_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": false,
+      "Ma_W": 4.1e-06,
+      "Mb_W": 0.0194925,
+      "Ma_W2": 2.4e-05,
+      "Mb_W2": 0.0210068
+    },
+    {
+      "c": "3/7",
+      "S": [
+        2,
+        7
+      ],
+      "growth": 18.327,
+      "named": true,
+      "dist_to_2over3": 0.23809523809523808,
+      "side_2over3": "above_cS",
+      "catches_2over3_at_W": false,
+      "catches_2over3_at_W2": false,
+      "Ma_W": 7.5e-06,
+      "Mb_W": 0.0129775,
+      "Ma_W2": 3.98e-05,
+      "Mb_W2": 0.0141989
+    },
+    {
+      "c": "2/3(tower)",
+      "S": [
+        3
+      ],
+      "growth": null,
+      "named": true,
+      "dist_to_2over3": 0.0,
+      "side_2over3": "self",
+      "catches_2over3_at_W": true,
+      "catches_2over3_at_W2": true,
+      "Ma_W": null,
+      "Mb_W": null,
+      "Ma_W2": null,
+      "Mb_W2": null
+    }
+  ]
+}

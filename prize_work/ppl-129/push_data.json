@@ -1,0 +1,32 @@
+{
+  "10000": {
+    "f": 20626,
+    "hk_time_s": 20.4,
+    "dinic_time_s": 22.7,
+    "dinic_ok_at_f": true,
+    "dinic_false_at_fm1": true,
+    "dinic_ok": true,
+    "ratio_t": 0.679637,
+    "ratio_ep": 1.243974
+  },
+  "15000": {
+    "f": 31576,
+    "hk_time_s": 39.1,
+    "dinic_time_s": 37.9,
+    "dinic_ok_at_f": true,
+    "dinic_false_at_fm1": true,
+    "dinic_ok": true,
+    "ratio_t": 0.678849,
+    "ratio_ep": 1.26664
+  },
+  "20000": {
+    "f": 42561,
+    "hk_time_s": 65.0,
+    "dinic_time_s": 52.5,
+    "dinic_ok_at_f": true,
+    "dinic_false_at_fm1": true,
+    "dinic_ok": true,
+    "ratio_t": 0.67622,
+    "ratio_ep": 1.278167
+  }
+}

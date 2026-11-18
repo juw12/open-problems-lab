@@ -1,0 +1,765 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.18258v1",
+    "title": "Optimal Online Regret for Context-Lumpable Bandits",
+    "published": "2026-10-13T12:23:45Z",
+    "updated": "2026-10-13T12:23:45Z",
+    "v1_date": "2026-10-13",
+    "primary_category": "cs.LG",
+    "authors": [
+      "Chenyu Lu",
+      "Zihan Zhang"
+    ],
+    "summary": "We study stochastic contextual bandits with an unknown context-lumpable structure. The $S$ contexts are partitioned into $r$ blocks, and every arm has the same mean reward across contexts in the same block. Under arbitrary context distributions and without separation assumptions, we design an algorithm with expected regret $\\widetilde{O}(\\sqrt{r(S+K)T})$, matching the lower bound of Lee et al. (2023) up to logarithmic factors and improving their previous upper bound by a factor of $r$. The algorithm operates over dyadic accuracy levels, using a baseline policy and confidence-based early stopping to control exploration. It then performs cross-context elimination: since rewards are identical within a block, one selected arm eliminates all surviving records from that block, requiring at most $r$ selections at each level. Multi-scale exploration assigns finer accuracies to frequent blocks and coarser accuracies to rare blocks, yielding a near-optimal arm for every block while keeping the weighted policy error small.",
+    "matched_query": "not-rsk",
+    "bare_id": "2610.18258",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2611.05366v1",
+    "title": "Transfer of Weisfeiler-Leman equivalence under graph operations",
+    "published": "2026-11-03T18:56:45Z",
+    "updated": "2026-11-03T18:56:45Z",
+    "v1_date": "2026-11-03",
+    "primary_category": "math.CO",
+    "authors": [
+      "Dmitriy Kunisky",
+      "Hamilton Sawczuk"
+    ],
+    "summary": "The Weisfeiler-Leman algorithms WL(k) for $k\\ge1$ form a hierarchy of increasingly powerful tests for graph isomorphism. We study how the equivalence relations they induce on graphs transfer through a graph operation $Φ$: for a given $k$, what level of WL-equivalence between graphs $H_1$ and $H_2$ guarantees WL(k)-equivalence of graphs $Φ(H_1)$ and $Φ(H_2)$? We call the least such level the transfer parameter $τ_Φ(k)$ and determine it exactly for the line graph operation $Φ= L$: $τ_L(k)=2k+1$ for $k\\ge2$, while $τ_L(1)=1$. We also extend these results to the $(r,S)$-line graphs, which generalize the line graph from edges to $r$-cliques by connecting two cliques when their intersection size lies in a prescribed set $S$. For these operations we prove that $τ_{r,S}(1)=r-1$ for every $S$ and, for certain choices of $S$, that $τ_{r,S}(k)=rk+r-1$ for $k\\ge r$, and we bound the transfer parameter in the remaining range. Our upper bounds on transfer parameters follow from a treewidth analysis of diagrammatic expansions of homomorphism counts into $Φ(H)$ as linear combinations of homomorphism counts into $H$. The matching lower bounds combine explicit constructions of witness graphs with the homomorphism-distinguishing closedness of graphs of bounded treewidth.",
+    "matched_query": "not-rsk",
+    "bare_id": "2611.05366",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.37987v2",
+    "title": "On the asymptotics of the Erdős-Rogers function",
+    "published": "2026-09-29T16:49:16Z",
+    "updated": "2026-11-02T12:14:42Z",
+    "v1_date": "2026-09-29",
+    "primary_category": "math.CO",
+    "authors": [
+      "Domagoj Bradač",
+      "Oliver Janzer",
+      "Rik Sarkar"
+    ],
+    "summary": "The Erdős-Rogers function $f_{\\ell,s}(n)$ is the largest order of a $K_\\ell$-free induced subgraph guaranteed to exist in every $K_s$-free graph on $n$ vertices. While this function is well understood for $s=\\ell+1$, the case where $s$ is much larger than $\\ell$ has remained wide open. A long-standing lower bound of Sudakov states that $f_{\\ell,s}(n)\\geq n^{\\frac{\\ell}{2s}+O_\\ell(s^{-2})}$, while a recent result of Bradač shows that $f_{\\ell,s}(n)\\leq n^{\\frac{\\ell-1}{s-1}+o(1)}$. In this paper, we close this gap asymptotically by proving that $f_{\\ell,s}(n)= n^{\\frac{\\ell}{2s}+O_\\ell(s^{-2})}$. More precisely, we prove that for all $2\\leq \\ell<s$, we have $f_{\\ell,s}(n)\\leq n^{\\frac{\\ell}{2s-\\ell}+o(1)}$. Our proof builds on Bradač's recent tight construction for off-diagonal Ramsey numbers, which can be viewed as the $\\ell=2$ case of our result.",
+    "matched_query": "offdiag-term",
+    "bare_id": "2609.37987",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.06081v1",
+    "title": "Polynomial families of incident flags and explicit off-diagonal Ramsey graphs",
+    "published": "2026-10-05T10:13:55Z",
+    "updated": "2026-10-05T10:13:55Z",
+    "v1_date": "2026-10-05",
+    "primary_category": "math.CO",
+    "authors": [
+      "Brecht F. Verbeken"
+    ],
+    "summary": "We construct explicit off-diagonal Ramsey graphs from polynomial families of incident point--hyperplane flags. Universal interpolation translates the exact dimension of ordered clique configurations into a bound on their coefficient--label incidence. At the critical dimension, a polynomial separates the forbidden-pair image from its diagonal; deleting the corresponding edges preserves a triangular rank certificate. Restriction of scalars realizes the rational endpoint without rounding loss. The resulting fixed-$s$ exponent has leading scale $s/(2\\log_2s)$, and short Frobenius relations give the explicit example $R(16,t)\\geΩ(t^{2.0539221767\\ldots})$. A finite-fiber construction gives the range $s^2(\\log s)^2=o(\\log t)$. For fixed parameters, algebraic preprocessing terminates and field initialization, vertex decoding and adjacency take deterministic time polynomial in the extension degree. We also retain an elimination-free variant and formulate the filtering argument for general forbidden configurations with a distinguished edge.",
+    "matched_query": "offdiag-term",
+    "bare_id": "2610.06081",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.14829v1",
+    "title": "New bounds for off-diagonal hypergraph Ramsey numbers",
+    "published": "2026-10-10T11:46:45Z",
+    "updated": "2026-10-10T11:46:45Z",
+    "v1_date": "2026-10-10",
+    "primary_category": "math.CO",
+    "authors": [
+      "David Conlon",
+      "Xiaoyu He",
+      "Jiaxi Nie",
+      "Logan Post"
+    ],
+    "summary": "We study a conjecture of Conlon, Fox, Gunby, He, Mubayi, Suk, Verstraëte, and Yu, which characterizes the $3$-graphs $H$ for which the off-diagonal Ramsey number $r(H,n)$ is polynomial. We prove the conjecture for $3$-graphs with at most five tight components. Additionally, we show that the full conjecture is equivalent to its specialization to linear $3$-graphs. We prove quasipolynomial upper bounds for a class of `forward-doubleable' $3$-graphs, which includes the Fano plane. Finally, we give an exponential lower bound for `non-forward-laminar' $3$-graphs and use this to completely classify the Ramsey growth of a natural family of 3-graphs called chains.",
+    "matched_query": "offdiag-term",
+    "bare_id": "2610.14829",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.15293v1",
+    "title": "A note on the logarithmic exponent of Ramsey number $r(4,t)$",
+    "published": "2026-10-11T02:58:10Z",
+    "updated": "2026-10-11T02:58:10Z",
+    "v1_date": "2026-10-11",
+    "primary_category": "math.CO",
+    "authors": [
+      "Kaizhe Chen"
+    ],
+    "summary": "In this short note, we point out that the recent lower bounds for off-diagonal Ramsey numbers $r(s,t)$ with fixed $s\\ge 5$, together with the recent proof of the Ajtai--Erdős--Komlós--Szemerédi independence conjecture, imply \\[ r(4,t)=\\frac{t^3}{(\\log t)^{2+o(1)}}. \\] This note is solely for informal circulation and will not be submitted for publication.",
+    "matched_query": "offdiag-term",
+    "bare_id": "2610.15293",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.28299v1",
+    "title": "Ordered Trees with Linear Off-Diagonal Ramsey Numbers",
+    "published": "2026-10-20T14:43:19Z",
+    "updated": "2026-10-20T14:43:19Z",
+    "v1_date": "2026-10-20",
+    "primary_category": "math.CO",
+    "authors": [
+      "Lior Gishboliner",
+      "Artur Kravtsov",
+      "Xiangyu Li"
+    ],
+    "summary": "We characterize the following three classes of ordered trees: $\\qquad$ (1) trees $T$ satisfying $R_<(T,K_n)=O(n)$; $\\qquad$ (2) $χ$-bounding trees; $\\qquad$ (3) Ramsey-good trees. In particular, we show that the first two classes coincide. The second characterization answers a question of Axenovich, Rollin and Ueckerdt, and the third resolves a problem of Balko and Poljak. In our proof, we also introduce several novel constructions of ordered graphs with sublinear independence number, giving lower bounds on $R_<(F,K_n)$ for various ordered forests $F$.",
+    "matched_query": "offdiag-term",
+    "bare_id": "2610.28299",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.32644v1",
+    "title": "Off-diagonal Ramsey numbers of 3-graphs",
+    "published": "2026-10-23T13:53:17Z",
+    "updated": "2026-10-23T13:53:17Z",
+    "v1_date": "2026-10-23",
+    "primary_category": "math.CO",
+    "authors": [
+      "Lior Gishboliner",
+      "Sepehr Hajebi",
+      "Xiangyu Li"
+    ],
+    "summary": "We prove a conjecture of Conlon, Fox, Gunby, He, Mubayi, Suk, Verstraëte, and Yu that for a $3$-graph $H$, the off-diagonal Ramsey number $R(H,n)$ is polynomial in $n$ if and only if $H$ is isomorphic to a subgraph of the \"depth-$t$ iterated blowup\" $\\textsf{B}_t$ for an integer $t\\geq 0$. Here, the $3$-graphs $\\textsf{B}_t$ are defined recursively: $\\textsf{B}_0$ has one vertex, and $\\textsf{B}_t$ for $t\\geq 1$ is obtained from the disjoint union of three copies of $\\textsf{B}_{t-1}$ by adding all transversal hyperedges.",
+    "matched_query": "offdiag-term",
+    "bare_id": "2610.32644",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.39578v1",
+    "title": "Off-diagonal Ramsey numbers for 3-uniform tight hypergraph cycles",
+    "published": "2026-10-29T08:20:48Z",
+    "updated": "2026-10-29T08:20:48Z",
+    "v1_date": "2026-10-29",
+    "primary_category": "math.CO",
+    "authors": [
+      "Eng Keat Hng"
+    ],
+    "summary": "Let $C^{(3)}_n$ be the $3$-uniform tight cycle on $n$ vertices, that is, the $3$-uniform hypergraph on a cyclically ordered set of $n$ vertices whose edges are precisely the triples of consecutive vertices in the given cyclic order. We asymptotically determine the off-diagonal Ramsey numbers of $3$-uniform tight cycles. This is an off-diagonal analogue of a result of Haxell, Łuczak, Peng, Rödl, Ruciński and Skokan [Combin.\\ Probab.\\ Comput.\\ 18 (2009), no.\\ 1-2, 165--203] on the diagonal Ramsey numbers of $3$-uniform tight cycles.",
+    "matched_query": "offdiag-term",
+    "bare_id": "2610.39578",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.31546v1",
+    "title": "Ramsey-Turán theory for partially-ordered sets",
+    "published": "2026-05-29T17:01:16Z",
+    "updated": "2026-05-29T17:01:16Z",
+    "v1_date": "2026-05-29",
+    "primary_category": "math.CO",
+    "authors": [
+      "Gyula O. H. Katona",
+      "Yaping Mao"
+    ],
+    "summary": "We introduce weak and strong poset Ramsey-Turán numbers for $t$-chains in host poset families, focusing on the Boolean lattice family $\\mathcal{B}=\\{B_n:n\\ge 1\\}$. For any poset $P$, we show $\\operatorname{RT}(\\mathcal{B};n,P,l,t)\\le \\operatorname{RT}^{\\sharp}(\\mathcal{B};n,P,l,t)$, with equality when $P$ is a chain. In particular, for $t=1$, $\\operatorname{RT}(\\mathcal{B};n,C_k,l)=\\operatorname{RT}^{\\sharp}(\\mathcal{B};n,C_k,l)=(k-1)(l-1)$. We also give universal upper bounds for both versions. For fixed $k,l,t$ with $\\min\\{l-1,k-1\\}\\ge 1$, we prove $\\operatorname{RT}^{\\sharp}(\\mathcal{B};n,A_k,l,t)=Θ(n^t)$. More generally, for every non-chain poset $P$, the strong number is $Θ(n^t)$ for fixed $l,t$. Finally, if $h(P)=r>t$ and $l(n)=\\lfloor M_n^β\\rfloor$ with $0<β\\le α<1$, then both weak and strong versions admit lower bounds of order $Ω\\!\\left(2^{βn}n^{-β/2}\\right)$.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2605.31546",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.14161v1",
+    "title": "Ramsey-Turán Type Problem for Perfect Transitive Triangle Tilings in Digraphs",
+    "published": "2026-06-12T06:35:32Z",
+    "updated": "2026-06-12T06:35:32Z",
+    "v1_date": "2026-06-12",
+    "primary_category": "math.CO",
+    "authors": [
+      "Zhimin Wang",
+      "Zhilan Wang",
+      "Jin Yan"
+    ],
+    "summary": "The classical Corrádi-Hajnal theorem states that for any multiple $n$ of $3$, if $G$ is a graph with $n$ vertices and $δ(G) \\geq 2n/3$, then $G$ can be partitioned into $n/3$ vertex-disjoint copies of the triangle [\\emph{Acta Math. Acad. Sci. Hung.}, 14:423-439, 1964]. Balogh, Molla and Sharifzadeh obtained a smaller lower bound by adding the independence number condition [\\emph{Random Struct. Algorithms}, 49:669-693, 2016]. In this paper, we study perfect tilings in digraphs subject to conditions on the independence number and the degree. The independence number, $α(D)$, of $D$ is the maximum integer $k$ such that $D$ has an independent set of cardinality $k$. We show that if $D$ is an $n$-vertex digraph with $α(D)\\leq o(1)n$ and $δ(D) \\geq (1+o(1))n$, then $D$ has a perfect $T_3$-tiling, where $T_3$ denotes a transitive triangle. This minimum degree condition is asymptotically best possible. Moreover, our result implies the theorem of Balogh, Molla, and Sharifzadeh concerning perfect triangle tilings.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2606.14161",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.24198v1",
+    "title": "New Tower-Type Lower Bounds for Hypergraph Ramsey Numbers",
+    "published": "2026-06-23T06:36:28Z",
+    "updated": "2026-06-23T06:36:28Z",
+    "v1_date": "2026-06-23",
+    "primary_category": "math.CO",
+    "authors": [
+      "Hanzhi Bai",
+      "Longma Du",
+      "Xinyu Hu",
+      "Ruilong Liu",
+      "Guanghui Wang"
+    ],
+    "summary": "The Ramsey number $r_k(s,m)$ is the smallest $N$ such that any red/blue coloring of the $k$-subsets of $[N]$ contains a red $s$-set or a blue $m$-set. For fixed $k$ and $s$, and for sufficiently large $m$, the tower growth rate is determined by the stepping-up lemma, but for $s=m=k+1$ the available stepping-up lemmas do not apply. Fox asked for estimates of $r_k(k+1,k+1)$. Pudlák, Rödl, and Wesley gave the first tower-type bound: $r_k(k+1,k+1)\\ge s_3(\\lfloor k/4\\rfloor)\\ge 4\\operatorname{twr}_{\\lfloor k/4\\rfloor-4}(2)$, where $s_3(k)$ is the $3$-color shift number and $\\operatorname{twr}_1(2)=2$, $\\operatorname{twr}_{i+1}(2)=2^{\\operatorname{twr}_i(2)}$. In this paper, for $k\\ge 6$, we improve the lower bound to $r_k(k+1,k+1)> s_3\\bigl(\\lfloor k/2\\rfloor-2\\bigr)$ by overcoming an obstruction in their construction. In addition, we give an exact characterization of $s_3(k)$ and, for $k\\ge 5$, obtain a new explicit lower bound $s_3(k)\\ge(\\operatorname{twr}_{k-2}(2))^2$, which improves the result of Pudlák and Rödl. Consequently, for $k\\ge 14$, $r_k(k+1,k+1)>(\\operatorname{twr}_{\\lfloor k/2\\rfloor-4}(2))^2$.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2606.24198",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.05896v1",
+    "title": "On the maximal anti-Ramsey problem of Burr, Erdős, Graham, and Sós for $P_4$",
+    "published": "2026-07-07T06:47:41Z",
+    "updated": "2026-07-07T06:47:41Z",
+    "v1_date": "2026-07-07",
+    "primary_category": "math.CO",
+    "authors": [
+      "Zixuan Yang"
+    ],
+    "summary": "Given a graph $L$, the maximal anti-Ramsey function $\\chiS(n,e,L)$ denotes the minimum integer $\\chiS$ for which there exists an $n$-vertex graph $G$ with at least $e$ edges admitting an edge-coloring with $\\chiS$ colors in which each copy of $L$ in $G$ is rainbow. In 1989, Burr, Erdős, Graham, and Sós posed the following problem: Is it true that for all $ε>0$, there exists $c(ε)>0$ such that for all sufficiently large $n$, $ \\chiS\\left(n,\\binom{n}{2}-\\lfloor n^{2-ε}\\rfloor,P_4\\right)>c(ε)n^2. $ Very recently, Li, Ning, and Xie gave a negative answer to the problem for all $0< ε< 1/2$. In this note, we establish that a quadratic lower bound holds in the complementary regime $ ε\\geq 1/2$. More specifically, we prove that for all $ε\\ge 1/2$ and sufficiently large $n$, there is an absolute constant $c>0$ such that $ \\chiS\\left(n,\\binom{n}{2}-\\lfloor n^{2-ε}\\rfloor,P_4\\right)>c n^2. $",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2607.05896",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.06817v2",
+    "title": "Computation of small reflective and dihedral Ramsey numbers",
+    "published": "2026-07-07T21:24:10Z",
+    "updated": "2026-07-12T12:54:29Z",
+    "v1_date": "2026-07-07",
+    "primary_category": "math.CO",
+    "authors": [
+      "Ivan Damnjanović",
+      "Irena Đorđević"
+    ],
+    "summary": "Throughout, all graphs are simple, finite and have vertex sets of the form $\\{ 0, 1, 2, \\ldots, n - 1 \\}$ for some $n \\in \\mathbb{N}$. For graphs $G$ and $H$, and a permutation group $Γ$ on the vertex set of $H$, we say that $H$ is $Γ$-embeddable in $G$ if there exists a graph homomorphism from $H$ to $G$ of the form $ψ\\circ \\varphi$, where $\\varphi \\in Γ$ and $ψ$ is an increasing injection. Recently, standard and ordered Ramsey numbers of graphs were unified through the introduction of permutational Ramsey numbers, defined as follows. For graphs $H_1, H_2, \\ldots, H_k$ and permutation groups $Γ_1, Γ_2, \\ldots, Γ_k$ on their respective vertex sets, the permutational Ramsey number $R(H_1^{Γ_1}, H_2^{Γ_2}, \\ldots, H_k^{Γ_k})$ is the minimum $n \\in \\mathbb{N}$ such that for every $k$-edge-coloring of a complete graph on $n$ vertices, there exists some $j \\in \\{1, 2, \\ldots, k\\}$ for which $H_j$ is $Γ_j$-embeddable in the spanning subgraph of the complete graph comprising the edges of color $j$. Here, we consider reflective (resp. dihedral) Ramsey numbers, which are a specific class of permutational Ramsey numbers in which each group $Γ_j$ is the reflection group (resp. dihedral group) on the naturally ordered vertex set of $H_j$. Focusing on the two-color case, we apply the SAT-based approach originally proposed by Poljak for ordered Ramsey numbers and recently extended to cyclic Ramsey numbers. We utilize the Kissat SAT solver to obtain exact values and lower bounds for small reflective and dihedral Ramsey numbers whose two arguments belong to the following graph classes: monotone and alternating paths, monotone cycles, start-central stars, complete graphs and nested matchings. We also derive several general results and formulate conjectures based on the computational findings.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2607.06817",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.17263v1",
+    "title": "Multicolor vector space Ramsey numbers over the binary field",
+    "published": "2026-07-19T14:07:59Z",
+    "updated": "2026-07-19T14:07:59Z",
+    "v1_date": "2026-07-19",
+    "primary_category": "math.CO",
+    "authors": [
+      "Anurag Bishnoi",
+      "Gaurav Kucheriya"
+    ],
+    "summary": "For every fixed integer $t \\geq 2$, we give an upper bound on the multicolor vector space Ramsey number $R_2(t; k)$ that is a tower function of height independent of $k$. For $t \\geq 3$, this is the first bound of its form, significantly improving upon the earlier bounds that are towers of height linear in $k$. We achieve this by reducing the problem to a classical hypergraph Ramsey problem via binary simplex codes. In particular, we prove that $$R_2(t; k) \\leq \\left\\lceil \\log R(K_s^{(r)}; k + 1) \\right\\rceil \\leq \\mathrm{twr}_{r-1}(c k\\log k),$$ for $r = 2^{t - 1}$ and $s = 2^t - 1$, where $R(K_{s}^{(r)}; k + 1)$ is the classical $(k + 1)$-color Ramsey number for the complete $r$-uniform hypergraph on $s$ vertices. This improvement also translates into an improved lower bound on the chromatic number of the binary projective space with respect to $(t - 1)$-flats. For $t = 2$, it recovers the connection with multicolor Ramsey numbers for triangles.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2607.17263",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.02299v1",
+    "title": "Ramsey multiplicity for ordered graphs",
+    "published": "2026-08-03T14:25:23Z",
+    "updated": "2026-08-03T14:25:23Z",
+    "v1_date": "2026-08-03",
+    "primary_category": "math.CO",
+    "authors": [
+      "Mengya He",
+      "Yaping Mao",
+      "Bing Wei",
+      "Qinghong Zhao"
+    ],
+    "summary": "Let \\(\\cG_1,\\ldots,\\cG_k\\) be fixed vertex-ordered graphs, each containing at least one edge. The ordered Ramsey number \\(\\oR(\\cG_1,\\ldots,\\cG_k)\\) is the least integer \\(N\\) such that every \\(k\\)-edge-coloring of the ordered complete graph \\(\\cK_N\\) contains an order-preserving copy of \\(\\cG_i\\) in color \\(i\\) for some \\(i\\in[k]\\). For positive weights \\(\\blambda=(λ_1,\\ldots,λ_k)\\), let \\(\\oM_{\\blambda}(n;\\cG_1,\\ldots,\\cG_k)\\) denote the minimum weighted number of correctly colored, order-preserving copies of the target graphs over all \\(k\\)-edge-colorings of \\(\\cK_n\\). When \\(\\blambda=\\bf{1}\\), \\(\\oM_{\\bf{1}}(n;\\cG_1,\\ldots,\\cG_k)=\\oM(n;\\cG_1,\\ldots,\\cG_k)\\) is called the ordered Ramsey multiplicity. In this paper, we first establish the amplification inequality \\[ \\oM_{\\blambda}(n;\\cG_1,\\ldots,\\cG_k) \\ge \\oM_{\\blambda}(t;\\cG_1,\\ldots,\\cG_k) \\frac{\\binom{n}{\\hmin}}{\\binom{t}{\\hmin}}, \\] where $h_i=v(\\cG_i),\\hmin=\\min_{i\\in[k]}h_i$, and $n\\ge t\\ge\\oR(\\cG_1,\\ldots,\\cG_k)$. Let $\\cS_{r,s}$ be the ordered star whose center has $r-1$ leaves to its left and $s-1$ leaves to its right, and let $\\bB_m$ be the family of all ordered perfect matchings on $[2m]$ containing the edge $\\{1,2m\\}$. We apply the amplification inequality to obtain the multiplicity lower bounds for ordered stars and ordered perfect matchings. We then obtain the upper bound $\\oM_{\\boldsymbolλ} (n;\\cS_{r_1,s_1},\\cS_{r_2,s_2}) \\le \\min\\{λ_1 B_{h_1}(n),λ_2 B_{h_2}(n)\\}$ by constructions, where $B_{h_i}(n):= \\binom{\\lfloor n/2\\rfloor}{h_i} + \\binom{\\lceil n/2\\rceil}{h_i}$ and $h_i=r_i+s_i-1$ for $i\\in [2]$. We also derive a random-coloring upper bound for ordered stars and prove \\[\\oM(n; \\bB_m,\\bB_m) \\le \\binom{n}{2m} \\frac{(2m-2)!}{2^{2m-2}(m-1)!}.\\] Finally, we establish a regularity-based lifting theorem for ordered colorings.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2608.02299",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.02522v2",
+    "title": "Locally bipartite subgraphs via multicolor Ramsey numbers",
+    "published": "2026-08-03T17:18:05Z",
+    "updated": "2026-09-07T12:00:29Z",
+    "v1_date": "2026-08-03",
+    "primary_category": "math.CO",
+    "authors": [
+      "Raphael Steiner"
+    ],
+    "summary": "A famous conjecture of Erdős and Hajnal (1969) states that for every integer $g\\ge 4$ there is a smallest function $f_g:\\mathbb{N}\\to\\mathbb{N}$ such that every graph of chromatic number at least $f_g(k)$ contains a subgraph of chromatic number $k$ and girth at least $g$. So far, this has only been proved for $g=4$ by Rödl (1977), with $f_4(k)$ bounded by a tower of height $Θ(k^2\\log k)$. We exhibit a surprising connection between finding high-chromatic subgraphs of large odd-girth (avoiding short odd cycles) and lower-bounding multicolor Ramsey numbers of odd cycles. Using this connection, we prove that for every odd $g\\ge 5$ there is a function $h_g:\\mathbb{N}\\to\\mathbb{N}$ growing as a power tower of height $\\frac{g-3}{2}$ such that every graph of chromatic number at least $h_g(k)$ contains a subgraph of chromatic number at least $k$ and odd-girth at least $g$. This proves a conjecture of Mohar and Wu (2018), addresses a question of Erdős and Hajnal (1975), and for $g=5$ improves Rödl's bound on $f_4(k)$ to a single-exponential. We extend this to a much more general meta-theorem which applies to many graph parameters: if $f$ is the fractional chromatic number, the Hall ratio, or the strict vector chromatic number (Lovász-Theta-function of the complement), then for every $k,g\\in\\mathbb{N}$, every graph $G$ with sufficiently large $f(G)$ contains a subgraph $G'$ of odd-girth at least $g$ with $f(G')\\ge k$. The key Ramsey-theoretic ingredient is a new lower bound on Ramsey numbers of odd cycles. For $p\\ge 1$, let $\\mathcal{O}_p=\\{C_3,C_5,\\ldots,C_{2p+1}\\}$. We show that $R_k(\\mathcal{O}_p)\\ge(\\log^{(p-1)}k)^{k/3-o(k)}$ for every fixed $p$, where $\\log^{(p-1)}$ denotes the $(p-1)$-fold iterated logarithm. This yields the first superexponential lower bound on multicolor Ramsey numbers of fixed odd cycles, and extends the recent breakthrough by OpenAI for triangles.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2608.02522",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.06531v1",
+    "title": "A constructive two-parameter Ramsey increment",
+    "published": "2026-08-06T19:27:52Z",
+    "updated": "2026-08-06T19:27:52Z",
+    "v1_date": "2026-08-06",
+    "primary_category": "math.CO",
+    "authors": [
+      "Milos Tatarevic"
+    ],
+    "summary": "We prove the inequality $R(k+1,s+1) \\ge R(k,s) + 2k + 2s$ for classical Ramsey numbers, valid for all $5 \\le k \\le s$, and formalize the proof in Lean 4. As a consequence, we obtain the new lower bound $R(12,12) \\ge 1641$.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2608.06531",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.12673v1",
+    "title": "Weakened Gallai-Ramsey Numbers for Books",
+    "published": "2026-08-13T00:15:23Z",
+    "updated": "2026-08-13T00:15:23Z",
+    "v1_date": "2026-08-13",
+    "primary_category": "math.CO",
+    "authors": [
+      "Mark Budden",
+      "Adam Gregory"
+    ],
+    "summary": "For $1\\le s<t$ and any graph $G$, the weakened Gallai-Ramsey number $gr^t_s(G)$ is defined to be the least $p\\in \\mathbb{N}$ such that every Gallai $t$-coloring of the edges of $K_p$ (i.e., a $t$-coloring that lacks rainbow triangles) contains a subgraph isomorphic to $G$ whose edges use at most $s$ of the colors. In the case of a book graph $B_n:=K_2+nK_1$, Jakhar and Moun determined the values $gr^3_2(B_3)=6$ and $gr^3_2(B_4)=7$. In this paper, we extend their results to $t>3$ colors, and we determine the values of $gr^3_2(B_n)$ for $5\\le n\\le 15$. General lower bounds for $gr^t_2(B_n)$ are also given.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2608.12673",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.18769v1",
+    "title": "An Integer Programming Approach to Compute Lower Bounds for Ramsey Numbers Using Circulant Graphs",
+    "published": "2026-08-19T10:26:23Z",
+    "updated": "2026-08-19T10:26:23Z",
+    "v1_date": "2026-08-19",
+    "primary_category": "math.OC",
+    "authors": [
+      "Stefano Coniglio",
+      "Fabio Furini",
+      "Ivana Ljubić",
+      "Pablo San Segundo",
+      "Johannes Thüerauf",
+      "Emiliano Traversi"
+    ],
+    "summary": "The Ramsey number $R(m,n)$ is the smallest order at which every red-blue edge coloring of a complete graph must contain a blue clique (a complete subgraph) of size $m$ or a red clique of size $n$. Determining these numbers exactly is extremely hard, and even certifying a lower bound requires exhibiting an explicit coloring that avoids both cliques. We develop an integer programming framework for certifying such lower bounds, restricting the search to circulant graphs, whose rotational symmetry lets us reformulate the problem in a projected distance space, reducing the number of binary variables from quadratic to linear in the graph order. We strengthen this projected model through coefficient reduction and solve it with a branch-and-cut algorithm whose separation routine exploits the common neighborhood structure of circulant graphs, combining heuristic and exact maximum-clique algorithms. In an extensive computational campaign on circulant graphs with up to 410 vertices, we improve the best lower bounds previously obtained by other methods by up to 11 points for 25 values of $R(3,n)$ with $24\\le n\\le49$ and $n\\neq27$, each backed by an explicit graph certificate that can be independently verified with a stand-alone exact clique solver. To the best of our knowledge, our method also provides the first reproducible optimization-based procedure for certifying circulant Ramsey numbers $R_C(m,n)$, which we use to establish eight new values of $R_C(3,n)$ with $13\\le n\\le20$. Our framework, graph certificates, and stand-alone checker are provided as supplementary material to support independent verification and reuse.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2608.18769",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.22350v1",
+    "title": "Ramsey-type results for threshold graphs and beyond",
+    "published": "2026-08-23T10:38:17Z",
+    "updated": "2026-08-23T10:38:17Z",
+    "v1_date": "2026-08-23",
+    "primary_category": "math.CO",
+    "authors": [
+      "Xihe Li"
+    ],
+    "summary": "A {\\it threshold graph} is a graph that can be constructed from the one-vertex graph by repeatedly adding either a dominating vertex or an isolated vertex. Motivated by an induced Ramsey-type problem for this class, we define $r'_2(s)$ to be the minimum integer $n$ such that every $n$-vertex graph contains an induced threshold graph on $s$ vertices. We establish exponential upper and lower bounds for $r'_2(s)$ and determine its exact values for $s\\in\\{3,4,5,6\\}$. To study this problem from an edge-coloring perspective, we use the notion of an orderable coloring, introduced by Richer [{\\it J. Combin. Theory Ser. B}, 80(1) (2000), 172--177]. An edge-colored graph is {\\it orderable} if its vertices can be ordered so that, for each vertex, all edges from it to later vertices have the same color. Equivalently, $r'_2(s)$ is the minimum $n$ such that every $2$-edge-coloring of $K_n$ contains an orderable $K_s$. We also determine the exact value of the unordered canonical Ramsey number $CR(s, 3)$ for all $s \\ge 3$, where $CR(s,3)$ denotes the minimum integer $n$ such that every edge-coloring of $K_n$ contains either an orderable $K_s$ or a rainbow $K_3$. More generally, for graphs $G$ and $H$, we study $r'_2(G)$, the corresponding $2$-color Ramsey number for an orderable $G$, and $CR(G,H)$, where the alternative is a rainbow $H$. For complete bipartite graphs, we prove that for every fixed $s$, $r'_2(K_{s,t}) = CR(K_{s,t}, K_3)= \\left(\\frac{2^s}{s+1}+o(1)\\right)t$ as $t\\to\\infty$. For $s\\in \\{2,3\\}$, we further determine the exact values of these parameters for infinitely many $t$, using constructions arising from strongly regular graphs, Hadamard matrices and conference matrices.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2608.22350",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.27405v2",
+    "title": "Asymptotic Bounds for Online Ramsey Numbers of Stars versus Long Paths and Cycles",
+    "published": "2026-08-27T17:34:20Z",
+    "updated": "2026-11-06T20:37:00Z",
+    "v1_date": "2026-08-27",
+    "primary_category": "math.CO",
+    "authors": [
+      "Sam Beilis",
+      "Israel R. Curbelo",
+      "Elizabeth R. Koizumi"
+    ],
+    "summary": "The online Ramsey game for graphs $G$ and $H$ is played on the infinite complete graph $K_\\mathbb{N}$. In each round, Builder chooses an edge, and Painter colors it red or blue. The online Ramsey number $\\tilde{r}(G,H)$ is the smallest integer $t$ for which Builder has a strategy guaranteeing a red copy of $G$ or a blue copy of $H$ within $t$ rounds. For every fixed integer $k\\ge4$, the best-known asymptotic lower bounds for $\\tilde{r}(K_{1,k},P_n)$ and $\\tilde{r}(K_{1,k},C_n)$ are $\\left(\\frac{k+3}{4}+o(1)\\right)n$ as $n\\to\\infty$. We improve the corresponding asymptotic upper bounds from $\\left(k+o(1)\\right)n$ to $\\left(\\frac{k+3}{3}+o(1)\\right)n$ as $n\\to\\infty$.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2608.27405",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.30481v1",
+    "title": "The Multicolour Size--Ramsey Number of an Even Cycle",
+    "published": "2026-08-31T09:07:08Z",
+    "updated": "2026-08-31T09:07:08Z",
+    "v1_date": "2026-08-31",
+    "primary_category": "math.CO",
+    "authors": [
+      "Lanchao Wang",
+      "Xiaolin Wang"
+    ],
+    "summary": "We determine the $k$-colour size--Ramsey number of even cycles up to absolute constant factors. For every $k\\ge2$ and every even $n\\ge100\\log k$, \\[ \\widehat R_k(C_n)=Θ(k^2\\log k)n. \\] The lower bound follows from the corresponding result of Beke, Li and Sahasrabudhe for paths, while our upper bound improves the previous best estimate $O(k^{34}n)$ of Javadi, Kohayakawa and Miralaei.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2608.30481",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.00944v2",
+    "title": "The Ramsey threshold for trees versus odd cycles",
+    "published": "2026-09-01T09:04:43Z",
+    "updated": "2026-09-07T09:06:43Z",
+    "v1_date": "2026-09-01",
+    "primary_category": "math.CO",
+    "authors": [
+      "Qizhong Lin",
+      "Chunlin You"
+    ],
+    "summary": "A longstanding fundamental problem of Burr, Erdős, Faudree, Rousseau and Schelp (\\emph{Trans. Amer. Math. Soc.}, 1982) is to determine the exact value of the least integer $f(m)$, for odd $m\\ge3$, such that every tree $T_n$ on $n\\ge f(m)$ vertices satisfies $R(T_n,C_m)=2n-1$. We settle this problem for all sufficiently large odd $m$. Indeed, we establish $$f(m)=\\left\\lceil \\frac{2m-1}{3} \\right\\rceil$$ for all such $m$, where the lower bound follows from a result by Faudree, Lawrence, Parsons and Schelp. This also confirms a conjecture of Huang, Zhang and Chen for all such $m$.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2609.00944",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.05812v1",
+    "title": "Quantum Query Algorithms for the Constructive Diagonal Ramsey Theorem",
+    "published": "2026-09-05T02:12:27Z",
+    "updated": "2026-09-05T02:12:27Z",
+    "v1_date": "2026-09-05",
+    "primary_category": "quant-ph",
+    "authors": [
+      "Cheng Xin"
+    ],
+    "summary": "The constructive diagonal Ramsey problem asks, given adjacency-oracle access to an $N$-vertex graph, for a clique or independent set of the order guaranteed by Ramsey's theorem. We give a bounded-error quantum algorithm that, for every $K\\ge2$ and $N\\ge4^{K-1}$, finds and verifies a homogeneous $K$-set using $O\\!\\left(2^K K\\log\\frac Kη\\right)$ edge queries with failure probability at most $η$. At the Ramsey scale $N=2^n$, this yields a homogeneous set of order $\\lfloor n/2\\rfloor+1$ using $O(\\sqrt N\\log N\\log(\\log N/η))$ queries, improving on the $O(N)$ queries of the explicit classical recursion and giving, to our knowledge, the first sublinear worst-case algorithm for the Ramsey relation. We also derive an $Ω(N^{1/12})$ quantum lower bound by a reduction from collision finding. The algorithm runs the constructive recursion over implicit candidate sets. Each set is represented by a short conjunction of adjacency constraints and sampled using capped unknown-solution quantum search, and a scale-aware concentration schedule balances estimation accuracy against the increasing cost of sampling deeper sets. We complement the upper bound with an $Ω(N^{1-1/\\sqrt2})$ randomized lower bound, transported from the random-Painter analysis of online Ramsey numbers, which holds on the uniform distribution $G(N,1/2)$. On that distribution a greedy quantum search uses only $\\widetilde O(N^{1/4})$ queries, giving a provable polynomial quantum speedup for Ramsey search on random graphs. We also give an estimation-free size-biased recursion and extend it to every fixed number of edge colours.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2609.05812",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.06378v1",
+    "title": "Multicolor Ramsey and list Ramsey numbers for star-like trees",
+    "published": "2026-09-06T04:31:19Z",
+    "updated": "2026-09-06T04:31:19Z",
+    "v1_date": "2026-09-06",
+    "primary_category": "math.CO",
+    "authors": [
+      "Qinghong Zhao",
+      "Yaping Mao",
+      "Xiangqian Zhou"
+    ],
+    "summary": "For a graph \\(H\\), the \\(k\\)-color Ramsey number \\(r(H;k)\\) is the least integer \\(N\\) such that every \\(k\\)-edge-coloring of \\(K_N\\) contains a monochromatic copy of \\(H\\). A \\(k\\)-list assignment has \\(|L(e)|=k\\) for every edge. The list Ramsey number \\(r_\\ell(H;k)\\) is the least integer \\(N\\) for which there exists a \\(k\\)-list assignment on \\(E(K_N)\\) such that every coloring from the lists contains a monochromatic copy of \\(H\\). Let \\(K_{1,n}\\) be a star, \\(S(n,m)\\) the double star obtained by joining the centers of \\(K_{1,n}\\) and \\(K_{1,m}\\), and \\(S_n^m\\) the graph obtained from \\(K_{1,n}\\) by subdividing \\(m\\) edges once. Alon et al.\\ conjectured that \\(r_\\ell(K_{1,n};k)=r(K_{1,n};k)\\) for all \\(k,n\\ge1\\). In this paper, we confirm their conjecture for all \\(k\\ge1\\) and \\(n\\ge3\\) by a unified direct proof. For even \\(k\\ge4\\) and under explicit parameter conditions, we prove that \\(r(S(n,m);k)=kn+m+2\\) for even \\(n\\) and \\(r(S_n^m;k)=k(n-1)+m+2\\) for odd \\(n\\). For two colors, we establish a general list Ramsey lower bound and determine the common values of Ramsey and list Ramsey numbers for double and subdivided stars in explicit parameter ranges. These results close several gaps in the known bounds.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2609.06378",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.08157v2",
+    "title": "Multicolor Ramsey numbers of ordered matchings",
+    "published": "2026-09-08T02:40:23Z",
+    "updated": "2026-10-31T12:43:28Z",
+    "v1_date": "2026-09-08",
+    "primary_category": "math.CO",
+    "authors": [
+      "Xiangyu Li"
+    ],
+    "summary": "For an ordered graph $H$ and an integer $q\\geq2$, let $r_{<}(H;q)$ denote the $q$-color ordered Ramsey number of $H$. Conlon, Fox, Lee and Sudakov asked whether, for every $q\\geq3$, there is a constant $c_q$ such that $r_{<}(M;q)\\leq n^{c_q\\log n}$ for every ordered matching $M$ on $n$ vertices. We answer this negatively in a strong form: for every $q\\geq2$, there is $c_q>0$ such that almost every perfect matching $M$ on $[n]$ satisfies $$r_{<}(M;q)>2^{c_q(\\log n)^q/(\\log\\log n)^{q-1}}.$$ This matches the general upper bound up to a factor of $(\\log\\log n)^{q-1}$ in the exponent. We also give two applications. First, we prove a lower bound conjectured by Fox, He and Wigderson for multicolor Ramsey numbers of acyclic digraphs. Second, we strengthen a result of Axenovich, Rollin and Ueckerdt by giving a superquasipolynomial lower bound on the maximum chromatic number of $M$-free ordered graphs, for almost every perfect matching $M$ on $[n]$.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2609.08157",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.14525v1",
+    "title": "Retained-Set Descent for Diagonal Ramsey Numbers",
+    "published": "2026-09-13T14:02:57Z",
+    "updated": "2026-09-13T14:02:57Z",
+    "v1_date": "2026-09-13",
+    "primary_category": "math.CO",
+    "authors": [
+      "Zhipeng Lu",
+      "Sichen Wang"
+    ],
+    "summary": "We study how far a fixed Ramsey upper bound can be improved by descending through blue neighborhoods in one vertex set while keeping a second set fixed. A weighted inequality in the two set sizes determines when the descent can stop. For the source bound specified here, the infimum diagonal exponent over all finite derivations lies in $[1.305,\\,1.307]$. A finite derivation gives $R(k,k)\\le3.69507^k$ for all sufficiently large $k$; a concave polygon proves the lower bound for every finite depth. We also characterize the infimum as a greatest fixed point and show that every larger exponent has a finite derivation valid uniformly for nearby clique-size ratios.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2609.14525",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.27157v1",
+    "title": "Monochromatic triangles with empty intersection and Kneser Ramsey numbers",
+    "published": "2026-09-22T23:39:30Z",
+    "updated": "2026-09-22T23:39:30Z",
+    "v1_date": "2026-09-22",
+    "primary_category": "math.CO",
+    "authors": [
+      "Igor Araujo"
+    ],
+    "summary": "Recently, Heath, McCourt, Parker, Schwieder, and Zerbib initiated the systematic study of the $r$-Kneser Ramsey number $R_r^{KG}(s,t)$ and investigated related Ramsey-type problems. A central motivation for their work comes from a question of Holmsen, Hrusak, and Roldán-Pensado, who asked whether, for $n=2k-1$ and sufficiently large $k$, every red/blue edge-coloring of the complete graph on the vertex set $V = \\binom{[n]}{k}$ necessarily contains a monochromatic triangle $ABC$ with $A,B,C \\in V$ and $A \\cap B \\cap C = \\emptyset$. Heath, McCourt, Parker, Schwieder, and Zerbib established that this conclusion holds when $n \\ge \\frac{7k}{3}$ and $k\\ge 12$. We make substantial progress toward the problem of Holmsen, Hrusak, and Roldán-Pensado by proving that the conclusion already holds for every $k\\ge 2$ whenever $n\\ge 2k+1$. In addition, we obtain improved lower bounds for $R_r^{KG}(s,t)$ when $s$ and $t$ are fixed and $r$ is sufficiently large.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2609.27157",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.28455v1",
+    "title": "On the multicolour Ramsey numbers $R(3,3,k)$",
+    "published": "2026-09-23T17:50:18Z",
+    "updated": "2026-09-23T17:50:18Z",
+    "v1_date": "2026-09-23",
+    "primary_category": "math.CO",
+    "authors": [
+      "Bruno Andrades",
+      "Marcelo Campos",
+      "Robert Morris"
+    ],
+    "summary": "In this paper we determine the Ramsey number $R(3,3,k)$ up to a constant factor, showing that $$R(3,3,k) = Θ\\bigg( \\frac{k^3}{(\\log k)^2} \\bigg).$$ The proof of the lower bound combines the Hefty-Horn-King-Pfender construction for $R(3,k)$ with the method of Alon and Rödl. Using the same proof, we also determine the $r$-colour Ramsey numbers $R_r(3,\\ldots,3,k)$ up to a constant factor for every fixed $r \\geqslant 3$.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2609.28455",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.12122v1",
+    "title": "Lower bounds for Ramsey numbers: $\\mathrm{R}(6,8)\\ge 135$ and $\\mathrm{R}(8,10)\\ge 345$",
+    "published": "2026-10-08T15:16:34Z",
+    "updated": "2026-10-08T15:16:34Z",
+    "v1_date": "2026-10-08",
+    "primary_category": "math.CO",
+    "authors": [
+      "Fritz Cremer"
+    ],
+    "summary": "We prove the lower bounds $\\mathrm{R}(6,8)\\ge 135$ and $\\mathrm{R}(8,10)\\ge 345$, improving the bounds 134 and 343 listed in the April 2026 revision of Radziszowski's dynamic survey. We give explicit red/blue colorings of $K_{134}$ with no red $K_6$ or blue $K_8$, and of $K_{344}$ with no red $K_8$ or blue $K_{10}$, and verify them with two independently written exhaustive clique checkers. Starting from published colorings, we find these witnesses by adding vertices and repairing the resulting monochromatic cliques through local search. The search uses exact conflict counts, preparation moves aimed at making remaining cliques cheaper to break, and mutations followed by repair. A loss based on the largest monochromatic clique containing each edge yielded a useful intermediate state for the $\\mathrm{R}(6,8)$ construction. Guided by the author, an AI coding agent wrote and ran the search code; we describe the methods and document the ancestry of the resulting colorings.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2610.12122",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.16392v1",
+    "title": "Ramsey Meets Simultaneous Planarity: Vertex Integrity and Pathwidth",
+    "published": "2026-10-12T08:38:05Z",
+    "updated": "2026-10-12T08:38:05Z",
+    "v1_date": "2026-10-12",
+    "primary_category": "cs.DS",
+    "authors": [
+      "Thomas Depian",
+      "Simon D. Fink",
+      "Alexander Firbas",
+      "Robert Ganian",
+      "Matthias Pfretzschner",
+      "Ignaz Rutter"
+    ],
+    "summary": "We study the following simultaneous embedding problem: Given k graphs on the same vertex set with the same pairwise intersection, do they admit planar drawings that coincide on their shared graph? We establish fixed-parameter tractability with respect to the vertex integrity of the union graph (that is, the union of the input graphs) plus k, resolving an open question and generalizing the known algorithm parameterized by vertex cover number plus k. Our main technical contribution on the way towards this result is the extension of the recently introduced Ramsey pruning technique beyond ordering problems. Finally, we complement our tractability result with a lower bound that establishes NP-hardness when both k and the pathwidth of the union graph are bounded by constants, ruling out a generalization of our main result to path- or treewidth.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2610.16392",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.17891v1",
+    "title": "The logarithmic exponent of the Ramsey number $r(4,t)$",
+    "published": "2026-10-13T07:45:15Z",
+    "updated": "2026-10-13T07:45:15Z",
+    "v1_date": "2026-10-13",
+    "primary_category": "math.CO",
+    "authors": [
+      "Qizhong Lin",
+      "Qiuyang Zhang"
+    ],
+    "summary": "We prove that $r(4,t) \\ge \\frac{t^3}{(\\log t)^{2+o(1)}}$. This improves the lower bound of Mattheus and Verstraëte (Ann. of Math., 2024) by a factor of $(\\log t)^{2-o(1)}$.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2610.17891",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.20545v1",
+    "title": "The $k$-color poset Ramsey number of the diamond is $2k$",
+    "published": "2026-10-14T17:36:46Z",
+    "updated": "2026-10-14T17:36:46Z",
+    "v1_date": "2026-10-14",
+    "primary_category": "math.CO",
+    "authors": [
+      "Tom Bohman",
+      "Will Cong",
+      "Quentin Dubroff",
+      "Teresa Huang",
+      "Zheyuan Li",
+      "BangTam Ngo"
+    ],
+    "summary": "The $k$-color Ramsey number of a poset $P$ is the smallest dimension $d$ such that any $k$-coloring of the $d$-dimensional Boolean lattice contains a monochromatic induced copy of $P$. For $ j\\ge 2$ the $j$-diamond is the poset that consists of a maximum element, a minimum element and an antichain of size $j$. We prove that the $k$-color Ramsey number of the $j$-diamond is at most $jk$. Colorings of the Boolean lattice that assign sets of the same size the same color provide matching lower bounds for $j \\in \\{2,3,4\\}$.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2610.20545",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.22902v1",
+    "title": "Triangle-free Rank--Ramsey graphs from ordered incidence lifts",
+    "published": "2026-10-16T04:05:06Z",
+    "updated": "2026-10-16T04:05:06Z",
+    "v1_date": "2026-10-16",
+    "primary_category": "math.CO",
+    "authors": [
+      "Yong Lu",
+      "Qi Wu",
+      "Qiannan Zhou"
+    ],
+    "summary": "For a graph $G$ with adjacency matrix $A_G$ and a coefficient field $\\mathbb K$, put $ρ_{\\mathbb K}(G)=\\operatorname{rank}_{\\mathbb K}(A_G+I)$. We answer the triangle-free Rank--Ramsey existence question of Beniamini, Linial and Shraibman. For every order $n$, we construct a triangle-free graph $H_n$ such that, simultaneously over all coefficient fields, $$ ρ_{\\mathbb K}(H_n)=\\bigl(4(2/3)^{3/4}+o(1)\\bigr)n^{3/4}, $$ with an error uniform in the field. The graphs can be chosen Hamiltonian for all sufficiently large $n$. Our method combines ordered layers of point--line incidence flags with a common low-dimensional endpoint space. We determine the exact real rank, independence number and chromatic number of the affine lifts. For all triangle-free complete incidence lifts, we obtain a sharp two-term lower bound for complete incidence lifts, with sharpness witnessed by projective-plane incidence graphs over suitable coefficient fields. We also establish a third-order estimate and stability near equality. On the same explicit graphs, both the Lovász number and minimum semidefinite rank exceed the prescribed Boolean-matrix rank by polynomial factors. Thus neither parameter has a universal constant-factor upper bound in terms of complement rank. We determine Shannon capacity in the short-layer range.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2610.22902",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.24523v1",
+    "title": "Multicolor Ramsey numbers of unbalanced double stars",
+    "published": "2026-10-17T07:32:11Z",
+    "updated": "2026-10-17T07:32:11Z",
+    "v1_date": "2026-10-17",
+    "primary_category": "math.CO",
+    "authors": [
+      "Lin Niu"
+    ],
+    "summary": "For integers $n\\ge m\\ge1$, let $S(n,m)$ be the double star obtained by joining the centers of $K_{1,n}$ and $K_{1,m}$. Ruotolo and Song proved the upper bound $r(S(n,m);k)\\le kn+m+2$ under the condition $(n+1)\\lceil\\frac{n+1}{k-1}\\rceil >m((k-1)n+m)$, as well as the matching lower bound for odd $k$. Zhao, Mao and Zhou proved the matching lower bound for even $k$ and even $n$. We establish the remaining lower bound for even $k\\ge6$ and odd $n$ through a new edge-coloring construction. Combining these results, we obtain $r(S(n,m);k)=kn+m+2$ for all integers $k\\ge5$ and $n\\ge m\\ge1$ satisfying $(n+1)\\lceil\\frac{n+1}{k-1}\\rceil >m((k-1)n+m)$. We also determine the four-color Ramsey number for $m\\ge2$ and odd $n\\ge15m$, showing that $r(S(n,m);4)=4n+m+1$.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2610.24523",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.26061v1",
+    "title": "Single-graph rational exponents in mixed multicolour Ramsey theory",
+    "published": "2026-10-19T09:22:06Z",
+    "updated": "2026-10-19T09:22:06Z",
+    "v1_date": "2026-10-19",
+    "primary_category": "math.CO",
+    "authors": [
+      "Yuang Yang"
+    ],
+    "summary": "For every rational number $γ>1$, we construct a fixed bipartite graph $H_γ$ such that $r_k(H_γ;K_N)=Θ_{γ,k}((N/\\log N)^γ)$ for every fixed $k\\ge 3$. Here $r_k(H;K_N)=r(H,\\ldots,H,K_N)$, with $k$ copies of $H$. The lower bound uses a symmetric random algebraic graph which avoids a fixed rooted power and has sufficiently strong local density for the Alon-Rodl method. The main algebraic step establishes a nonzero obstruction within the full symmetric coefficient space; the upper bound uses the rooted graphs from the proof of the rational exponents conjecture. We also obtain induced even-cycle asymptotics in the same construction.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2610.26061",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.29813v1",
+    "title": "The three-colour bipartite Ramsey number of sufficiently long even cycles",
+    "published": "2026-10-21T14:36:23Z",
+    "updated": "2026-10-21T14:36:23Z",
+    "v1_date": "2026-10-21",
+    "primary_category": "math.CO",
+    "authors": [
+      "Jiangdong Ai",
+      "Yihan Yin"
+    ],
+    "summary": "For a bipartite graph $H$, let $\\operatorname{br}_3(H)$ be the least integer $N$ such that every three-colouring of $K_{N,N}$ contains a monochromatic copy of $H$. We prove that $\\operatorname{br}_3(C_{2n})=3n$ for all sufficiently large $n$, and give the lower bound for every $n\\ge2$. For the upper bound, we reduce a counterexample to a finite rational weighted profile. Cycle extension and vertex-cover arguments force the critical components to have six unique minimum covers which partition the profile. The remaining component supports give a contradiction.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2610.29813",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.36522v1",
+    "title": "Constructions for Nearly Diagonal Book Ramsey Numbers",
+    "published": "2026-10-27T02:23:59Z",
+    "updated": "2026-10-27T02:23:59Z",
+    "v1_date": "2026-10-27",
+    "primary_category": "math.CO",
+    "authors": [
+      "Stephen Chung",
+      "William J. Wesley"
+    ],
+    "summary": "The Ramsey number $R(G_1,G_2)$ is the smallest positive integer $n$ such that for every graph $H$ on $n$ vertices, either $H$ contains a copy of $G_1$ or the complement $\\overline H$ contains a copy of $G_2$. Ramsey numbers involving the book graphs $B_n$, which consist of $n$ triangles sharing a common edge, have attracted recent attention, especially in the ``nearly diagonal'' case $R(B_{n-1},B_n)$. Rousseau and Sheehan showed the upper bound $R(B_{n-1},B_n) \\le 4n-1$ nearly fifty years ago, but no general matching lower bound construction is known. This paper gives several new infinite families of $n$ for which $R(B_{n-1},B_n) = 4n-1$. Some of the main results in this paper were found with assistance from the Station, a multi-agent AI system. These results also appeared in a larger work on autonomous mathematical discovery by the authors and Du in arxiv:2608.23691. This paper is a follow-up to that work: we give complete proofs of the book Ramsey results and discuss their connections to objects in combinatorial design theory.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2610.36522",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.38515v1",
+    "title": "The asymptotics of off-diagonal book Ramsey numbers",
+    "published": "2026-10-28T09:28:11Z",
+    "updated": "2026-10-28T09:28:11Z",
+    "v1_date": "2026-10-28",
+    "primary_category": "math.CO",
+    "authors": [
+      "Lulu Dai",
+      "Chunchao Fan",
+      "Qizhong Lin"
+    ],
+    "summary": "Let $B_n$ be the book graph consisting of $n$ triangles sharing a common edge. We prove upper bounds for $r(B_{\\lceilαn\\rceil},B_n)$ that asymptotically match the known lower bounds in the remaining range $1/6<α<1/4$. Combined with the known results for the other ranges of $α$, this completely determines the asymptotics of the Ramsey number $r(B_{\\lceilαn\\rceil},B_n)$ for every fixed $0<α\\le1$: \\[ r(B_{\\lceilαn\\rceil},B_n)=(c(α)+o(1))n, \\qquad c(α)= \\begin{cases} 2, & 0<α\\le1/6,\\\\[1mm] \\displaystyle\\frac{3}{1+2p_α^2}, & 1/6<α\\leα_0,\\\\[3mm] (1+\\sqrtα)^2, & α_0<α\\le1, \\end{cases} \\] where \\(α_0:=\\frac{52-16\\sqrt3}{121}, \\;\\; p_α:=\\frac{1-\\sqrt{α(3-2α)}}{1-2α} \\;\\; (1/6<α\\leα_0).\\) Consequently, the random lower bound is asymptotically tight if and only if $α\\geα_0$, thereby determining exactly the range of $α$ for which the conjecture of Conlon, Fox and Wigderson holds. The proof develops a defect-compensation framework around a $K_4$-free auxiliary graph.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2610.38515",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2611.03878v1",
+    "title": "On the lower- and upper bounds of three-colored anti-Ramsey numbers",
+    "published": "2026-11-02T19:48:50Z",
+    "updated": "2026-11-02T19:48:50Z",
+    "v1_date": "2026-11-02",
+    "primary_category": "math.CO",
+    "authors": [
+      "Máté Giesz"
+    ],
+    "summary": "In this paper we study a relatively new Ramsey type graph parameter introduced by my Bachelor's thesis supervisor Nóra Almási, and her Master's thesis supervisor Maria Axenovich. The parameter $ξ(G)$ denotes the largest natural number $n$, such that there is a red-blue-green edge coloring of $K_n$, such that in the edge coloring all copies of $G$ represent all three colors. After a brief recap on Ramsey numbers, we precisely define $ξ(G)$, and take a look at its relations to the Ramsey numbers. In the third chapter we establish lower bounds on $ξ(G)$, in the cases $G=K_5$ and $G=K_6$, namely $ξ(K_5)\\ge 19$ and $ξ(K_6)\\ge 31$.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2611.03878",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2611.09347v1",
+    "title": "A Structural Lower Bound for the Ramsey Number of the Petersen Graph",
+    "published": "2026-11-06T11:43:57Z",
+    "updated": "2026-11-06T11:43:57Z",
+    "v1_date": "2026-11-06",
+    "primary_category": "math.CO",
+    "authors": [
+      "Yuan Si"
+    ],
+    "summary": "In this note, we investigate the diagonal Ramsey number of the Petersen graph, denoted by \\(R(\\mathcal{P}, \\mathcal{P})\\). To the best of our knowledge, the dynamic survey \\textit{Small Ramsey Numbers} (Revision \\#18, 2026) records the lower bound as 19, established by Harborth and Krause. We construct a novel 2-coloring on the complete graph \\(K_{20}\\) that avoids any monochromatic Petersen graph. By defining the blue graph as the complement of the red graph, we utilize a specific join graph structure \\(K_{9,9} \\vee \\overline{K_2}\\). We rigorously prove its Petersen-free property, thereby improving the previously documented lower bound to \\(R(\\mathcal{P}, \\mathcal{P}) \\ge 21\\). Furthermore, we demonstrate the limit of this structural family by showing that the natural extension \\(K_{9,9} \\vee \\overline{K_3}\\) contains a Petersen subgraph.",
+    "matched_query": "ramsey-lb",
+    "bare_id": "2611.09347",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.25023v1",
+    "title": "Schrijver Number Quasi-Tensorization and Multicolor Ramsey Bounds via Robust OR Polynomials",
+    "published": "2026-07-27T19:32:34Z",
+    "updated": "2026-07-27T19:32:34Z",
+    "v1_date": "2026-07-27",
+    "primary_category": "math.CO",
+    "authors": [
+      "Ijay Narang",
+      "Yukai Tang"
+    ],
+    "summary": "We introduce a robust OR polynomial framework for composing positive semidefinite certificates across OR constraints. We demonstrate the power of this method in two applications. The first is on acute-free families. A set $\\mathcal F=\\{(x_i^{(1)},\\ldots,x_i^{(r)})\\}_{i=1}^M \\subseteq (S^{n-1})^r$ is $r$-way acute-free if, for every $i\\neq j$, there is a coordinate $t\\in[r]$ such that $\\langle x_i^{(t)},x_j^{(t)}\\rangle\\leq 0$. We write $M_r(n)$ for the maximum size of such a set, and $M_r^{\\pm}(n)$ for the hypercube restriction. On the hypercube, $r$-way acute-free sets are independent sets for some strong power graph $G_n^{\\boxtimes r}$. The Lovász theta number $\\vartheta(G_n)$ is multiplicative but exponentially loose, whereas the Schrijver number $\\vartheta'(G_n)$ gives the correct order, but is not multiplicative. We bypass this obstruction by proving a general quasi-tensorization result for the Schrijver number. That is, for every collection of graphs $G_1,\\ldots, G_r$ satisfying $\\vartheta'(G_i)\\geq 2$, there is an absolute constant $C$ such that $\\vartheta'(G_1\\boxtimes \\cdots \\boxtimes G_r) \\leq \\prod_{i=1}^r \\vartheta'(G_i)^{C\\log r \\log \\vartheta'(G_i)}$. Applying this result gives that $M_r^{\\pm}(n) \\le M_r(n) \\le (2n)^{C_0 r\\log r\\log(2n)}$ for some absolute constant $C_0$. The second application is on multicolor Ramsey numbers. The $r$-color Ramsey number $R_r(k)$ is the minimum $n$ such that every $r$-coloring of the edges of the complete graph on $n$ vertices contains a monochromatic copy of $K_k$. In a breakthrough result, Balister et al. [arXiv:2410.17197] showed that $R_r(k)\\le \\exp(-Ω(k/r^{12}))r^{rk}$ via a geometric lemma. By improving the $r$ dependency in their geometric lemma via the OR polynomial framework, we prove that $R_r(k)\\le \\exp(-Ω(k/(r^9(\\log r)^6)))r^{rk}$.",
+    "matched_query": "log-exponent",
+    "bare_id": "2607.25023",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.03358v1",
+    "title": "Sharp bounds for off-diagonal and tripartite canonical Ramsey numbers",
+    "published": "2026-10-02T14:22:19Z",
+    "updated": "2026-10-02T14:22:19Z",
+    "v1_date": "2026-10-02",
+    "primary_category": "math.CO",
+    "authors": [
+      "Strahinja Gvozdić",
+      "Zach Hunter",
+      "Aleksa Milojević",
+      "Benny Sudakov"
+    ],
+    "summary": "The canonical Ramsey theorem establishes that for every positive integer $t$, there is a sufficiently large $n$ such that every edge-colouring of a complete graph $K_n$ contains a copy of $K_t$ that is canonically coloured, i.e. monochromatic, rainbow, or lexicographic. In this paper we investigate two variations of this theorem. First, we study canonical Ramsey numbers in the multipartite hypergraph setting. We prove that in every edge-colouring of the 3-uniform complete hypergraph on at least $t^{151t^2}$ vertices, there always exists a canonically coloured copy of $K_{t, t, t}^{(3)}$. This estimate is sharp up to the constant in the exponent. Second, we explore off-diagonal canonical Ramsey numbers. Let $ER(a, b, c)$ denote the minimum number of vertices $n$ required to guarantee a monochromatic $K_a$, a lexicographic $K_b$, or a rainbow $K_c$ in every edge-colouring of the complete graph $K_n$. We establish sharp bounds for these numbers across different parameter regimes. Specifically, we prove that $ER(a, b, c)\\geq c^{Ω(ab)}$ when $c$ is sufficiently large relative to $a$, and that $ER(a, b, c)\\leq 2^{O_b(a)}$ when $b\\ge 4$ is a fixed constant and $c\\le a$. Finally, we analyse the behaviour of the function when avoiding lexicographic triangles (i.e. $b=3$), showing that $ER(a, 3, c)\\le (a-1)(c-2)+O(c^6)$.",
+    "matched_query": "ks-offdiag",
+    "bare_id": "2610.03358",
+    "in_window_after_cutoff": true,
+    "is_anchor": false
+  }
+]
