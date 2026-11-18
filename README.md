@@ -1,5 +1,7 @@
 # Open Problems Lab
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24338429.svg)](https://doi.org/10.5281/zenodo.24338429)
+
 **Small, checkable computations on open maths problems. No proofs, no prize claims.**
 
 Reproducible computations on open problems in number theory and combinatorics
@@ -87,6 +89,13 @@ Also withheld: 17 notes that claim status errors in a third-party problem catalo
 
 Please open an issue. A wrong number, a missed reference or a claim that is already
 known are all useful to me, and I will record the correction here.
+
+## How to cite
+
+Juwen Lie. *Open Problems Lab: reproducible computations on open problems in number theory
+and combinatorics.* Zenodo. https://doi.org/10.5281/zenodo.24338429
+
+That DOI always points to the newest version. Version 1.0.0 is https://doi.org/10.5281/zenodo.24338430.
 
 ## Licence
 
