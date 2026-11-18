@@ -1,9 +1,24 @@
 cff-version: 1.2.0
 message: "If you use these computations, please cite this repository."
 title: "Open Problems Lab: reproducible computations on open problems in number theory and combinatorics"
+type: software
+version: "1.0.0"
+abstract: >-
+  Small, checkable computations on open problems in number theory and combinatorics,
+  mostly from erdosproblems.com. Each note is a reproduction of published values, a finite
+  computation past the published range, or a negative result, with the scripts, outputs and
+  an AI referee re-run report. The work was computed and re-run by AI agents and has not
+  been reviewed by a human mathematician. Nothing here is a proof or a prize claim.
 authors:
   - family-names: Lie
     given-names: Juwen
+    orcid: "https://orcid.org/0009-0008-1384-7901"
+keywords:
+  - number theory
+  - combinatorics
+  - Erdos problems
+  - reproducible computation
+  - computational mathematics
 repository-code: "https://github.com/juw12/open-problems-lab"
 date-released: 2026-11-18
 license: MIT

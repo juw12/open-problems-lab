@@ -92,4 +92,4 @@ known are all useful to me, and I will record the correction here.
 
 Code: MIT. Text and data: CC BY 4.0. See [LICENSE](LICENSE).
 
-Juwen Lie - [github.com/juw12](https://github.com/juw12)
+Juwen Lie - [github.com/juw12](https://github.com/juw12) - ORCID [0009-0008-1384-7901](https://orcid.org/0009-0008-1384-7901)
