@@ -19,7 +19,7 @@ AI-agent research lab that I run on my own PC.
 ## Highlights
 
 - Sun's alternating-primes conjecture checked for every m up to 10⁹ with 0 violations; the published check stops at 10⁷.
-- Exact values of f(n) for Erdős problem 710 for every n up to 5,000 and at n = 10,000, 15,000 and 20,000; the lab found only n = 10 published.
+- Exact values of f(n) for Erdős problem 710 at n = 15,000 and 20,000, past the table in OEIS A390246 (every n up to 10,000), which the lab's values match.
 - A negative result on Erdős problem 50: one natural way to certify the density f(c) cannot work, with the measurement that shows it.
 - A one-line rule for where a published congruence lowers the cap in Erdős problem 86, checked for every n from 3 to 600.
 - Every result must first reproduce published values, then pass a second independent method and a separate AI referee re-run.
@@ -33,7 +33,7 @@ AI-agent research lab that I run on my own PC.
 | [ppl076-reciprocal-sum-reproduction](notes/2026-11-10-ppl076-reciprocal-sum-reproduction.md) | Erdős #3 | Reproduction | Numerical check of the Abel-summation reduction step only (not of any proof). |
 | [s5-off-diagonal-ramsey-frontier](notes/2026-11-11-s5-off-diagonal-ramsey-frontier.md) | Erdős #986 | Dated reference | Re-states and dates the published lower and upper log-exponents for r(s,t), s ≥ 5. No new bound. |
 | [sun-alternating-primes-verification](notes/2026-11-11-sun-alternating-primes-verification.md) | Sun's alternating-primes conjecture | Verification | 0 violations for m ≤ 10⁹ (published range: m ≤ 10⁷). The bound is tight only at m = 303 and m = 2382. |
-| [erdos710-f-n-exact-push](notes/2026-11-11-erdos710-f-n-exact-push.md) | Erdős #710 | Computed extension | Exact f(n) by bipartite matching: f(10000) = 20626, f(15000) = 31576, f(20000) = 42561. |
+| [erdos710-f-n-exact-push](notes/2026-11-11-erdos710-f-n-exact-push.md) | Erdős #710 | Computed extension | Exact f(n) by bipartite matching: f(15000) = 31576 and f(20000) = 42561, past OEIS A390246 (n ≤ 10,000); f(10000) = 20626 matches that table. |
 | [erdos143-d0all-1-4-hardened](notes/2026-11-11-erdos143-d0all-1-4-hardened.md) | Erdős #143 | Computed extension | A finite-N threshold in a candidate counterexample's selection lemma stays at 1/4 for all periods L ≤ 2000 (N = 5×10⁷). |
 | [erdos50-phi-distribution-interior-cdf](notes/2026-11-11-erdos50-phi-distribution-interior-cdf.md) | Erdős #50 | Computed extension | Table of the density of {n ≤ N : φ(n) < c·n} at interior c, N = 10⁷. |
 | [erdos50-band-edges](notes/2026-11-12-erdos50-band-edges.md) | Erdős #50 | Computed extension | Rational end points 8/35 and 42367104/44709361 of the band where the finite-N windowed slope diverges. |
@@ -69,9 +69,17 @@ the outputs.
 
 ## Corrections and retractions
 
-The lab was wrong several times. These drafts were written and then pulled before
-publication, and they are not in this repository:
+The lab was wrong several times. One published claim was corrected (first item); the
+other drafts were written and then pulled before publication, and they are not in this
+repository:
 
+- **Erdős #710, "only n = 10 is published" (corrected in version 1.0.1, 18 November 2026).**
+  Version 1.0.0 of this repository said the only published exact value of f(n) was
+  f(10). That was wrong: OEIS [A390246](https://oeis.org/A390246) (G. Kalogeropoulos,
+  2025, with a table by S. Kesarwani) lists f(n) for every n up to 10,000. The lab's
+  values agree with that table, so only f(15000) and f(20000) go past it. The
+  literature search had missed an OEIS entry. This one was published before it was
+  caught; the note now carries the correction.
 - **Erdős #86, C4-free certificates for Q15 to Q25 (five drafts).** Superseded: Wang
   (arXiv:2611.14906) and Minamoto (arXiv:2603.29127v5) publish exact values for the same
   family, so the lab's lower bounds were no longer new.

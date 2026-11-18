@@ -21,16 +21,24 @@ Scope: COMPUTED EXTENSION ONLY — the exact values f(10000), f(15000),
 
 # Exact values of f(n) for Erdős–Pomerance problem 710 up to n = 20,000
 
+> **Correction (2026-11-18).** The first version of this note said the only published
+> exact value was f(10). That was wrong. OEIS [A390246](https://oeis.org/A390246)
+> (G. Kalogeropoulos, 2025; table by S. Kesarwani) already lists f(n) for every n from 1
+> to 10,000. The values in this note agree with that table at n = 10, 30, 100, 500 and
+> 10,000 (f(10000) = 20626 in both). So the values for n ≤ 10,000 below are a
+> reproduction, and only f(15000) = 31576 and f(20000) = 42561 go past the OEIS table.
+> The lab's literature search had missed the OEIS entry.
+
 > **Computed extension only — no asymptotic proof.** I computed exact values
-> of f(n) well past the range of the only published exact value and checked
+> of f(n) past the range of the OEIS table (A390246, n ≤ 10,000) and checked
 > what the ratio does; I did not prove the asymptotics.
 
 ## What I checked
 
 Erdős–Pomerance #710 (£2,000, ≈$78 at 1992 rates; open since 1980): f(n) is
 the least L for which there are distinct a₁,…,aₙ in (n, n+L) with k | aₖ for
-each k. The only published exact value is f(10) ≤ 15 (Erdős–Pomerance 1980),
-with bounds (2/√e + o(1))·n·√(log n / log log n) ≤ f(n) ≤ 1.7398·n·√(log n).
+each k. Erdős–Pomerance (1980) give f(10) ≤ 15, and OEIS A390246 lists f(n) for
+every n ≤ 10,000. The known bounds are (2/√e + o(1))·n·√(log n / log log n) ≤ f(n) ≤ 1.7398·n·√(log n).
 
 I computed f(n) exactly for n = 1…5000 by bipartite matching (Hopcroft–Karp +
 binary search), cross-checked by an independent backtracking for n ≤ 30, and

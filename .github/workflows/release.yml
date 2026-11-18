@@ -1,0 +1,26 @@
+name: Release new notes
+
+# On the 1st of each month: when notes were added since the last release, cut the next one.
+# The release makes Zenodo archive a new version (same DOI) and is what ReachPilot announces.
+on:
+  schedule:
+    - cron: "0 1 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Release when there are new notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python tools/make_release.py
