@@ -16,6 +16,15 @@ AI-agent research lab that I run on my own PC.
 > results so that people who know these problems can check them, use them or tell me
 > what is wrong.
 
+## Get it on your device
+
+- **Windows:** [`OpenProblemsLab-Windows-Setup.exe`](https://github.com/juw12/open-problems-lab/releases/download/desktop/OpenProblemsLab-Windows-Setup.exe) (no admin needed; if Windows says it protected your PC, choose *More info → Run anyway*), or without installing [`OpenProblemsLab-Windows-Portable.zip`](https://github.com/juw12/open-problems-lab/releases/download/desktop/OpenProblemsLab-Windows-Portable.zip).
+- **Mac:** [`OpenProblemsLab-macOS-AppleSilicon.dmg`](https://github.com/juw12/open-problems-lab/releases/download/desktop/OpenProblemsLab-macOS-AppleSilicon.dmg) (M1 and newer) or [`OpenProblemsLab-macOS-Intel.dmg`](https://github.com/juw12/open-problems-lab/releases/download/desktop/OpenProblemsLab-macOS-Intel.dmg). The first time, macOS blocks it because it is not notarized: **System Settings → Privacy & Security → Open Anyway**.
+- **Android:** [`OpenProblemsLab-android.apk`](https://github.com/juw12/open-problems-lab/releases/download/android/OpenProblemsLab-android.apk): open the file on the phone and allow your browser to install apps once.
+- **iPhone:** open https://juw12.github.io/open-problems-lab/ in Safari, tap Share, then **Add to Home Screen**.
+
+The Windows, Mac and Android apps open the Open Problems Lab guide (https://juw12.github.io/open-problems-lab/: this README laid out for a phone, readable without a connection) in its own window ([`desktop/`](desktop/README.md), [`android/`](android/README.md)) and change with it. Open Problems Lab itself runs on a computer and is installed the way this README says; the apps do not contain it. Each build is opened on GitHub's machines before it is published: on Windows and on a Mac the page loads, the app starts and can store data; on an Android emulator it installs, opens and stays up. They are not code-signed or notarised, and no real phone or PC has run them yet.
+
 ## Highlights
 
 - Sun's alternating-primes conjecture checked for every m up to 10⁹ with 0 violations; the published check stops at 10⁷.
