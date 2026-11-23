@@ -1,5 +1,5 @@
 // Keeps the guide readable without a connection: the page and its own files, newest first when online.
-const CACHE = 'guide-b9e87cd48d';
+const CACHE = 'guide-b589c83b70';
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(['./', 'manifest.webmanifest', 'icons/icon-192.png'])).then(() => self.skipWaiting()));
 });
