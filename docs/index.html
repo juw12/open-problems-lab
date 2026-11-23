@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Open Problems Lab guide: Reproducible computations on open problems in number theory and combinatorics</title>
+<meta name="description" content="Reproducible computations on open problems in number theory and combinatorics">
+<link rel="canonical" href="https://juw12.github.io/open-problems-lab/">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Open Problems Lab">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171614" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Open Problems Lab guide">
+<meta property="og:description" content="Reproducible computations on open problems in number theory and combinatorics">
+<style>
+:root{--paper:#fbfaf6;--ink:#1d1c1a;--soft:#5d5a54;--line:#e3dfd5;--card:#ffffff;--accent:#237e95;--code:#f1eee6}
+@media (prefers-color-scheme:dark){:root{--paper:#171614;--ink:#eeebe4;--soft:#a9a49a;--line:#35322d;--card:#201f1c;--accent:#85cee0;--code:#262420}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header.bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;min-height:60px;padding:8px 16px;padding-top:max(8px,env(safe-area-inset-top));background:var(--paper);border-bottom:1px solid var(--line)}
+header.bar img{width:36px;height:36px;border-radius:9px;flex:none}
+header.bar .name{font-weight:700;font-size:18px;line-height:1.2;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+header.bar .name small{display:block;font-weight:500;font-size:13px;color:var(--soft)}
+header.bar a.source{flex:none;display:inline-flex;align-items:center;min-height:48px;padding:0 16px;border:1px solid var(--line);border-radius:24px;background:var(--card);color:var(--ink);font-size:15px;font-weight:600;text-decoration:none}
+main{max-width:760px;margin:0 auto;padding:20px 16px 40px}
+main img{max-width:100%;height:auto;border-radius:8px}
+main h1{font-size:30px;line-height:1.2;margin:24px 0 12px}
+main h2{font-size:23px;line-height:1.25;margin:36px 0 12px;padding-top:14px;border-top:1px solid var(--line)}
+main h3{font-size:19px;line-height:1.3;margin:26px 0 8px}
+main h4{font-size:17px;margin:22px 0 6px}
+main p,main li{overflow-wrap:anywhere}
+main a{color:var(--accent);text-underline-offset:3px;padding:6px 0}
+main p[align=center] a,main li>a:only-child{display:inline-block;padding:12px 3px}
+main a:has(>img){display:inline-block;padding:8px 0}
+main p[align=center] a:has(>img[width="100%"]){display:block;padding:0}
+main ul,main ol{padding-left:24px}
+main li{margin:6px 0}
+main blockquote{margin:16px 0;padding:4px 16px;border-left:4px solid var(--accent);color:var(--soft)}
+main code{font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code);padding:2px 5px;border-radius:5px;overflow-wrap:anywhere}
+main pre{background:var(--code);padding:14px;border-radius:10px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+main pre code{background:none;padding:0;overflow-wrap:normal;white-space:pre}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0}
+main table{border-collapse:collapse;font-size:15px;min-width:100%}
+main th,main td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+main th{background:var(--code)}
+main hr{border:0;border-top:1px solid var(--line);margin:28px 0}
+main kbd{font:13px ui-monospace,Menlo,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 5px}
+main details{margin:12px 0}
+main summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600}
+footer{max-width:760px;margin:0 auto;padding:18px 16px calc(28px + env(safe-area-inset-bottom));border-top:1px solid var(--line);color:var(--soft);font-size:14px}
+footer a{color:var(--soft)}
+</style>
+</head>
+<body>
+<header class="bar">
+<img src="icons/icon-192.png" alt="" width="36" height="36">
+<div class="name">Open Problems Lab<small>Guide</small></div>
+<a class="source" href="https://github.com/juw12/open-problems-lab">GitHub</a>
+</header>
+<main id="guide">
+<h1 dir="auto">Open Problems Lab</h1>
+<p dir="auto"><a href="https://doi.org/10.5281/zenodo.24338429" rel="nofollow"><img loading="lazy" src="https://zenodo.org/badge/DOI/10.5281/zenodo.24338429.svg" alt="DOI"  style="max-width: 100%;"></a></p>
+<p dir="auto"><strong>Small, checkable computations on open maths problems. No proofs, no prize claims.</strong></p>
+<p dir="auto">Reproducible computations on open problems in number theory and combinatorics<br>
+(mostly from <a href="https://www.erdosproblems.com" rel="nofollow">erdosproblems.com</a>), produced by an<br>
+AI-agent research lab that I run on my own PC.</p>
+<blockquote>
+<p dir="auto">Nothing in this repository is a proof, a solution or a prize claim. Every note is one<br>
+of: a reproduction of published values, a finite computation that goes past the<br>
+published range, or a negative result. The work was computed and re-run by AI agents.<br>
+<strong>No human mathematician has reviewed it.</strong> I am a mechanical engineer, not a<br>
+mathematician; I built the lab and the checking process, and I am publishing the<br>
+results so that people who know these problems can check them, use them or tell me<br>
+what is wrong.</p>
+</blockquote>
+<h2 dir="auto">Highlights</h2>
+<ul dir="auto">
+<li>Sun's alternating-primes conjecture checked for every m up to 10⁹ with 0 violations; the published check stops at 10⁷.</li>
+<li>Exact values of f(n) for Erdős problem 710 at n = 15,000 and 20,000, past the table in OEIS A390246 (every n up to 10,000), which the lab's values match.</li>
+<li>A negative result on Erdős problem 50: one natural way to certify the density f(c) cannot work, with the measurement that shows it.</li>
+<li>A one-line rule for where a published congruence lowers the cap in Erdős problem 86, checked for every n from 3 to 600.</li>
+<li>Every result must first reproduce published values, then pass a second independent method and a separate AI referee re-run.</li>
+<li>Drafts that turned out wrong or already known are listed openly instead of being deleted.</li>
+</ul>
+<h2 dir="auto">What is here</h2>
+<markdown-accessiblity-table><div class="scroll"><table role="table">
+<thead>
+<tr>
+<th>Note</th>
+<th>Problem</th>
+<th>Kind</th>
+<th>What it says</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/juw12/open-problems-lab/blob/main/notes/2026-11-10-erdos142-r3-reproduction.md">erdos142-r3-reproduction</a></td>
+<td>Erdős #142</td>
+<td>Reproduction</td>
+<td>Re-enumerates r_3(N) for N ≤ 40; all 16 record values in OEIS A003002 match.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/juw12/open-problems-lab/blob/main/notes/2026-11-10-ppl076-reciprocal-sum-reproduction.md">ppl076-reciprocal-sum-reproduction</a></td>
+<td>Erdős #3</td>
+<td>Reproduction</td>
+<td>Numerical check of the Abel-summation reduction step only (not of any proof).</td>
+</tr>
+<tr>
+<td><a href="https://github.com/juw12/open-problems-lab/blob/main/notes/2026-11-11-s5-off-diagonal-ramsey-frontier.md">s5-off-diagonal-ramsey-frontier</a></td>
+<td>Erdős #986</td>
+<td>Dated reference</td>
+<td>Re-states and dates the published lower and upper log-exponents for r(s,t), s ≥ 5. No new bound.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/juw12/open-problems-lab/blob/main/notes/2026-11-11-sun-alternating-primes-verification.md">sun-alternating-primes-verification</a></td>
+<td>Sun's alternating-primes conjecture</td>
+<td>Verification</td>
+<td>0 violations for m ≤ 10⁹ (published range: m ≤ 10⁷). The bound is tight only at m = 303 and m = 2382.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/juw12/open-problems-lab/blob/main/notes/2026-11-11-erdos710-f-n-exact-push.md">erdos710-f-n-exact-push</a></td>
+<td>Erdős #710</td>
+<td>Computed extension</td>
+<td>Exact f(n) by bipartite matching: f(15000) = 31576 and f(20000) = 42561, past OEIS A390246 (n ≤ 10,000); f(10000) = 20626 matches that table.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/juw12/open-problems-lab/blob/main/notes/2026-11-11-erdos143-d0all-1-4-hardened.md">erdos143-d0all-1-4-hardened</a></td>
+<td>Erdős #143</td>
+<td>Computed extension</td>
+<td>A finite-N threshold in a candidate counterexample's selection lemma stays at 1/4 for all periods L ≤ 2000 (N = 5×10⁷).</td>
+</tr>
+<tr>
+<td><a href="https://github.com/juw12/open-problems-lab/blob/main/notes/2026-11-11-erdos50-phi-distribution-interior-cdf.md">erdos50-phi-distribution-interior-cdf</a></td>
+<td>Erdős #50</td>
+<td>Computed extension</td>
+<td>Table of the density of {n ≤ N : φ(n) &lt; c·n} at interior c, N = 10⁷.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/juw12/open-problems-lab/blob/main/notes/2026-11-12-erdos50-band-edges.md">erdos50-band-edges</a></td>
+<td>Erdős #50</td>
+<td>Computed extension</td>
+<td>Rational end points 8/35 and 42367104/44709361 of the band where the finite-N windowed slope diverges.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/juw12/open-problems-lab/blob/main/notes/2026-11-12-erdos50-sharpest-interior-region.md">erdos50-sharpest-interior-region</a></td>
+<td>Erdős #50</td>
+<td>Computed extension</td>
+<td>The sharpest finite-N slope growth sits in a cluster near c ≈ 0.6664.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/juw12/open-problems-lab/blob/main/notes/2026-11-12-erdos50-lobe-localdim.md">erdos50-lobe-localdim</a></td>
+<td>Erdős #50</td>
+<td>Computed extension</td>
+<td>Prime content and local-complexity measurements of the densest interior region near c ≈ 0.65.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/juw12/open-problems-lab/blob/main/notes/2026-11-13-erdos50-fc-enclosure-kill-test.md">erdos50-fc-enclosure-kill-test</a></td>
+<td>Erdős #50</td>
+<td><strong>Negative result</strong></td>
+<td>One natural way to certify f(c) at interior c (exact atom sum + published tail bound) cannot work: the remainder stays ≥ 0.104.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/juw12/open-problems-lab/blob/main/notes/2026-11-18-erdos86-mod8-caps.md">erdos86-mod8-caps</a></td>
+<td>Erdős #86</td>
+<td>Corollary + table</td>
+<td>Applies a published congruence (Minamoto, Lemma 12) at every n: the two-point cap drops by 1 at n = 12, 18, 20, 22, 24, with a one-line rule checked for n = 3…600.</td>
+</tr>
+</tbody>
+</table></div></markdown-accessiblity-table>
+<p dir="auto">Each note lists its own limits. Where a note says "first" or "not published", that is the<br>
+result of the lab's literature search on that date, not a guarantee.</p>
+<h2 dir="auto">Layout</h2>
+<ul dir="auto">
+<li><code class="notranslate">notes/</code> - the 12 notes above.</li>
+<li><code class="notranslate">prize_work/</code> - the scripts and output files behind each note, plus the lab's working<br>
+log for each problem (long, unedited).</li>
+<li><code class="notranslate">review_notes/</code> - the AI referee's re-run report for each result.</li>
+<li><a href="https://github.com/juw12/open-problems-lab/blob/main/METHOD.md">METHOD.md</a> - how a result is checked before it gets a note.</li>
+</ul>
+<h2 dir="auto">Reproducing a result</h2>
+<p dir="auto">Python 3.11+. Most scripts need <code class="notranslate">numpy</code>; a few use <code class="notranslate">scipy</code>, <code class="notranslate">sympy</code> or <code class="notranslate">pypdf</code>. Quick example,<br>
+under one second:</p>
+<pre class="notranslate"><code class="notranslate">python prize_work/ppl-076/reciprocal_aps.py
+</code></pre>
+<p dir="auto">Some scripts were written for one machine and contain the absolute path<br>
+<code class="notranslate">E:\Projects\MillenniumResearch</code>. Replace it with the path of your clone. A few large<br>
+output files (over 400 KB) and third-party PDFs are not included; the scripts regenerate<br>
+the outputs.</p>
+<h2 dir="auto">Corrections and retractions</h2>
+<p dir="auto">The lab was wrong several times. One published claim was corrected (first item); the<br>
+other drafts were written and then pulled before publication, and they are not in this<br>
+repository:</p>
+<ul dir="auto">
+<li><strong>Erdős #710, "only n = 10 is published" (corrected in version 1.0.1, 18 November 2026).</strong><br>
+Version 1.0.0 of this repository said the only published exact value of f(n) was<br>
+f(10). That was wrong: OEIS <a href="https://oeis.org/A390246" rel="nofollow">A390246</a> (G. Kalogeropoulos,<br>
+2025, with a table by S. Kesarwani) lists f(n) for every n up to 10,000. The lab's<br>
+values agree with that table, so only f(15000) and f(20000) go past it. The<br>
+literature search had missed an OEIS entry. This one was published before it was<br>
+caught; the note now carries the correction.</li>
+<li><strong>Erdős #86, C4-free certificates for Q15 to Q25 (five drafts).</strong> Superseded: Wang<br>
+(arXiv:2611.14906) and Minamoto (arXiv:2603.29127v5) publish exact values for the same<br>
+family, so the lab's lower bounds were no longer new.</li>
+<li><strong>Erdős #241, a B₃ set with 10 elements.</strong> The lab bracketed N₁₀ in [310, 359], then<br>
+found that N₁₀ = 310 was already settled (T. Oliveira e Silva, erdosproblems.com forum<br>
+thread 241, 21 March 2026). The literature search had missed a forum post.</li>
+<li><strong>Erdős #50, Rényi dimension spectrum.</strong> Held: the estimate changes with the bin width<br>
+and has not been shown to converge.</li>
+<li><strong>Separating words, nS(n) through n = 25.</strong> Held: an update is still waiting for review.</li>
+</ul>
+<p dir="auto">Also withheld: 17 notes that claim status errors in a third-party problem catalogue<br>
+(not yet checked by a person), and work on a competition that is still running.</p>
+<h2 dir="auto">Found a mistake?</h2>
+<p dir="auto">Please open an issue. A wrong number, a missed reference or a claim that is already<br>
+known are all useful to me, and I will record the correction here.</p>
+<h2 dir="auto">How to cite</h2>
+<p dir="auto">Juwen Lie. <em>Open Problems Lab: reproducible computations on open problems in number theory<br>
+and combinatorics.</em> Zenodo. <a href="https://doi.org/10.5281/zenodo.24338429" rel="nofollow">https://doi.org/10.5281/zenodo.24338429</a></p>
+<p dir="auto">That DOI always points to the newest version. Version 1.0.0 is <a href="https://doi.org/10.5281/zenodo.24338430" rel="nofollow">https://doi.org/10.5281/zenodo.24338430</a>.</p>
+<h2 dir="auto">Licence</h2>
+<p dir="auto">Code: MIT. Text and data: CC BY 4.0. See <a href="https://github.com/juw12/open-problems-lab/blob/main/LICENSE">LICENSE</a>.</p>
+<p dir="auto">Juwen Lie - <a href="https://github.com/juw12">github.com/juw12</a> - ORCID <a href="https://orcid.org/0009-0008-1384-7901" rel="nofollow">0009-0008-1384-7901</a></p>
+</main>
+<footer>
+This is the Open Problems Lab guide: the project's README, laid out to read on a phone and kept for when there is no connection.
+It is the README of 2026-11-18. Open Problems Lab itself is installed and run the way the guide says; the code is at
+<a href="https://github.com/juw12/open-problems-lab">github.com/juw12/open-problems-lab</a>.
+</footer>
+<script>
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script>
+</body>
+</html>
