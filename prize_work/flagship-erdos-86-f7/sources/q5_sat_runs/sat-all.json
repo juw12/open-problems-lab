@@ -1,0 +1,24 @@
+{
+ "question": "is there a C4-free subgraph of Q5 in case all with sum g(d) >= 801?",
+ "method": "CNF + CaDiCaL + DRAT proof checked by drat-trim",
+ "case": "all",
+ "nbr": [],
+ "top_degree": null,
+ "target": 801,
+ "variables": 10297,
+ "clauses": 60103,
+ "cnf_sha256": "d68346a1b6287590271903c7a6cdafbff5a89a20e0e177b9bc13b6887b045376",
+ "solve_seconds": 9000.0,
+ "versions": {
+  "python": "3.12.16",
+  "cadical": "2.1.3",
+  "drat-trim": "2e3b2dc0ecf938addbd779d42877b6ed69d9a985"
+ },
+ "solver_answer": "UNKNOWN",
+ "verdict": "UNKNOWN",
+ "seconds": 9000.0,
+ "solver": "cadical+drat-trim",
+ "status": "UNKNOWN",
+ "plain": true,
+ "time_limit": 9000.0
+}

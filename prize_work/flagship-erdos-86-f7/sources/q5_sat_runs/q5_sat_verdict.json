@@ -8,5 +8,17 @@
  },
  "control_passed": false,
  "counterexamples": [],
- "runs": []
+ "runs": [
+  {
+   "file": "sat-all.json",
+   "solver": "cadical+drat-trim",
+   "case": "all",
+   "nbr": [],
+   "target": 801,
+   "plain": true,
+   "verdict": "UNKNOWN",
+   "seconds": 9000.0,
+   "time_limit": 9000.0
+  }
+ ]
 }

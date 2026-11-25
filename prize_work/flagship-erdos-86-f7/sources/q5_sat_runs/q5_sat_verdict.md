@@ -4,5 +4,6 @@ Solvers that cover every case at target 801: none.  Control (800 is reachable): 
 
 | solver | case | neighbour degrees | target | verdict | seconds | limit |
 |---|---|---|---|---|---|---|
+| cadical+drat-trim | all plain |  | 801 | UNKNOWN | 9000.0 | 9000 |
 
-Run: https://github.com/juw12/open-problems-lab/actions/runs/45604007728 (commit e6b51b3ae5ceae1052e625dde01aaae1ea7cc16b). INFEASIBLE here means: CaDiCaL found no solution and drat-trim verified its proof.
+Last run added: https://github.com/juw12/open-problems-lab/actions/runs/45606831102 (the whole problem, no case split). INFEASIBLE here means: CaDiCaL found no solution and drat-trim verified its proof. UNKNOWN means the time limit was hit; it decides nothing.
