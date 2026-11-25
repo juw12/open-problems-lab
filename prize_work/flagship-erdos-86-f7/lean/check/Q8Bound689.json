@@ -1,11 +1,11 @@
 {
  "file": "Q8Bound689.lean",
- "verdict": "failed",
+ "verdict": "checked",
  "exit": 0,
  "timed_out": false,
  "seconds": 17.4,
  "theorems": 82,
- "theorems_with_axiom_report": 81,
+ "theorems_with_axiom_report": 82,
  "axioms_used": [
   "Classical.choice",
   "Quot.sound",

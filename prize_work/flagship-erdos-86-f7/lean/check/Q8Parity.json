@@ -1,11 +1,11 @@
 {
  "file": "Q8Parity.lean",
- "verdict": "failed",
+ "verdict": "checked",
  "exit": 0,
  "timed_out": false,
- "seconds": 6.6,
+ "seconds": 9.0,
  "theorems": 56,
- "theorems_with_axiom_report": 55,
+ "theorems_with_axiom_report": 56,
  "axioms_used": [
   "Classical.choice",
   "Quot.sound",

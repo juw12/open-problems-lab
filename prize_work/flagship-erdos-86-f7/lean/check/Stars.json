@@ -1,11 +1,11 @@
 {
  "file": "Stars.lean",
- "verdict": "failed",
+ "verdict": "checked",
  "exit": 0,
  "timed_out": false,
- "seconds": 6.9,
+ "seconds": 7.8,
  "theorems": 42,
- "theorems_with_axiom_report": 41,
+ "theorems_with_axiom_report": 42,
  "axioms_used": [
   "Classical.choice",
   "Quot.sound",
