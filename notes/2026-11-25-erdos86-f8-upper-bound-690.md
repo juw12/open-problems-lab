@@ -8,6 +8,9 @@ Updated: 2026-11-25, same day: Chung (1992) was read. Step 1 and the bound 691 a
 Updated: 2026-11-25, afternoon: Thomason and Wagner (2009) was read. A table printed in their paper gives
   f(8) <= 689 by averaging over sub-5-cubes; the number is not stated there. So 690 is weaker than a consequence
   of data published in 2009. See "Thomason-Wagner's table gives 689". The proof below is unchanged.
+Updated: 2026-11-25, evening: the one inequality that 689 needs from that table was checked directly, without
+  the table, by an exact solver (CP-SAT: no C4-free subgraph of Q5 above 800). A solver verdict, not a proof
+  that Lean or a person has checked. Same section.
 Flagship: F2, F4, F5
 Scope: one finite statement about the 8-cube. Claimed: f(8) <= 690, with a Lean 4 proof and no computer search.
   Not claimed: that 690 is new or the best known bound (it is not, see the second update), that it is the true
@@ -37,10 +40,10 @@ how f(n) grows; the small values are f(4) = 24, f(5) = 56, f(6) = 132 and, since
 | f(8) <= 694 | averaging over the 16 facets from f(7) = 304: 7 e <= 16 * 304 |
 | f(8) <= 691 | star capacity (Chung 1992, Lemmas 4-5; per parity class it is Lemma 2.2 of arXiv:2611.27284; step 1 below) with C(d,3) >= 10 d - 40; `Stars.bound_8_691` |
 | **f(8) <= 690** | **this note; `Q8Parity.bound_8_690`**; no computer search, checked by Lean |
-| f(8) <= 689 | follows from Table 1 of Thomason-Wagner (2009), a computer enumeration in Q5, by averaging over the 448 sub-5-cubes; the number is not printed there and the table was not re-computed here; section "Thomason-Wagner's table gives 689" |
+| f(8) <= 689 | follows from Table 1 of Thomason-Wagner (2009), a computer enumeration in Q5, by averaging over the 448 sub-5-cubes; the number is not printed there. The table was not re-computed here; the one inequality used from it was checked by an exact solver (not Lean); section "Thomason-Wagner's table gives 689" |
 
-So 682 <= f(8) <= 690 with a proof the Lean kernel has checked, and 682 <= f(8) <= 689 if that table is
-accepted. The gap is not closed.
+So 682 <= f(8) <= 690 with a proof the Lean kernel has checked, and 682 <= f(8) <= 689 if that table, or the
+solver check of the one inequality taken from it, is accepted. The gap is not closed.
 
 ## What was checked, and by what
 
@@ -128,11 +131,21 @@ For d = 0..8 the values of h(d) - 260 d are 0, 160, 220, 180, 84, 0, 0, 140, 440
 
 - This derivation was made by an AI agent and has not been read by a mathematician. The lab did not find the
   number 689 in the paper or anywhere else, and does not know whether it is written down somewhere.
-- It rests on Table 1, which was copied from the paper and not re-computed. A direct check of (*) by integer
-  programming, without the table, is not finished: a 45-second run found the value 800 and proved only <= 812.
+- Table 1 was copied from the paper and not re-computed. But (*) was checked directly, without the table, on
+  2026-11-25: an exact solver (CP-SAT, OR-Tools 9.15) was asked for a C4-free subgraph of Q5 with left side
+  >= 801 and answered "infeasible" in every case (largest degree 4: 20 s; a vertex of degree 5: 20 min; largest
+  degree <= 3 needs no run, the sum is at most 672). Asked for 800 it finds a graph in both cases, so the
+  model is not empty by mistake. A second solver (HiGHS) agrees on every case it has finished; for one sub-case
+  it was still running when this was written. This is a solver verdict: no proof file was produced, the case
+  split uses a symmetry argument nobody has read, and neither Lean nor a person has checked it. Runs:
+  https://github.com/juw12/open-problems-lab/actions/runs/45592147713 and .../runs/45596181027; record in
+  `prize_work/flagship-erdos-86-f7/sources/q5_inequality_RESULT.md`.
+- (*) is not a fact about one parity class: the largest sum of g(d) = 12 d - 5 C(d,2) + 11 C(d,4) - 20 C(d,5)
+  over the 16 vertices of one class is 404, not 400 (`q5_class_bound.py`; the other class then has 382).
 - The same table gives f(5) <= 56, f(6) <= 133, f(7) <= 306, f(9) <= 1549 and f(10) <= 3398.
 - Scripts: `prize_work/flagship-erdos-86-f7/sources/thomason_wagner_certificate.py` (exact multipliers, checked
-  in fractions), `thomason_wagner_star_lp.py` (the linear program), `q5_inequality_ilp.py` (the unfinished check).
+  in fractions), `thomason_wagner_star_lp.py` (the linear program), `q5_inequality_cases.py` and `q5_verdict.py`
+  (the solver check; `q5_inequality_ilp.py` is the first attempt, which did not finish).
 
 What this note still offers: 690 by a proof of about one page with no computer search, checked by the Lean
 kernel.
