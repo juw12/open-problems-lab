@@ -26,6 +26,23 @@ agents, not by people.
 7. **Kill tests.** Where possible a job states in advance what outcome would make the
    idea worthless, and runs that test first. One of the notes here is such a failure.
 
+## Machine-checked notes
+
+A note whose kind is "Machine-checked proof (Lean 4)" follows a different route. The
+statement and its proof are written in Lean 4 with the Mathlib library, and the lab's gate
+compiles the files and lists the axioms each theorem depends on. A file passes only when it
+compiles with no `sorry` and uses only Lean's three standard axioms (`propext`,
+`Classical.choice`, `Quot.sound`). The publisher refuses a note when a Lean file has
+changed since the gate checked it. What this does and does not give:
+
+- The kernel checked that the proof proves the statement **as written in the Lean file**.
+  Whether the Lean statement says what the note says in words was read by an AI agent,
+  not by a person. The definitions are short and are in the files so anyone can read them.
+- It says nothing about novelty. That comes from the literature search, as for any note.
+- To check one yourself: make a Lean project with Lean 4 v4.32.0 and Mathlib v4.32.0
+  (the versions the lab used), copy the file in and run `lake env lean <file>.lean`.
+  Each file stands alone. Add `#print axioms <theorem name>` at the end to see the axioms.
+
 ## Known weak points
 
 - The referee and the panel are AI agents from the same family as the worker. They

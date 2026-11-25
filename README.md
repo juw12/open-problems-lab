@@ -2,15 +2,19 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24338429.svg)](https://doi.org/10.5281/zenodo.24338429)
 
-**Small, checkable computations on open maths problems. No proofs, no prize claims.**
+**Small, checkable computations on open maths problems, and a few finite statements checked by the Lean 4 proof checker. No open problem is solved here; no prize claims.**
 
 Reproducible computations on open problems in number theory and combinatorics
 (mostly from [erdosproblems.com](https://www.erdosproblems.com)), produced by an
 AI-agent research lab that I run on my own PC.
 
-> Nothing in this repository is a proof, a solution or a prize claim. Every note is one
+> Nothing in this repository solves an open problem or claims a prize. Every note is one
 > of: a reproduction of published values, a finite computation that goes past the
-> published range, or a negative result. The work was computed and re-run by AI agents.
+> published range, a negative result, or (where the Kind column says "Machine-checked
+> proof (Lean 4)") a proof of one finite statement that the Lean 4 kernel accepted. A
+> Lean-checked note proves exactly the statement in its Lean file and nothing wider;
+> whether that statement is new is a separate question, answered in the note. The work
+> was computed and re-run by AI agents.
 > **No human mathematician has reviewed it.** I am a mechanical engineer, not a
 > mathematician; I built the lab and the checking process, and I am publishing the
 > results so that people who know these problems can check them, use them or tell me
@@ -30,6 +34,7 @@ The Windows, Mac and Android apps open the Open Problems Lab guide (https://juw1
 - Sun's alternating-primes conjecture checked for every m up to 10⁹ with 0 violations; the published check stops at 10⁷.
 - Exact values of f(n) for Erdős problem 710 at n = 15,000 and 20,000, past the table in OEIS A390246 (every n up to 10,000), which the lab's values match.
 - A negative result on Erdős problem 50: one natural way to certify the density f(c) cannot work, with the measurement that shows it.
+- Erdős problem 86: a subgraph of the 8-dimensional cube with no 4-cycle has at most 690 edges, checked by the Lean 4 kernel (the best published construction has 682). The lab's search found no published upper bound for this case; it has not confirmed that 690 is new.
 - A one-line rule for where a published congruence lowers the cap in Erdős problem 86, checked for every n from 3 to 600.
 - Every result must first reproduce published values, then pass a second independent method and a separate AI referee re-run.
 - Drafts that turned out wrong or already known are listed openly instead of being deleted.
@@ -50,17 +55,18 @@ The Windows, Mac and Android apps open the Open Problems Lab guide (https://juw1
 | [erdos50-lobe-localdim](notes/2026-11-12-erdos50-lobe-localdim.md) | Erdős #50 | Computed extension | Prime content and local-complexity measurements of the densest interior region near c ≈ 0.65. |
 | [erdos50-fc-enclosure-kill-test](notes/2026-11-13-erdos50-fc-enclosure-kill-test.md) | Erdős #50 | **Negative result** | One natural way to certify f(c) at interior c (exact atom sum + published tail bound) cannot work: the remainder stays ≥ 0.104. |
 | [erdos86-mod8-caps](notes/2026-11-18-erdos86-mod8-caps.md) | Erdős #86 | Corollary + table | Applies a published congruence (Minamoto, Lemma 12) at every n: the two-point cap drops by 1 at n = 12, 18, 20, 22, 24, with a one-line rule checked for n = 3…600. |
-| [erdos86-f8-upper-bound-690](notes/2026-11-25-erdos86-f8-upper-bound-690.md) | Erdős #86 | Machine-checked proof (Lean 4) | f(8) <= 690: a C4-free subgraph of the 8-cube has at most 690 edges (Lean-checked) |
+| [erdos86-f8-upper-bound-690](notes/2026-11-25-erdos86-f8-upper-bound-690.md) | Erdős #86 | Machine-checked proof (Lean 4) | f(8) ≤ 690: a C4-free subgraph of the 8-cube has at most 690 edges. The Lean files are in `prize_work/flagship-erdos-86-f7/lean/`. Novelty not established. |
 
 Each note lists its own limits. Where a note says "first" or "not published", that is the
 result of the lab's literature search on that date, not a guarantee.
 
 ## Layout
 
-- `notes/` - the 12 notes above.
+- `notes/` - the notes above.
 - `prize_work/` - the scripts and output files behind each note, plus the lab's working
   log for each problem (long, unedited).
-- `review_notes/` - the AI referee's re-run report for each result.
+- `review_notes/` - the AI referee's re-run report for each computed result (a Lean-checked
+  note has its Lean files instead).
 - [METHOD.md](METHOD.md) - how a result is checked before it gets a note.
 
 ## Reproducing a result

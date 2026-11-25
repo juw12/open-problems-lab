@@ -66,14 +66,18 @@ footer a{color:var(--soft)}
 <main id="guide">
 <h1 dir="auto">Open Problems Lab</h1>
 <p dir="auto"><a href="https://doi.org/10.5281/zenodo.24338429" rel="nofollow"><img loading="lazy" src="https://zenodo.org/badge/DOI/10.5281/zenodo.24338429.svg" alt="DOI"  style="max-width: 100%;"></a></p>
-<p dir="auto"><strong>Small, checkable computations on open maths problems. No proofs, no prize claims.</strong></p>
+<p dir="auto"><strong>Small, checkable computations on open maths problems, and a few finite statements checked by the Lean 4 proof checker. No open problem is solved here; no prize claims.</strong></p>
 <p dir="auto">Reproducible computations on open problems in number theory and combinatorics<br>
 (mostly from <a href="https://www.erdosproblems.com" rel="nofollow">erdosproblems.com</a>), produced by an<br>
 AI-agent research lab that I run on my own PC.</p>
 <blockquote>
-<p dir="auto">Nothing in this repository is a proof, a solution or a prize claim. Every note is one<br>
+<p dir="auto">Nothing in this repository solves an open problem or claims a prize. Every note is one<br>
 of: a reproduction of published values, a finite computation that goes past the<br>
-published range, or a negative result. The work was computed and re-run by AI agents.<br>
+published range, a negative result, or (where the Kind column says "Machine-checked<br>
+proof (Lean 4)") a proof of one finite statement that the Lean 4 kernel accepted. A<br>
+Lean-checked note proves exactly the statement in its Lean file and nothing wider;<br>
+whether that statement is new is a separate question, answered in the note. The work<br>
+was computed and re-run by AI agents.<br>
 <strong>No human mathematician has reviewed it.</strong> I am a mechanical engineer, not a<br>
 mathematician; I built the lab and the checking process, and I am publishing the<br>
 results so that people who know these problems can check them, use them or tell me<br>
@@ -84,6 +88,7 @@ what is wrong.</p>
 <li>Sun's alternating-primes conjecture checked for every m up to 10⁹ with 0 violations; the published check stops at 10⁷.</li>
 <li>Exact values of f(n) for Erdős problem 710 at n = 15,000 and 20,000, past the table in OEIS A390246 (every n up to 10,000), which the lab's values match.</li>
 <li>A negative result on Erdős problem 50: one natural way to certify the density f(c) cannot work, with the measurement that shows it.</li>
+<li>Erdős problem 86: a subgraph of the 8-dimensional cube with no 4-cycle has at most 690 edges, checked by the Lean 4 kernel (the best published construction has 682). The lab's search found no published upper bound for this case; it has not confirmed that 690 is new.</li>
 <li>A one-line rule for where a published congruence lowers the cap in Erdős problem 86, checked for every n from 3 to 600.</li>
 <li>Every result must first reproduce published values, then pass a second independent method and a separate AI referee re-run.</li>
 <li>Drafts that turned out wrong or already known are listed openly instead of being deleted.</li>
@@ -171,16 +176,23 @@ what is wrong.</p>
 <td>Corollary + table</td>
 <td>Applies a published congruence (Minamoto, Lemma 12) at every n: the two-point cap drops by 1 at n = 12, 18, 20, 22, 24, with a one-line rule checked for n = 3…600.</td>
 </tr>
+<tr>
+<td><a href="https://github.com/juw12/open-problems-lab/blob/main/notes/2026-11-25-erdos86-f8-upper-bound-690.md">erdos86-f8-upper-bound-690</a></td>
+<td>Erdős #86</td>
+<td>Machine-checked proof (Lean 4)</td>
+<td>f(8) ≤ 690: a C4-free subgraph of the 8-cube has at most 690 edges. The Lean files are in <code class="notranslate">prize_work/flagship-erdos-86-f7/lean/</code>. Novelty not established.</td>
+</tr>
 </tbody>
 </table></div></markdown-accessiblity-table>
 <p dir="auto">Each note lists its own limits. Where a note says "first" or "not published", that is the<br>
 result of the lab's literature search on that date, not a guarantee.</p>
 <h2 dir="auto">Layout</h2>
 <ul dir="auto">
-<li><code class="notranslate">notes/</code> - the 12 notes above.</li>
+<li><code class="notranslate">notes/</code> - the notes above.</li>
 <li><code class="notranslate">prize_work/</code> - the scripts and output files behind each note, plus the lab's working<br>
 log for each problem (long, unedited).</li>
-<li><code class="notranslate">review_notes/</code> - the AI referee's re-run report for each result.</li>
+<li><code class="notranslate">review_notes/</code> - the AI referee's re-run report for each computed result (a Lean-checked<br>
+note has its Lean files instead).</li>
 <li><a href="https://github.com/juw12/open-problems-lab/blob/main/METHOD.md">METHOD.md</a> - how a result is checked before it gets a note.</li>
 </ul>
 <h2 dir="auto">Reproducing a result</h2>

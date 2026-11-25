@@ -39,9 +39,11 @@ def new_notes(tag: str) -> list[Path]:
 
 def release_body(notes: list[Path], total: int) -> str:
     lines = [f"- New note: {note_title(path)}" for path in notes]
-    lines.append(f"- The repository now holds {total} notes, each with its scripts and an AI referee re-run report")
+    lines.append(f"- The repository now holds {total} notes, each with its scripts and an AI referee re-run report, "
+                 "or with its Lean 4 files when the note is a machine-checked proof")
     lines.append("")
-    lines.append("Computed and re-run by AI agents; not reviewed by a human mathematician. No proofs, no prize claims.")
+    lines.append("Produced by AI agents; not reviewed by a human mathematician. "
+                 "No open problem is solved here and there are no prize claims.")
     return "\n".join(lines)
 
 
@@ -55,7 +57,7 @@ def bump_citation(version: str, today: str) -> None:
 
 def main() -> None:
     dry_run = "--dry-run" in sys.argv
-    tag = git("describe", "--tags", "--abbrev=0")
+    tag = git("describe", "--tags", "--abbrev=0", "--match", "v[0-9]*")
     notes = new_notes(tag)
     if not notes:
         print(f"No new notes since {tag}; no release.")

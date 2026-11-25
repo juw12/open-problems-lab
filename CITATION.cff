@@ -6,9 +6,10 @@ version: "1.0.1"
 abstract: >-
   Small, checkable computations on open problems in number theory and combinatorics,
   mostly from erdosproblems.com. Each note is a reproduction of published values, a finite
-  computation past the published range, or a negative result, with the scripts, outputs and
-  an AI referee re-run report. The work was computed and re-run by AI agents and has not
-  been reviewed by a human mathematician. Nothing here is a proof or a prize claim.
+  computation past the published range, a negative result, or a proof of one finite
+  statement checked by the Lean 4 kernel, with the scripts, outputs and an AI referee
+  re-run report or the Lean files. The work was produced by AI agents and has not been
+  reviewed by a human mathematician. Nothing here solves an open problem or claims a prize.
 authors:
   - family-names: Lie
     given-names: Juwen
@@ -18,6 +19,8 @@ keywords:
   - combinatorics
   - Erdos problems
   - reproducible computation
+  - Lean 4
+  - formal verification
   - computational mathematics
 doi: 10.5281/zenodo.24338429
 repository-code: "https://github.com/juw12/open-problems-lab"
