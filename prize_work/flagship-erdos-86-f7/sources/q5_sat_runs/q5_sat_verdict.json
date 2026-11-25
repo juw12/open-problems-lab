@@ -1,0 +1,12 @@
+{
+ "claim": "sum_v g(d(v)) <= 800 for every C4-free subgraph of Q5, g = (0, 12, 19, 21, 29, 45)",
+ "verdict": "NOT DECIDED",
+ "holds_by_solver": [],
+ "control_feasible_at_800": {
+  "d4": [],
+  "d5": []
+ },
+ "control_passed": false,
+ "counterexamples": [],
+ "runs": []
+}

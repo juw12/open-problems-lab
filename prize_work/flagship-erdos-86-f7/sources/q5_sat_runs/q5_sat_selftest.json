@@ -1,0 +1,11 @@
+{
+ "Q3 g=[0, 12, 19, 21]": "maximum 156 by brute force; formula agrees at targets 153..159",
+ "Q3 g=[0, 5, 1, 9]": "maximum 48 by brute force; formula agrees at targets 45..51",
+ "Q3 g=[3, 0, 7, 2]": "maximum 56 by brute force; formula agrees at targets 53..59",
+ "Q4 real weights": "maximum 344 by CP-SAT; formula has a solution at 344, none at 345",
+ "Q5 d4 target 800": "graph found, sum 800, 56 edges, re-checked",
+ "Q5 d5 target 800": "graph found, sum 800, 53 edges, re-checked",
+ "Q5 d4 nbr=[1] target 801": "no solution (in-process solver, no proof file)",
+ "Q5 d5 nbr=[1] target 801": "no solution (in-process solver, no proof file)",
+ "Q5 d5 nbr=[4, 1, 1] target 801": "no solution (in-process solver, no proof file)"
+}
