@@ -38,16 +38,16 @@ table { break-inside: avoid; }
 
 <h1>A C<sub>4</sub>-free subgraph of the 8-cube has at most 690 edges:<br>a Lean-checked parity argument</h1>
 <p class="author">Juwen Lie</p>
-<p class="affil">Independent; ORCID 0009-0008-1384-7901 &nbsp;·&nbsp; 25 November 2026 &nbsp;·&nbsp; version 1<br>
-Archived with the Lean files: doi:10.5281/zenodo.24522415 (release v1.1.0 of github.com/juw12/open-problems-lab)</p>
+<p class="affil">Independent; ORCID 0009-0008-1384-7901 &nbsp;·&nbsp; 25 November 2026 &nbsp;·&nbsp; version 2 (prior work updated after reading Chung [6]; the theorem and its proof are unchanged)<br>
+Archived with the Lean files: doi:10.5281/zenodo.24338429 (all versions of github.com/juw12/open-problems-lab; version 1 of this paper is in release v1.1.0, doi:10.5281/zenodo.24522415)</p>
 
 <div class="abstract"><b>Abstract.</b> Let f(n) be the largest number of edges of a subgraph of the n-dimensional
-cube Q<sub>n</sub> that contains no 4-cycle. We show f(8) ≤ 690. The proof combines the star-capacity count of
+cube Q<sub>n</sub> that contains no 4-cycle. We show f(8) ≤ 690. The proof combines a star-capacity count that goes back to Chung (1992) and is used in this form by
 Zhou, Ma, Yang, Ren, Yang and Li, which gives 691, with a parity count inside the 16 facets that rules 691 out.
 The statement and its proof were checked by the Lean 4 kernel with Mathlib. With the known construction on 682
 edges this gives 682 ≤ f(8) ≤ 690. The proof was produced by an AI agent and has not been read by a mathematician;
-we did not find an earlier upper bound for f(8) in the sources we could read, but we have not established that
-690 is new.</div>
+we did not find the bound 690 in the sources we could read, two older papers remain unread, and we have not
+established that 690 is new.</div>
 
 <div class="box"><b>How this was made, and what to trust.</b> I am a mechanical engineer, not a mathematician.
 The statement, the proof below and its Lean formalisation were written by an AI agent (a large language model) in a
@@ -69,7 +69,7 @@ Ren, Yang and Li [2]. For n = 8 we know of the following bounds.</p>
 <tr><th>Bound</th><th>Source</th></tr>
 <tr><td>f(8) ≥ 682</td><td>a construction from the fully frustrated ground state of Marinari, Parisi and Ritort; edge list in Minamoto [3]</td></tr>
 <tr><td>f(8) ≤ 694</td><td>averaging over the 16 facets from f(7) = 304: 7·e ≤ 16·304</td></tr>
-<tr><td>f(8) ≤ 691</td><td>star capacity (Lemma 2.2 of [2]) with C(d,3) ≥ 10d − 40; Step 1 and Step 2 below</td></tr>
+<tr><td>f(8) ≤ 691</td><td>star capacity (Lemmas 4 and 5 of Chung [6]; Lemma 2.2 of [2]) with C(d,3) ≥ 10d − 40; Step 1 and Step 2 below. The number is not printed in [6] or [2]</td></tr>
 <tr><td><b>f(8) ≤ 690</b></td><td><b>this paper</b></td></tr>
 </table>
 
@@ -91,7 +91,7 @@ such that all three edges of F at v are in G. We write d(v) for the degree of v 
 <p>Suppose G is a subgraph of Q<sub>8</sub> without a 4-cycle and with at least 691 edges. Delete edges until G has
 exactly 691; it still has no 4-cycle.</p>
 
-<p><b>Step 1 (star capacity; Lemma 2.2 of [2]).</b> A 3-face holds four vertices of P, and any two of them have two
+<p><b>Step 1 (star capacity; Lemmas 4 and 5 of [6], Lemma 2.2 of [2]).</b> A 3-face holds four vertices of P, and any two of them have two
 common neighbours inside the face. If two of them were stars, the four edges from these two vertices to their two
 common neighbours would form a 4-cycle. So each 3-face carries at most one star. A vertex of degree d is a star in
 exactly C(d,3) different 3-faces, one for each choice of three of its edges. Hence</p>
@@ -161,9 +161,22 @@ archived at doi:10.5281/zenodo.24522415. To re-check: a Lean project with Lean 4
 
 <p><b>Whether 690 is new.</b> We found no upper bound for f(8) in [2], in [3], in the OEIS entry A245762 [4] or on
 the page of problem 86 [1], all read on 25 November 2026; the full text of [2] and [3] was searched for the numbers
-683 and 688 to 696, with no hit. We could not obtain Brass, Harborth and Nienborg [5], Chung [6] or Thomason and
-Wagner [7], so an earlier bound may exist there or elsewhere. Step 1 is the lemma of [2]; only the parity
-Step 4 may be new, and it is short enough that it may be folklore.</p>
+683 and 688 to 696, with no hit. The flag-algebra papers [8] give asymptotic densities only.</p>
+
+<p><b>What is in Chung's paper [6].</b> Her Lemmas 4 and 5 hold for every n and say that
+Σ<sub>v</sub> C(d(v), 3) ≤ 2·C(n,3)·2<sup>n−3</sup>, the sum over all vertices. This is Step 1 for both parity
+classes together, so Step 1 is hers, and the bound 691 follows from her paper in two lines although the number is
+not written there. Her Lemma 11, if it is read as an exact inequality, gives exactly 690 for n = 8. It is not
+exact, and it is not meant to be: it is a step in a bound for large n, and its proof uses Goodman's bound on
+monochromatic triangles in the form that holds for large sets. The printed inequality fails in Q<sub>4</sub> for
+the forest with 14 edges made of the two edges {0000, 0001} and {1110, 1111} together with all edges at their four
+ends: every 3-face has two vertices of degree 3, so the left side of Lemma 11 is 0, while the right side is 12/16.
+So 690 is not stated in [6] and does not follow from what is proved there. The script
+<code>prize_work/flagship-erdos-86-f7/chung_check.py</code> in the repository reproduces these numbers.</p>
+
+<p><b>Not read.</b> We could not obtain Brass, Harborth and Nienborg [5] or Thomason and Wagner [7], so an earlier
+bound may exist there or elsewhere. Only the parity Step 4 may be new, and it is short enough that it may be
+folklore.</p>
 <p><b>The true value of f(8)</b>, and anything about the asymptotic question of problem 86.</p>
 
 <h2>References</h2>
@@ -173,8 +186,9 @@ Step 4 may be new, and it is short enough that it may be folklore.</p>
 <li>M. Minamoto, <i>C4-Free Subgraphs of the Hypercubes Q6, Q7, and Q8: Odd Squares, Fully Frustrated Models, and Computational Structure</i>, arXiv:2603.29127, version 5.</li>
 <li>OEIS Foundation, sequence A245762, https://oeis.org/A245762 (read 25 November 2026).</li>
 <li>P. Brass, H. Harborth, H. Nienborg, <i>On the maximum number of edges in a C<sub>4</sub>-free subgraph of Q<sub>n</sub></i>, J. Graph Theory 19 (1995). Not read.</li>
-<li>F. R. K. Chung, <i>Subgraphs of a hypercube containing no small even cycles</i>, J. Graph Theory 16 (1992). Not read.</li>
+<li>F. R. K. Chung, <i>Subgraphs of a hypercube containing no small even cycles</i>, J. Graph Theory 16 (1992), 273–286. Read on 25 November 2026 (copy on the author's page).</li>
 <li>A. Thomason, P. Wagner, <i>Bounding the size of square-free subgraphs of the hypercube</i>, Discrete Math. 309 (2009). Not read.</li>
+<li>J. Balogh, P. Hu, B. Lidický, H. Liu, <i>Upper bounds on the size of 4- and 6-cycle-free subgraphs of the hypercube</i>, arXiv:1201.0209; R. Baber, <i>Turán densities of hypercubes</i>, arXiv:1201.3587. Asymptotic bounds only.</li>
 </ol>
 
 </body>

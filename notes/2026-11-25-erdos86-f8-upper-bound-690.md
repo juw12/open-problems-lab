@@ -2,6 +2,8 @@
 Target: the lab's public notes repo; later, if no earlier source turns up, a comment on erdosproblems.com problem 86
 Date: 2026-11-25
 Status: proof checked by Lean; no referee and no human reader yet; whether the bound is new is not established
+Updated: 2026-11-25, same day: Chung (1992) was read. Step 1 and the bound 691 are credited to her Lemmas 4-5;
+  the bound 690 is not in her paper. See "What is not known".
 Flagship: F2, F4, F5
 Scope: one finite statement about the 8-cube. Claimed: f(8) <= 690, with a Lean 4 proof. Not claimed: that 690 is
   new, that 690 is the true value, or anything about the asymptotic question of problem 86.
@@ -27,7 +29,7 @@ how f(n) grows; the small values are f(4) = 24, f(5) = 56, f(6) = 132 and, since
 |---|---|
 | f(8) >= 682 | odd-square set from the fully frustrated ground state of Marinari, Parisi and Ritort; edge list and proof of the odd-square optimum in Minamoto, arXiv:2603.29127 v5 |
 | f(8) <= 694 | averaging over the 16 facets from f(7) = 304: 7 e <= 16 * 304 |
-| f(8) <= 691 | star capacity (Lemma 2.2 of arXiv:2611.27284, step 1 below) with C(d,3) >= 10 d - 40; `Stars.bound_8_691` |
+| f(8) <= 691 | star capacity (Chung 1992, Lemmas 4-5; per parity class it is Lemma 2.2 of arXiv:2611.27284; step 1 below) with C(d,3) >= 10 d - 40; `Stars.bound_8_691` |
 | **f(8) <= 690** | **this note; `Q8Parity.bound_8_690`** |
 
 So 682 <= f(8) <= 690. The gap is not closed.
@@ -63,7 +65,7 @@ class (128 vertices; every edge has exactly one end in P). A 3-face is a 3-dimen
 C(8,3) * 2^5 = 1792. A star in a 3-face is a vertex of P in the face whose three edges inside the face are all
 in G.
 
-1. **One star per 3-face.** Two vertices of P in the same 3-face are at distance 2, and two stars there would
+1. **One star per 3-face (Chung 1992, Lemmas 4-5).** Two vertices of P in the same 3-face are at distance 2, and two stars there would
    close a 4-cycle. A vertex of degree d is the root of C(d,3) stars in C(d,3) different 3-faces. Hence
    S := sum over v in P of C(d(v),3) <= 1792.
 2. **All degrees on P are 5 or 6.** w(d) := C(d,3) - 10 d + 40 takes the values 40, 30, 20, 11, 4, 0, 0, 5, 16
@@ -101,10 +103,20 @@ files each carry their own copy of the definitions.
 
 - **Whether 690 is new.** The lab found no upper bound for f(8) in arXiv:2611.27284, arXiv:2603.29127, the OEIS
   entry A245762 or the page of problem 86 (all read on 2026-11-25; the full text of both papers was searched for
-  690 to 694, no hit; arXiv:2603.29127 lists "determine ex(Q_8, C_4) exactly, is it 682?" as open). It could not
-  read Brass, Harborth and Nienborg (J. Graph Theory 19, 1995), Chung (1992) or Thomason and Wagner (2009).
-  Step 1 is the star capacity lemma of arXiv:2611.27284; only the parity step 4 may be new, and it is short enough
-  that it may well be folklore. A reference to an earlier source is the most useful reply to this note.
+  690 to 694, no hit; arXiv:2603.29127 lists "determine ex(Q_8, C_4) exactly, is it 682?" as open). The two
+  flag-algebra papers arXiv:1201.0209 and arXiv:1201.3587 give asymptotic densities only.
+- **What Chung's 1992 paper has** (F. R. K. Chung, Subgraphs of a hypercube containing no small even cycles,
+  J. Graph Theory 16, 273-286; read on 2026-11-25 from the author's page). Her Lemmas 4 and 5 are exact for every
+  n and give sum over all v of C(d(v),3) <= 2 C(n,3) 2^(n-3), which is step 1 for both parity classes together.
+  So step 1 is hers, and 691 follows from her paper in two lines, although she does not write the number down.
+  Her Lemma 11, read as an exact inequality, would give exactly 690 for n = 8. It is not exact: it is one step of
+  an argument for large n, its proof uses Goodman's bound in the large-t form, and the printed inequality fails in
+  Q_4 for the 14-edge forest made of the edges {0000,0001} and {1110,1111} with all edges at their four ends
+  (left side 0, right side 3/4). So 690 is not stated in her paper and does not follow from what is proved
+  there. Script: `prize_work/flagship-erdos-86-f7/chung_check.py`.
+- **Still not read:** Brass, Harborth and Nienborg (J. Graph Theory 19, 1995) and Thomason and Wagner (Discrete
+  Math. 309, 2009). An earlier bound may be there or elsewhere. Only the parity step 4 may be new, and it is short
+  enough that it may well be folklore. A reference to an earlier source is the most useful reply to this note.
 - **The true value.** For 690 edges the same count leaves a slack of 12 instead of 2, and configurations such as
   four star-less faces with the same free coordinates, whose fixed values form an affine plane, pass the parity
   test. Reaching 689 needs another idea or a computation.
