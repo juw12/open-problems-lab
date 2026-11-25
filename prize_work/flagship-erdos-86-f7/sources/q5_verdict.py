@@ -8,8 +8,10 @@
                This is a solver verdict: it is as good as the solver, it is not a formal proof.
   NOT DECIDED  anything else.
 
-A solver covers everything when `all` is INFEASIBLE, or when d4 and d5 are both covered; d4 is
-covered by the run `d4` or by the four runs d4 top=1..4, d5 by the run `d5` or by d5 top=1..5.
+A solver covers everything when `all` is INFEASIBLE, or when d4 and d5 are both covered.  A case
+with the neighbour degrees of 0 starting a, b, ... (non-increasing) is covered by a run of exactly
+that case that came back INFEASIBLE, or when all its sub-cases a, b, ..., k (k = 1..last) are
+covered; so d4 is covered by the run `d4` or by d4 top=1..4, and d5 top=4 by nbr=4,1 .. nbr=4,4.
 (Largest degree <= 3 needs no run: the sum is at most 32 * 21 = 672.)
 
 Usage: python q5_verdict.py <folder with the json files> <out.json> [out.md]
@@ -21,7 +23,7 @@ from pathlib import Path
 
 G = [0, 12, 19, 21, 29, 45]
 N = 5
-TOPS = {"d4": [1, 2, 3, 4], "d5": [1, 2, 3, 4, 5]}
+TOP = {"d4": 4, "d5": 5}
 
 
 def graph_sum(edge_list):
@@ -58,18 +60,28 @@ def main():
             if total >= 801:
                 counterexamples.append({"file": run["file"], "sum": total, "edge_list": run["graph"]["edge_list"]})
 
-    def infeasible(solver, case, top=None):
-        return any(run["solver"] == solver and run["case"] == case and run.get("top_degree") == top
+    def prefix_of(run):
+        if run.get("nbr"):
+            return tuple(run["nbr"])
+        return (run["top_degree"],) if run.get("top_degree") else ()
+
+    def infeasible(solver, case, prefix=()):
+        return any(run["solver"] == solver and run["case"] == case and prefix_of(run) == tuple(prefix)
                    and run["target"] == 801 and run["verdict"] == "INFEASIBLE" for run in runs)
 
-    def covered(solver, case):
-        return infeasible(solver, case) or all(infeasible(solver, case, top) for top in TOPS[case])
+    def covered(solver, case, prefix=()):
+        if infeasible(solver, case, prefix):
+            return True
+        if len(prefix) >= TOP[case]:
+            return False
+        last = prefix[-1] if prefix else TOP[case]
+        return all(covered(solver, case, tuple(prefix) + (k,)) for k in range(1, last + 1))
 
     solvers = sorted({run["solver"] for run in runs})
     holds_by = [solver for solver in solvers
                 if infeasible(solver, "all") or (covered(solver, "d4") and covered(solver, "d5"))]
     control = {case: sorted({run["solver"] for run in runs if run["case"] == case and run["target"] == 800
-                             and run.get("top_degree") is None and run["verdict"] == "FEASIBLE"})
+                             and not prefix_of(run) and run["verdict"] == "FEASIBLE"})
                for case in ("d4", "d5")}
     control_passed = all(control.values())
 
@@ -80,7 +92,7 @@ def main():
     else:
         verdict = "NOT DECIDED"
 
-    table = [{"file": run["file"], "solver": run["solver"], "case": run["case"], "top_degree": run.get("top_degree"),
+    table = [{"file": run["file"], "solver": run["solver"], "case": run["case"], "nbr": list(prefix_of(run)),
               "target": run["target"], "plain": run.get("plain", False), "verdict": run["verdict"],
               "seconds": run["seconds"], "time_limit": run["time_limit"]} for run in runs]
     summary = {"claim": "sum_v g(d(v)) <= 800 for every C4-free subgraph of Q5, g = (0, 12, 19, 21, 29, 45)",
@@ -92,9 +104,9 @@ def main():
              f"Solvers that cover every case at target 801: {', '.join(holds_by) or 'none'}.  "
              f"Control (800 is reachable): d4 by {', '.join(control['d4']) or 'nobody'}, "
              f"d5 by {', '.join(control['d5']) or 'nobody'}.", "",
-             "| solver | case | top | target | verdict | seconds | limit |", "|---|---|---|---|---|---|---|"]
+             "| solver | case | neighbour degrees | target | verdict | seconds | limit |", "|---|---|---|---|---|---|---|"]
     for row in table:
-        lines.append(f"| {row['solver']} | {row['case']}{' plain' if row['plain'] else ''} | {row['top_degree'] or ''} | "
+        lines.append(f"| {row['solver']} | {row['case']}{' plain' if row['plain'] else ''} | {','.join(map(str, row['nbr']))} | "
                      f"{row['target']} | {row['verdict']} | {row['seconds']} | {row['time_limit']:.0f} |")
     text = "\n".join(lines) + "\n"
     if len(sys.argv) > 3:

@@ -16,6 +16,8 @@ ordering (slower; fewer things to trust).
 
 Finer split: `top=k` adds d(e_0) = k, the largest degree among the neighbours of 0.  k runs over
 1..4 in case d4 and 1..5 in case d5; the nine sub-cases together cover d4 and d5.
+Finer still: `nbr=a,b,...` fixes d(e_0) = a, d(e_1) = b, ... (a >= b >= ...; `top=k` is `nbr=k`).
+The sub-cases nbr=a,b,k for k = 1..b together cover nbr=a,b, and so on.
 
 Control: with `control` the target is 800 instead of 801; the answer must be FEASIBLE in every case
 (the graphs exist), which shows the model is not infeasible by a modelling error.
@@ -29,7 +31,7 @@ Rows added to speed the solvers up; each is true for every C4-free subgraph of Q
     sum C(d,3) <= 40 (one 3-star per class in each of the 40 sub-3-cubes).
 `plain` leaves all of these out.
 
-Usage: python q5_inequality_cases.py <cpsat|highs> <d4|d5|all> <seconds> <out.json> [workers] [control] [plain] [top=k]
+Usage: python q5_inequality_cases.py <cpsat|highs> <d4|d5|all> <seconds> <out.json> [workers] [control] [plain] [top=k | nbr=a,b,...]
 """
 import json
 import sys
@@ -59,7 +61,7 @@ def degree(v, sign=1):
     return {z(v, d): sign * d for d in range(1, N + 1)}
 
 
-def rows_for(case, target, plain, top_degree=None):
+def rows_for(case, target, plain, prefix=()):
     """Rows (coefficients, low, high) over 0/1 variables: 80 edges, then one-hot degrees."""
     rows = []
     for i, j in combinations(range(N), 2):
@@ -89,11 +91,12 @@ def rows_for(case, target, plain, top_degree=None):
             order = degree(1 << i)
             order.update(degree(1 << (i + 1), -1))
             rows.append((order, 0, INF))
-        if top_degree is not None:
-            assert 1 <= top_degree <= top
-            rows.append((degree(1), top_degree, top_degree))
+        assert len(prefix) <= top and all(1 <= value <= top for value in prefix)
+        assert all(prefix[i] >= prefix[i + 1] for i in range(len(prefix) - 1))
+        for i, value in enumerate(prefix):
+            rows.append((degree(1 << i), value, value))
     else:
-        assert case == "all" and top_degree is None
+        assert case == "all" and not prefix
 
     if not plain:
         for u, v in combinations(VERTICES, 2):
@@ -190,8 +193,10 @@ def main():
     flags = sys.argv[5:]
     workers = next((int(flag) for flag in flags if flag.isdigit()), 1)
     target = 800 if "control" in flags else 801
-    top_degree = next((int(flag[4:]) for flag in flags if flag.startswith("top=")), None)
-    rows = rows_for(case, target, "plain" in flags, top_degree)
+    prefix = next((tuple(int(part) for part in flag[4:].split(",")) for flag in flags
+                   if flag.startswith(("top=", "nbr="))), ())
+    top_degree = prefix[0] if len(prefix) == 1 else None
+    rows = rows_for(case, target, "plain" in flags, prefix)
     started = time.time()
     if solver_name == "cpsat":
         verdict, status, values, effort = solve_cpsat(rows, seconds, workers)
@@ -199,8 +204,8 @@ def main():
         verdict, status, values, effort = solve_highs(rows, seconds)
     report = {
         "question": f"is there a C4-free subgraph of Q5 in case {case}"
-                    + (f", d(e_0) = {top_degree}," if top_degree else "") + f" with sum g(d) >= {target}?",
-        "solver": solver_name, "case": case, "top_degree": top_degree, "target": target,
+                    + (f", neighbour degrees of 0 start {list(prefix)}," if prefix else "") + f" with sum g(d) >= {target}?",
+        "solver": solver_name, "case": case, "top_degree": top_degree, "nbr": list(prefix), "target": target,
         "plain": "plain" in flags, "workers": workers,
         "verdict": verdict, "status": status, "rows": len(rows), "seconds": round(time.time() - started, 1),
         "time_limit": seconds, **effort, "versions": versions(solver_name),
