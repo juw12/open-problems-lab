@@ -1,0 +1,77 @@
+{
+ "all_checked": false,
+ "files": [
+  {
+   "file": "Averaging.lean",
+   "verdict": "checked",
+   "exit": 0,
+   "timed_out": false,
+   "seconds": 5.4,
+   "theorems": 18,
+   "theorems_with_axiom_report": 18,
+   "axioms_used": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "axioms_beyond_the_standard_three": [],
+   "uses_sorry": false,
+   "errors": [],
+   "error_count": 0
+  },
+  {
+   "file": "Q8Bound689.lean",
+   "verdict": "failed",
+   "exit": 0,
+   "timed_out": false,
+   "seconds": 17.4,
+   "theorems": 82,
+   "theorems_with_axiom_report": 81,
+   "axioms_used": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "axioms_beyond_the_standard_three": [],
+   "uses_sorry": false,
+   "errors": [],
+   "error_count": 0
+  },
+  {
+   "file": "Q8Parity.lean",
+   "verdict": "failed",
+   "exit": 0,
+   "timed_out": false,
+   "seconds": 6.6,
+   "theorems": 56,
+   "theorems_with_axiom_report": 55,
+   "axioms_used": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "axioms_beyond_the_standard_three": [],
+   "uses_sorry": false,
+   "errors": [],
+   "error_count": 0
+  },
+  {
+   "file": "Stars.lean",
+   "verdict": "failed",
+   "exit": 0,
+   "timed_out": false,
+   "seconds": 6.9,
+   "theorems": 42,
+   "theorems_with_axiom_report": 41,
+   "axioms_used": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "axioms_beyond_the_standard_three": [],
+   "uses_sorry": false,
+   "errors": [],
+   "error_count": 0
+  }
+ ]
+}
