@@ -1,0 +1,19 @@
+{
+ "question": "is there a C4-free subgraph of Q5 in case d5, d(e_0) = 3, with sum g(d) >= 801?",
+ "solver": "highs",
+ "case": "d5",
+ "top_degree": 3,
+ "target": 801,
+ "plain": false,
+ "workers": 4,
+ "verdict": "INFEASIBLE",
+ "status": "2: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+ "rows": 1311,
+ "seconds": 369.2,
+ "time_limit": 19200.0,
+ "nodes": -1,
+ "versions": {
+  "python": "3.12.16",
+  "scipy": "1.18.1"
+ }
+}

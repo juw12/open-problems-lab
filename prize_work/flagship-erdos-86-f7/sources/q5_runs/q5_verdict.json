@@ -1,0 +1,330 @@
+{
+ "claim": "sum_v g(d(v)) <= 800 for every C4-free subgraph of Q5, g = (0, 12, 19, 21, 29, 45)",
+ "verdict": "HOLDS",
+ "holds_by_solver": [
+  "cpsat",
+  "highs"
+ ],
+ "control_feasible_at_800": {
+  "d4": [
+   "cpsat",
+   "highs"
+  ],
+  "d5": [
+   "cpsat",
+   "highs"
+  ]
+ },
+ "control_passed": true,
+ "counterexamples": [],
+ "runs": [
+  {
+   "file": "cpsat-all-plain.json",
+   "solver": "cpsat",
+   "case": "all",
+   "top_degree": null,
+   "target": 801,
+   "plain": true,
+   "verdict": "UNKNOWN",
+   "seconds": 19200.4,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "cpsat-all.json",
+   "solver": "cpsat",
+   "case": "all",
+   "top_degree": null,
+   "target": 801,
+   "plain": false,
+   "verdict": "UNKNOWN",
+   "seconds": 19200.5,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "cpsat-d4-control.json",
+   "solver": "cpsat",
+   "case": "d4",
+   "top_degree": null,
+   "target": 800,
+   "plain": false,
+   "verdict": "FEASIBLE",
+   "seconds": 1.1,
+   "time_limit": 1500.0
+  },
+  {
+   "file": "cpsat-d4-top1.json",
+   "solver": "cpsat",
+   "case": "d4",
+   "top_degree": 1,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 0.3,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "cpsat-d4-top2.json",
+   "solver": "cpsat",
+   "case": "d4",
+   "top_degree": 2,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 1.9,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "cpsat-d4-top3.json",
+   "solver": "cpsat",
+   "case": "d4",
+   "top_degree": 3,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 1.8,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "cpsat-d4-top4.json",
+   "solver": "cpsat",
+   "case": "d4",
+   "top_degree": 4,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 25.2,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "cpsat-d4.json",
+   "solver": "cpsat",
+   "case": "d4",
+   "top_degree": null,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 19.7,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "cpsat-d5-control.json",
+   "solver": "cpsat",
+   "case": "d5",
+   "top_degree": null,
+   "target": 800,
+   "plain": false,
+   "verdict": "FEASIBLE",
+   "seconds": 8.1,
+   "time_limit": 1500.0
+  },
+  {
+   "file": "cpsat-d5-top1.json",
+   "solver": "cpsat",
+   "case": "d5",
+   "top_degree": 1,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 0.4,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "cpsat-d5-top2.json",
+   "solver": "cpsat",
+   "case": "d5",
+   "top_degree": 2,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 15.2,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "cpsat-d5-top3.json",
+   "solver": "cpsat",
+   "case": "d5",
+   "top_degree": 3,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 30.0,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "cpsat-d5-top4.json",
+   "solver": "cpsat",
+   "case": "d5",
+   "top_degree": 4,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 1224.8,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "cpsat-d5-top5.json",
+   "solver": "cpsat",
+   "case": "d5",
+   "top_degree": 5,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 92.7,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "cpsat-d5.json",
+   "solver": "cpsat",
+   "case": "d5",
+   "top_degree": null,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 1199.0,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "highs-d4-control.json",
+   "solver": "highs",
+   "case": "d4",
+   "top_degree": null,
+   "target": 800,
+   "plain": false,
+   "verdict": "FEASIBLE",
+   "seconds": 5.4,
+   "time_limit": 1500.0
+  },
+  {
+   "file": "highs-d4-top1.json",
+   "solver": "highs",
+   "case": "d4",
+   "top_degree": 1,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 0.6,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "highs-d4-top2.json",
+   "solver": "highs",
+   "case": "d4",
+   "top_degree": 2,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 2.5,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "highs-d4-top3.json",
+   "solver": "highs",
+   "case": "d4",
+   "top_degree": 3,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 9.0,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "highs-d4-top4.json",
+   "solver": "highs",
+   "case": "d4",
+   "top_degree": 4,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 159.6,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "highs-d4.json",
+   "solver": "highs",
+   "case": "d4",
+   "top_degree": null,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 616.5,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "highs-d5-control.json",
+   "solver": "highs",
+   "case": "d5",
+   "top_degree": null,
+   "target": 800,
+   "plain": false,
+   "verdict": "FEASIBLE",
+   "seconds": 87.7,
+   "time_limit": 1500.0
+  },
+  {
+   "file": "highs-d5-top1.json",
+   "solver": "highs",
+   "case": "d5",
+   "top_degree": 1,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 0.4,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "highs-d5-top2.json",
+   "solver": "highs",
+   "case": "d5",
+   "top_degree": 2,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 313.3,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "highs-d5-top3.json",
+   "solver": "highs",
+   "case": "d5",
+   "top_degree": 3,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 369.2,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "highs-d5-top4.json",
+   "solver": "highs",
+   "case": "d5",
+   "top_degree": 4,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 13763.4,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "highs-d5-top5.json",
+   "solver": "highs",
+   "case": "d5",
+   "top_degree": 5,
+   "target": 801,
+   "plain": false,
+   "verdict": "INFEASIBLE",
+   "seconds": 299.2,
+   "time_limit": 19200.0
+  },
+  {
+   "file": "highs-d5.json",
+   "solver": "highs",
+   "case": "d5",
+   "top_degree": null,
+   "target": 801,
+   "plain": false,
+   "verdict": "UNKNOWN",
+   "seconds": 19200.7,
+   "time_limit": 19200.0
+  }
+ ]
+}

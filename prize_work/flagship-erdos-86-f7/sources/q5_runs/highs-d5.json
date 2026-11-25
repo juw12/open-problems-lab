@@ -1,0 +1,19 @@
+{
+ "question": "is there a C4-free subgraph of Q5 in case d5 with sum g(d) >= 801?",
+ "solver": "highs",
+ "case": "d5",
+ "top_degree": null,
+ "target": 801,
+ "plain": false,
+ "workers": 4,
+ "verdict": "UNKNOWN",
+ "status": "1: Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)",
+ "rows": 1310,
+ "seconds": 19200.7,
+ "time_limit": 19200.0,
+ "nodes": -1,
+ "versions": {
+  "python": "3.12.16",
+  "scipy": "1.18.1"
+ }
+}

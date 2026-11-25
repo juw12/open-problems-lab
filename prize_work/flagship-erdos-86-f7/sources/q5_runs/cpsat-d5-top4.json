@@ -1,0 +1,20 @@
+{
+ "question": "is there a C4-free subgraph of Q5 in case d5, d(e_0) = 4, with sum g(d) >= 801?",
+ "solver": "cpsat",
+ "case": "d5",
+ "top_degree": 4,
+ "target": 801,
+ "plain": false,
+ "workers": 4,
+ "verdict": "INFEASIBLE",
+ "status": "INFEASIBLE",
+ "rows": 1311,
+ "seconds": 1224.8,
+ "time_limit": 19200.0,
+ "branches": 8846772,
+ "conflicts": 255649,
+ "versions": {
+  "python": "3.12.16",
+  "ortools": "9.15.6755"
+ }
+}
