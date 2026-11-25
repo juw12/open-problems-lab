@@ -1,0 +1,83 @@
+name: Q5 inequality (SAT with a checked proof, no case split and no symmetry)
+
+# One harder question than q5-sat-proof.yml: the whole problem as a single formula, with no symmetry argument
+# and no case split.  A "no" counts only if drat-trim verifies CaDiCaL's proof; it would then rest on the
+# encoder and the checker alone.  A run that hits the time limit says UNKNOWN, which decides nothing.
+on:
+  workflow_dispatch:
+    inputs:
+      seconds:
+        description: "solver time limit per question, seconds"
+        default: "9000"
+
+jobs:
+  case:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: "sat-all", case: all, flags: ""}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build the solver (CaDiCaL) and the proof checker (drat-trim)
+        run: |
+          mkdir -p "$HOME/tools" && cd "$HOME/tools"
+          git clone --depth 1 --branch rel-2.1.3 https://github.com/arminbiere/cadical || git clone --depth 1 https://github.com/arminbiere/cadical
+          (cd cadical && ./configure && make -j4 >/dev/null)
+          git clone --depth 1 https://github.com/marijnheule/drat-trim
+          # drat-trim's own makefile asks for strict C99, which hides getc_unlocked on this compiler
+          (cd drat-trim && gcc -O2 -D_GNU_SOURCE -o drat-trim drat-trim.c)
+          test -x drat-trim/drat-trim && test -x cadical/build/cadical
+          echo "DRAT_TRIM_COMMIT=$(git -C drat-trim rev-parse HEAD)" >> "$GITHUB_ENV"
+          echo "$HOME/tools/cadical/build" >> "$GITHUB_PATH"
+          echo "$HOME/tools/drat-trim" >> "$GITHUB_PATH"
+          df -h . | tail -n 1
+      - name: Solve, and check the proof if the answer is no
+        working-directory: prize_work/flagship-erdos-86-f7/sources
+        run: python q5_sat_proof.py case ${{ matrix.case }} "${{ matrix.name }}.json" ${{ inputs.seconds || '9000' }} ${{ matrix.flags }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.name }}
+          path: prize_work/flagship-erdos-86-f7/sources/${{ matrix.name }}.json
+          if-no-files-found: warn
+
+  verdict:
+    name: verdict
+    needs: [case]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          path: results
+          merge-multiple: true
+      - name: Add these runs to the folder and state one verdict over everything in it
+        run: |
+          target=prize_work/flagship-erdos-86-f7/sources/q5_sat_runs
+          mkdir -p "$target"
+          cp results/*.json "$target"/ || true
+          python prize_work/flagship-erdos-86-f7/sources/q5_verdict.py "$target" "$target/q5_sat_verdict.json" "$target/q5_sat_verdict.md"
+          echo "" >> "$target/q5_sat_verdict.md"
+          echo "Last run added: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID (the whole problem, no case split). INFEASIBLE here means: CaDiCaL found no solution and drat-trim verified its proof. UNKNOWN means the time limit was hit; it decides nothing." >> "$target/q5_sat_verdict.md"
+          cat "$target/q5_sat_verdict.md" >> "$GITHUB_STEP_SUMMARY"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$target"
+          git commit -m "Q5 inequality by SAT: the run with no case split added" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
