@@ -1,0 +1,123 @@
+name: Q5 inequality (solver check)
+
+# Decides, with two exact solvers, whether every C4-free subgraph of Q5 has
+#   12 s1 - 5 s2 + 11 s4 - 20 s5 <= 800,
+# the inequality that gives f(8) <= 689 by averaging over the 448 sub-5-cubes of Q8.
+# Each job asks one feasibility question (is there such a graph with sum >= 801 in this case?).
+# Started by hand; nothing here runs on a schedule.  Scripts: prize_work/flagship-erdos-86-f7/sources/.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  case:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 345
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: "cpsat-d4-top1", solver: cpsat, case: d4, seconds: 19200, flags: "top=1"}
+          - {name: "cpsat-d4-top2", solver: cpsat, case: d4, seconds: 19200, flags: "top=2"}
+          - {name: "cpsat-d4-top3", solver: cpsat, case: d4, seconds: 19200, flags: "top=3"}
+          - {name: "cpsat-d4-top4", solver: cpsat, case: d4, seconds: 19200, flags: "top=4"}
+          - {name: "cpsat-d4", solver: cpsat, case: d4, seconds: 19200, flags: ""}
+          - {name: "cpsat-d4-control", solver: cpsat, case: d4, seconds: 1500, flags: "control"}
+          - {name: "cpsat-d5-top1", solver: cpsat, case: d5, seconds: 19200, flags: "top=1"}
+          - {name: "cpsat-d5-top2", solver: cpsat, case: d5, seconds: 19200, flags: "top=2"}
+          - {name: "cpsat-d5-top3", solver: cpsat, case: d5, seconds: 19200, flags: "top=3"}
+          - {name: "cpsat-d5-top4", solver: cpsat, case: d5, seconds: 19200, flags: "top=4"}
+          - {name: "cpsat-d5-top5", solver: cpsat, case: d5, seconds: 19200, flags: "top=5"}
+          - {name: "cpsat-d5", solver: cpsat, case: d5, seconds: 19200, flags: ""}
+          - {name: "cpsat-d5-control", solver: cpsat, case: d5, seconds: 1500, flags: "control"}
+          - {name: "highs-d4-top1", solver: highs, case: d4, seconds: 19200, flags: "top=1"}
+          - {name: "highs-d4-top2", solver: highs, case: d4, seconds: 19200, flags: "top=2"}
+          - {name: "highs-d4-top3", solver: highs, case: d4, seconds: 19200, flags: "top=3"}
+          - {name: "highs-d4-top4", solver: highs, case: d4, seconds: 19200, flags: "top=4"}
+          - {name: "highs-d4", solver: highs, case: d4, seconds: 19200, flags: ""}
+          - {name: "highs-d4-control", solver: highs, case: d4, seconds: 1500, flags: "control"}
+          - {name: "highs-d5-top1", solver: highs, case: d5, seconds: 19200, flags: "top=1"}
+          - {name: "highs-d5-top2", solver: highs, case: d5, seconds: 19200, flags: "top=2"}
+          - {name: "highs-d5-top3", solver: highs, case: d5, seconds: 19200, flags: "top=3"}
+          - {name: "highs-d5-top4", solver: highs, case: d5, seconds: 19200, flags: "top=4"}
+          - {name: "highs-d5-top5", solver: highs, case: d5, seconds: 19200, flags: "top=5"}
+          - {name: "highs-d5", solver: highs, case: d5, seconds: 19200, flags: ""}
+          - {name: "highs-d5-control", solver: highs, case: d5, seconds: 1500, flags: "control"}
+          - {name: "cpsat-all", solver: cpsat, case: all, seconds: 19200, flags: ""}
+          - {name: "cpsat-all-plain", solver: cpsat, case: all, seconds: 19200, flags: "plain"}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ortools scipy numpy
+      - name: Ask the solver
+        working-directory: prize_work/flagship-erdos-86-f7/sources
+        run: python q5_inequality_cases.py ${{ matrix.solver }} ${{ matrix.case }} ${{ matrix.seconds }} "${{ matrix.name }}.json" 4 ${{ matrix.flags }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.name }}
+          path: prize_work/flagship-erdos-86-f7/sources/${{ matrix.name }}.json
+          if-no-files-found: warn
+
+  one-class:
+    name: one parity class (is 400 a bound? expected no)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ortools scipy numpy
+      - working-directory: prize_work/flagship-erdos-86-f7/sources
+        run: python q5_class_bound.py cpsat 300 q5_class_bound_cpsat.json 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: one-class
+          path: prize_work/flagship-erdos-86-f7/sources/q5_class_bound_cpsat.json
+
+  verdict:
+    name: verdict
+    needs: [case, one-class]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          path: results
+          merge-multiple: true
+      - name: One verdict from all runs
+        run: |
+          python prize_work/flagship-erdos-86-f7/sources/q5_verdict.py results q5_verdict.json q5_verdict.md
+          echo "" >> q5_verdict.md
+          echo "Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID (commit $GITHUB_SHA). A solver verdict, not a formal proof." >> q5_verdict.md
+          cat q5_verdict.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verdict
+          path: |
+            q5_verdict.json
+            q5_verdict.md
+      - name: Keep the runs and the verdict in the repository
+        run: |
+          target=prize_work/flagship-erdos-86-f7/sources/q5_runs
+          mkdir -p "$target"
+          cp results/*.json "$target"/
+          cp q5_verdict.json q5_verdict.md "$target"/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$target"
+          git commit -m "Q5 inequality: solver runs and verdict ($(python -c "import json; print(json.load(open('q5_verdict.json'))['verdict'])"))"
+          git pull --rebase origin main
+          git push origin HEAD:main
