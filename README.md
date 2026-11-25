@@ -50,6 +50,7 @@ The Windows, Mac and Android apps open the Open Problems Lab guide (https://juw1
 | [erdos50-lobe-localdim](notes/2026-11-12-erdos50-lobe-localdim.md) | Erdős #50 | Computed extension | Prime content and local-complexity measurements of the densest interior region near c ≈ 0.65. |
 | [erdos50-fc-enclosure-kill-test](notes/2026-11-13-erdos50-fc-enclosure-kill-test.md) | Erdős #50 | **Negative result** | One natural way to certify f(c) at interior c (exact atom sum + published tail bound) cannot work: the remainder stays ≥ 0.104. |
 | [erdos86-mod8-caps](notes/2026-11-18-erdos86-mod8-caps.md) | Erdős #86 | Corollary + table | Applies a published congruence (Minamoto, Lemma 12) at every n: the two-point cap drops by 1 at n = 12, 18, 20, 22, 24, with a one-line rule checked for n = 3…600. |
+| [erdos86-f8-upper-bound-690](notes/2026-11-25-erdos86-f8-upper-bound-690.md) | Erdős #86 | Machine-checked proof (Lean 4) | f(8) <= 690: a C4-free subgraph of the 8-cube has at most 690 edges (Lean-checked) |
 
 Each note lists its own limits. Where a note says "first" or "not published", that is the
 result of the lab's literature search on that date, not a guarantee.
