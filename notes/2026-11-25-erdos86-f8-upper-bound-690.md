@@ -11,6 +11,10 @@ Updated: 2026-11-25, afternoon: Thomason and Wagner (2009) was read. A table pri
 Updated: 2026-11-25, evening: the one inequality that 689 needs from that table was checked directly, without
   the table, by an exact solver (CP-SAT: no C4-free subgraph of Q5 above 800). A solver verdict, not a proof
   that Lean or a person has checked. Same section.
+Updated: 2026-11-25, night: the step from that one inequality to f(8) <= 689 is now checked by Lean
+  (`Q8Bound689.bound_8_689_of_Q5Ineq`). So 689 rests on one statement about the 5-cube, and that statement
+  rests on solver runs, not on Lean. A second kind of run (SAT solver, each "no" with a proof file that a
+  separate small checker verifies) was started. Same section.
 Flagship: F2, F4, F5
 Scope: one finite statement about the 8-cube. Claimed: f(8) <= 690, with a Lean 4 proof and no computer search.
   Not claimed: that 690 is new or the best known bound (it is not, see the second update), that it is the true
@@ -24,7 +28,8 @@ AI-assisted: yes (statement, hand proof and Lean proof were written by an AI age
 > The kernel checks the proof, not whether the formal statement says what this note says:
 > please read the definitions. **No human mathematician has reviewed it**. The bound is
 > not the best that follows from published work: a table of Thomason and Wagner (2009) gives
-> 689 (section "Thomason-Wagner's table gives 689"). It has not been posted to the problem's own site.
+> 689 (section "Thomason-Wagner's table gives 689"; Lean checks the step from one inequality of
+> that table to 689, not the inequality). It has not been posted to the problem's own site.
 > "I" below means the lab. Nothing here settles the open problem itself. Corrections and
 > references are welcome: please open an issue.
 
@@ -40,10 +45,11 @@ how f(n) grows; the small values are f(4) = 24, f(5) = 56, f(6) = 132 and, since
 | f(8) <= 694 | averaging over the 16 facets from f(7) = 304: 7 e <= 16 * 304 |
 | f(8) <= 691 | star capacity (Chung 1992, Lemmas 4-5; per parity class it is Lemma 2.2 of arXiv:2611.27284; step 1 below) with C(d,3) >= 10 d - 40; `Stars.bound_8_691` |
 | **f(8) <= 690** | **this note; `Q8Parity.bound_8_690`**; no computer search, checked by Lean |
-| f(8) <= 689 | follows from Table 1 of Thomason-Wagner (2009), a computer enumeration in Q5, by averaging over the 448 sub-5-cubes; the number is not printed there. The table was not re-computed here; the one inequality used from it was checked by an exact solver (not Lean); section "Thomason-Wagner's table gives 689" |
+| f(8) <= 689 | follows from one inequality (*) about C4-free subgraphs of Q5, read off Table 1 of Thomason-Wagner (2009), by averaging over the 448 sub-5-cubes; the number is not printed there. The step from (*) to 689 is checked by Lean (`Q8Bound689.bound_8_689_of_Q5Ineq`). (*) itself is not: it rests on their table (a computer enumeration, not re-computed here) or on the lab's exact-solver runs; section "Thomason-Wagner's table gives 689" |
 
-So 682 <= f(8) <= 690 with a proof the Lean kernel has checked, and 682 <= f(8) <= 689 if that table, or the
-solver check of the one inequality taken from it, is accepted. The gap is not closed.
+So 682 <= f(8) <= 690 with a proof the Lean kernel has checked from start to end, and 682 <= f(8) <= 689 with
+a Lean-checked proof from one inequality in the 5-cube, which is accepted on the word of that table or of the
+solver runs. The gap is not closed.
 
 ## What was checked, and by what
 
@@ -54,6 +60,13 @@ solver check of the one inequality taken from it, is accepted. The gap is not cl
   `bound_5_56`, `bound_4_24` from one general inequality `edge_bound`.
 - `prize_work/flagship-erdos-86-f7/lean/Averaging.lean`, theorem `averaging_c4free`: a bound M for Q_n gives
   n * e <= 2 (n + 1) M for Q_(n+1).
+- `prize_work/flagship-erdos-86-f7/lean/Q8Bound689.lean`, theorem
+  `Q8Bound689.bound_8_689_of_Q5Ineq : Q5Ineq -> Bound 8 689`. It is a conditional statement: 689 follows IF the
+  inequality (*) holds in Q5. Lean does not check (*). Statement and limits in the section
+  "Thomason-Wagner's table gives 689".
+- All four files are checked again by Lean on every change, on GitHub's machines and not on the lab's PC:
+  workflow `.github/workflows/lean-check.yml`, result in `prize_work/flagship-erdos-86-f7/lean/check/lean_check.md`
+  (first full pass: https://github.com/juw12/open-problems-lab/actions/runs/45603989943; Lean 4.32.0 with Mathlib 4.32.0; no error, no `sorry`, standard axioms only).
 
 The formal statement, so that a reader can judge whether it says what this note says:
 
@@ -131,21 +144,43 @@ For d = 0..8 the values of h(d) - 260 d are 0, 160, 220, 180, 84, 0, 0, 140, 440
 
 - This derivation was made by an AI agent and has not been read by a mathematician. The lab did not find the
   number 689 in the paper or anywhere else, and does not know whether it is written down somewhere.
-- Table 1 was copied from the paper and not re-computed. But (*) was checked directly, without the table, on
-  2026-11-25: an exact solver (CP-SAT, OR-Tools 9.15) was asked for a C4-free subgraph of Q5 with left side
-  >= 801 and answered "infeasible" in every case (largest degree 4: 20 s; a vertex of degree 5: 20 min; largest
-  degree <= 3 needs no run, the sum is at most 672). Asked for 800 it finds a graph in both cases, so the
-  model is not empty by mistake. A second solver (HiGHS) agrees on every case it has finished; for one sub-case
-  it was still running when this was written. This is a solver verdict: no proof file was produced, the case
-  split uses a symmetry argument nobody has read, and neither Lean nor a person has checked it. Runs:
+- **The step from (*) to 689 is checked by Lean.** In `Q8Bound689.lean`:
+
+      def g (d : Nat) : Int := 12 d - 5 C(d,2) + 11 C(d,4) - 20 C(d,5)     -- 0, 12, 19, 21, 29, 45 for d = 0..5
+      def Q5Ineq : Prop :=
+        forall K : Finset (Finset (V 5)), not (HasC4 K) -> (sum over u : V 5 of g (number of edges of K at u)) <= 800
+      theorem bound_8_689_of_Q5Ineq (h : Q5Ineq) : Bound 8 689
+
+  (ASCII rendering; the file has the exact text. `V`, `HasC4`, `Bound` as in the statement above; the sum of
+  g over the vertices is the left side of (*).) The proof is the averaging written out above: each sub-5-cube
+  of Q8 is a copy of Q5, the 448 copies are added up, and the vertex inequality h(d) >= 260 d is checked by
+  the kernel for all 256 sets of directions. No `sorry`, no `native_decide`, standard axioms only
+  (https://github.com/juw12/open-problems-lab/actions/runs/45603989943, 17 s). What this buys: nobody has to trust the averaging or the arithmetic any more. What it
+  does not buy: (*) is a hypothesis of the theorem, and Lean says nothing about it.
+- **(*) itself: two sources, neither of them a proof a person has read.** (a) Table 1, copied from the paper
+  and not re-computed. (b) The lab's own check without the table, 2026-11-25: an exact solver (CP-SAT,
+  OR-Tools 9.15) was asked for a C4-free subgraph of Q5 with left side >= 801 and answered "infeasible" in
+  every case (largest degree 4: 20 s; a vertex of degree 5: 20 min; largest degree <= 3 needs no run, the sum
+  is at most 672). Asked for 800 it finds a graph in both cases, so the model is not empty by mistake. A
+  second solver (HiGHS) agrees on every case it has finished; two sub-cases were still running when this was
+  written. These runs leave no proof file, and the case split uses a symmetry argument nobody has read. Runs:
   https://github.com/juw12/open-problems-lab/actions/runs/45592147713 and .../runs/45596181027; record in
   `prize_work/flagship-erdos-86-f7/sources/q5_inequality_RESULT.md`.
+- **A third run that leaves proofs (started 2026-11-25, not finished when this was written).** The same
+  question as a formula for a SAT solver (`q5_sat_proof.py`, CaDiCaL 2.1.3). For each "no" the solver writes
+  a DRAT proof and drat-trim, a separate small program, checks it; a case counts only if the checker says
+  VERIFIED. Then a "no" rests on the encoder (tested against brute force on Q3 and against CP-SAT on Q4) and
+  on the checker, not on the solver. The easy cases are verified; the hard ones may not finish in the time
+  limit. Run: https://github.com/juw12/open-problems-lab/actions/runs/45604846118; verdict, when the run ends, in
+  `prize_work/flagship-erdos-86-f7/sources/q5_sat_runs/q5_sat_verdict.md`. Even a full pass would not be a
+  Lean proof of (*): the encoder and the case split would still be trusted.
 - (*) is not a fact about one parity class: the largest sum of g(d) = 12 d - 5 C(d,2) + 11 C(d,4) - 20 C(d,5)
   over the 16 vertices of one class is 404, not 400 (`q5_class_bound.py`; the other class then has 382).
 - The same table gives f(5) <= 56, f(6) <= 133, f(7) <= 306, f(9) <= 1549 and f(10) <= 3398.
 - Scripts: `prize_work/flagship-erdos-86-f7/sources/thomason_wagner_certificate.py` (exact multipliers, checked
   in fractions), `thomason_wagner_star_lp.py` (the linear program), `q5_inequality_cases.py` and `q5_verdict.py`
-  (the solver check; `q5_inequality_ilp.py` is the first attempt, which did not finish).
+  (the solver check; `q5_inequality_ilp.py` is the first attempt, which did not finish), `q5_sat_proof.py`
+  (the SAT run with checked proofs).
 
 What this note still offers: 690 by a proof of about one page with no computer search, checked by the Lean
 kernel.
@@ -171,5 +206,6 @@ kernel.
 - **The true value.** For 690 edges the same count leaves a slack of 12 instead of 2, and configurations such as
   four star-less faces with the same free coordinates, whose fixed values form an affine plane, pass the parity
   test. Reaching 689 this way needs another idea; the section above gets 689 from the computation of
-  Thomason and Wagner.
+  Thomason and Wagner. A proof of (*) that Lean or a person can check (from verified SAT proofs, or a short
+  argument by hand) would make 689 unconditional; the lab does not have one.
 - Nothing here bears on the asymptotic question of problem 86.

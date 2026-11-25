@@ -3,6 +3,19 @@
 Claim (*): 12 s1 - 5 s2 + 11 s4 - 20 s5 <= 800 for every C4-free subgraph of Q5; the same thing per vertex:
 sum_v g(d(v)) <= 800 with g = (0, 12, 19, 21, 29, 45). It gives f(8) <= 689 by averaging over the 448 sub-5-cubes.
 
+## What rests on (*) since 2026-11-25 18:20
+
+`../lean/Q8Bound689.lean`, theorem `bound_8_689_of_Q5Ineq : Q5Ineq -> Bound 8 689`, checked by Lean
+(https://github.com/juw12/open-problems-lab/actions/runs/45603989943; record in `../lean/check/lean_check.md`). `Q5Ineq` is (*) word for word: for every C4-free
+edge set K of Q5, the sum of g(degree) over the 32 vertices is at most 800. So f(8) <= 689 now needs exactly
+this one statement and nothing else. Lean does not check the statement; the runs below do.
+
+A third kind of run was started at 18:29: `q5_sat_proof.py` writes each case as a CNF formula, CaDiCaL 2.1.3
+answers, and for each "no" drat-trim checks the solver's DRAT proof (only VERIFIED counts). Workflow
+`.github/workflows/q5-sat-proof.yml`, run https://github.com/juw12/open-problems-lab/actions/runs/45604846118; its files and verdict go to `q5_sat_runs/`.
+The first run of that workflow (45604007728) failed before solving anything: drat-trim did not compile
+with its own makefile on the runner; fixed in commit c9f722a.
+
 ## Verdict (2026-11-25 17:50): HOLDS, by CP-SAT. A solver verdict, not a formal proof.
 
 - **How.** `q5_inequality_cases.py` turns (*) into feasibility questions: is there a C4-free subgraph of Q5 with
