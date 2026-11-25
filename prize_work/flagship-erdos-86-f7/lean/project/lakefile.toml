@@ -1,0 +1,9 @@
+name = "lean"
+version = "0.1.0"
+
+# Mathlib v4.32.0, the release that matches the toolchain leanprover/lean4:v4.32.0.
+# lake-manifest.json pins the exact commit of Mathlib and of everything it needs.
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.32.0"

@@ -1,0 +1,88 @@
+name: lean-check
+
+# Lean checks every proof file in prize_work/flagship-erdos-86-f7/lean and the result is
+# written back to lean/check/. One job per file, so one slow file does not hide the others.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "prize_work/flagship-erdos-86-f7/lean/*.lean"
+      - "prize_work/flagship-erdos-86-f7/lean/project/**"
+      - "prize_work/flagship-erdos-86-f7/lean/lean_check.py"
+      - ".github/workflows/lean-check.yml"
+
+concurrency:
+  group: lean-check
+  cancel-in-progress: true
+
+jobs:
+  file:
+    name: ${{ matrix.file }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        file: [Averaging, Stars, Q8Parity, Q8Bound689]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lean (elan) and the Mathlib build cache
+        working-directory: prize_work/flagship-erdos-86-f7/lean/project
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          export PATH="$HOME/.elan/bin:$PATH"
+          lake exe cache get
+          lean --version
+      - name: Check ${{ matrix.file }}.lean
+        run: |
+          python3 prize_work/flagship-erdos-86-f7/lean/lean_check.py \
+            prize_work/flagship-erdos-86-f7/lean/project \
+            prize_work/flagship-erdos-86-f7/lean \
+            lean_out ${{ matrix.file }}.lean
+      - name: What Lean printed
+        if: always()
+        run: |
+          grep -n "error" lean_out/${{ matrix.file }}.out.txt | head -60 || true
+          tail -n 12 lean_out/${{ matrix.file }}.out.txt || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lean-${{ matrix.file }}
+          path: |
+            lean_out/${{ matrix.file }}.json
+            lean_out/${{ matrix.file }}.out.txt
+
+  verdict:
+    name: verdict
+    needs: [file]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: lean_out
+          merge-multiple: true
+      - name: One table
+        run: |
+          python3 prize_work/flagship-erdos-86-f7/lean/lean_table.py lean_out lean_check.md
+          echo "" >> lean_check.md
+          echo "Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID (commit $GITHUB_SHA), Lean and Mathlib as pinned in \`project/\`." >> lean_check.md
+          cat lean_check.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Keep the result in the repository
+        run: |
+          target=prize_work/flagship-erdos-86-f7/lean/check
+          mkdir -p "$target"
+          cp lean_out/*.json lean_out/*.out.txt "$target"/
+          cp lean_check.md "$target"/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$target"
+          git commit -m "Lean check: $(python3 -c "import json; d=json.load(open('lean_out/lean_check.json')); print('all files checked' if d['all_checked'] else 'not all files checked')")"
+          git pull --rebase origin main
+          git push origin HEAD:main
