@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A C4-free subgraph of the 8-cube has at most 690 edges: a Lean-checked parity argument</title>
+<meta name="author" content="Juwen Lie">
+<style>
+@page { size: A4; margin: 23mm 22mm 22mm 22mm; }
+body { font-family: "Cambria", "Georgia", serif; font-size: 11pt; line-height: 1.42; color: #111; }
+h1 { font-size: 17.5pt; line-height: 1.2; text-align: center; margin: 0 0 8pt; font-weight: 600; }
+.author { text-align: center; font-size: 11.5pt; margin: 0; }
+.affil { text-align: center; font-size: 9.5pt; color: #333; margin: 2pt 0 12pt; }
+.abstract { margin: 0 9mm 12pt; font-size: 10pt; text-align: justify; }
+.abstract b { font-variant: small-caps; letter-spacing: .03em; }
+h2 { font-size: 12.5pt; margin: 15pt 0 5pt; font-weight: 600; }
+p { margin: 0 0 6pt; text-align: justify; hyphens: auto; }
+.thm { margin: 7pt 0; }
+.thm > b { font-weight: 600; }
+.thm i { font-style: italic; }
+.eq { text-align: center; margin: 6pt 0; font-family: "Cambria Math", "Cambria", serif; }
+table { border-collapse: collapse; margin: 7pt auto; font-size: 10pt; }
+th, td { border-top: .5pt solid #777; border-bottom: .5pt solid #777; padding: 3pt 8pt; text-align: left; vertical-align: top; }
+th { font-weight: 600; }
+td.c, th.c { text-align: center; }
+pre { font-family: "Consolas", monospace; font-size: 8.6pt; line-height: 1.3; background: #f4f4f4; padding: 6pt 8pt; margin: 6pt 0; white-space: pre-wrap; break-inside: avoid; }
+code { font-family: "Consolas", monospace; font-size: 9.4pt; }
+.box { border: .7pt solid #555; padding: 6pt 9pt; margin: 9pt 0; font-size: 10pt; break-inside: avoid; }
+ol.refs { font-size: 9.6pt; padding-left: 16pt; }
+ol.refs li { margin-bottom: 3pt; }
+.qed { float: right; }
+a { color: #111; text-decoration: none; }
+.small { font-size: 9.6pt; }
+h2, .thm, table { break-after: avoid; }
+table { break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<h1>A C<sub>4</sub>-free subgraph of the 8-cube has at most 690 edges:<br>a Lean-checked parity argument</h1>
+<p class="author">Juwen Lie</p>
+<p class="affil">Independent; ORCID 0009-0008-1384-7901 &nbsp;·&nbsp; 25 November 2026 &nbsp;·&nbsp; version 1<br>
+Archived with the Lean files: doi:10.5281/zenodo.24522415 (release v1.1.0 of github.com/juw12/open-problems-lab)</p>
+
+<div class="abstract"><b>Abstract.</b> Let f(n) be the largest number of edges of a subgraph of the n-dimensional
+cube Q<sub>n</sub> that contains no 4-cycle. We show f(8) ≤ 690. The proof combines the star-capacity count of
+Zhou, Ma, Yang, Ren, Yang and Li, which gives 691, with a parity count inside the 16 facets that rules 691 out.
+The statement and its proof were checked by the Lean 4 kernel with Mathlib. With the known construction on 682
+edges this gives 682 ≤ f(8) ≤ 690. The proof was produced by an AI agent and has not been read by a mathematician;
+we did not find an earlier upper bound for f(8) in the sources we could read, but we have not established that
+690 is new.</div>
+
+<div class="box"><b>How this was made, and what to trust.</b> I am a mechanical engineer, not a mathematician.
+The statement, the proof below and its Lean formalisation were written by an AI agent (a large language model) in a
+research lab that I run on my own PC; I did not find the argument myself. What can be trusted is narrow and exact:
+the Lean 4 kernel accepted a proof of the formal statement in Section 4, using only Lean's three standard axioms.
+What has <i>not</i> been checked by a person: that the argument is new, and that the formal definitions say what the
+words say (they are short, and printed in Section 4 so that a reader can judge). A pointer to an earlier source is
+the most useful reply to this paper.</div>
+
+<h2>1. The question and what is known</h2>
+
+<p>The vertices of Q<sub>n</sub> are the 0/1 words of length n; two are joined when they differ in exactly one
+coordinate. Erdős asked how large a subgraph of Q<sub>n</sub> without a 4-cycle can be (problem 86 on
+erdosproblems.com [1]). Write f(n) for the maximum. The asymptotic question is open. For small n the values
+f(4) = 24, f(5) = 56 and f(6) = 132 have been known for decades, and f(7) = 304 was proved on 20 November 2026 by Zhou, Ma, Yang,
+Ren, Yang and Li [2]. For n = 8 we know of the following bounds.</p>
+
+<table>
+<tr><th>Bound</th><th>Source</th></tr>
+<tr><td>f(8) ≥ 682</td><td>a construction from the fully frustrated ground state of Marinari, Parisi and Ritort; edge list in Minamoto [3]</td></tr>
+<tr><td>f(8) ≤ 694</td><td>averaging over the 16 facets from f(7) = 304: 7·e ≤ 16·304</td></tr>
+<tr><td>f(8) ≤ 691</td><td>star capacity (Lemma 2.2 of [2]) with C(d,3) ≥ 10d − 40; Step 1 and Step 2 below</td></tr>
+<tr><td><b>f(8) ≤ 690</b></td><td><b>this paper</b></td></tr>
+</table>
+
+<div class="thm"><b>Theorem.</b> <i>Every subgraph of Q<sub>8</sub> without a 4-cycle has at most 690 edges.</i></div>
+
+<p>So 682 ≤ f(8) ≤ 690. The gap is not closed, and Minamoto [3] lists the exact value of ex(Q<sub>8</sub>, C<sub>4</sub>), and whether it is 682, as open.</p>
+
+<h2>2. Notation</h2>
+
+<p>Q<sub>8</sub> has 256 vertices and 1024 edges. Let P be the set of the 128 vertices with an even number of ones;
+every edge has exactly one end in P. A <i>3-face</i> is a 3-dimensional subcube: a set J of three free coordinates
+and fixed values on the other five. There are C(8,3)·2<sup>5</sup> = 1792 of them. A <i>facet</i> is a set
+{x : x<sub>c</sub> = b}; there are 16, each is a copy of Q<sub>7</sub>, and each contains
+C(7,3)·2<sup>4</sup> = 560 of the 3-faces. For a subgraph G, a <i>star</i> in a 3-face F is a vertex v of P in F
+such that all three edges of F at v are in G. We write d(v) for the degree of v in G.</p>
+
+<h2>3. Proof</h2>
+
+<p>Suppose G is a subgraph of Q<sub>8</sub> without a 4-cycle and with at least 691 edges. Delete edges until G has
+exactly 691; it still has no 4-cycle.</p>
+
+<p><b>Step 1 (star capacity; Lemma 2.2 of [2]).</b> A 3-face holds four vertices of P, and any two of them have two
+common neighbours inside the face. If two of them were stars, the four edges from these two vertices to their two
+common neighbours would form a 4-cycle. So each 3-face carries at most one star. A vertex of degree d is a star in
+exactly C(d,3) different 3-faces, one for each choice of three of its edges. Hence</p>
+<p class="eq">S := Σ<sub>v∈P</sub> C(d(v), 3) = number of 3-faces that carry a star ≤ 1792.</p>
+
+<p><b>Step 2 (every degree on P is 5 or 6).</b> Put w(d) = C(d,3) − 10d + 40. For d = 0, 1, …, 8 its values are</p>
+<p class="eq">40, 30, 20, 11, 4, 0, 0, 5, 16,</p>
+<p>so w(5) = w(6) = 0 and w(d) ≥ 4 for every other d. The degrees over P add up to 691, the number of edges. So</p>
+<p class="eq">S = 10·691 − 40·128 + Σ<sub>v∈P</sub> w(d(v)) = 1790 + Σ<sub>v∈P</sub> w(d(v)) ≤ 1792.</p>
+<p>The sum of the w(d(v)) is at most 2, and each term is 0 or at least 4, so every term is 0. Every vertex of P has
+degree 5 or 6, and S = 1790. (With 692 edges the same line reads 1800 ≤ 1792, which is the bound f(8) ≤ 691.)</p>
+
+<p><b>Step 3 (exactly two 3-faces carry no star).</b> 1792 − 1790 = 2. Call them F<sub>1</sub> ≠ F<sub>2</sub>.</p>
+
+<p><b>Step 4 (facet parity).</b> Let K be a facet {x : x<sub>c</sub> = b}. A vertex v of P in K has degree d(v) or
+d(v) − 1 inside K, that is 4, 5 or 6, and C(4,3) = 4, C(5,3) = 10, C(6,3) = 20 are all even. So the number of
+(vertex, 3-face) pairs with the 3-face inside K and the vertex a star in it is even. By Step 1 these stars sit in
+different 3-faces, so the number of 3-faces inside K that carry a star is even. K contains 560 3-faces, an even
+number. Therefore <i>the number of star-less 3-faces inside K is even</i>: K contains none or both of
+F<sub>1</sub>, F<sub>2</sub>.</p>
+
+<p><b>Step 5 (two different 3-faces are separated by a facet).</b> Write F<sub>1</sub> = (J<sub>1</sub>,
+b<sub>1</sub>) and F<sub>2</sub> = (J<sub>2</sub>, b<sub>2</sub>). If J<sub>1</sub> ≠ J<sub>2</sub>, choose a
+coordinate c in J<sub>2</sub> and not in J<sub>1</sub>. If J<sub>1</sub> = J<sub>2</sub>, the fixed values differ at
+some coordinate c outside J<sub>1</sub>. In both cases the facet K = {x : x<sub>c</sub> = b<sub>1</sub>(c)}
+contains F<sub>1</sub> and does not contain F<sub>2</sub>. This K holds exactly one star-less 3-face, against
+Step 4. So G does not exist. <span class="qed">∎</span></p>
+
+<p><b>Remarks.</b> (a) Step 4 uses that 4, 10 and 20 are all even. In Q<sub>7</sub> the local degrees would be 3, 4,
+5 with C(d,3) = 1, 4, 10, of mixed parity, so the argument has no analogue there; this fits the fact that
+f(7) = 304 needed the much longer proof of [2]. (b) For 690 edges the count of Step 2 leaves a slack of 12
+instead of 2, and some configurations pass the parity test, for example four star-less 3-faces with the same free
+coordinates whose fixed values form an affine plane. Reaching 689 needs another idea or a computation.
+(c) Averaging over the 18 facets of Q<sub>9</sub> gives 8·f(9) ≤ 18·f(8), hence f(9) ≤ 1552 (from 694 one gets
+1561).</p>
+
+<h2>4. The formal statement and the machine check</h2>
+
+<p>The proof was formalised in Lean 4 (v4.32.0) with Mathlib. The file <code>Q8Parity.lean</code> stands alone
+(it imports Mathlib and nothing else), has 56 declarations and ends with the theorem below. The lab's checker
+compiles the file and prints the axioms the theorem depends on; they are Lean's three standard ones
+(<code>propext</code>, <code>Classical.choice</code>, <code>Quot.sound</code>), with no <code>sorry</code> and no
+<code>native_decide</code>. The definitions, in ASCII (the file has the exact text):</p>
+
+<pre>abbrev V (n : Nat) := Fin n -> Bool                       -- vertices of Q_n
+def Adj (x y : V n) : Prop := hamDist x y = 1              -- differ in exactly one coordinate
+def IsEdge (e : Finset (V n)) : Prop := exists x y, Adj x y /\ e = {x, y}
+def HasC4 (H : Finset (Finset (V n))) : Prop :=
+  exists a b c d, a != c /\ b != d /\ {a, b} in H /\ {b, c} in H /\ {c, d} in H /\ {d, a} in H
+def Bound (n M : Nat) : Prop :=
+  forall H : Finset (Finset (V n)), (forall e in H, IsEdge e) -> not (HasC4 H) -> H.card <= M
+theorem bound_8_690 : Bound 8 690</pre>
+
+<p>The Lean proof follows Steps 1 to 5 but counts uncovered (direction, vertex) pairs, 16 of them, instead of
+naming the two faces. Two checks that the formal statement is neither empty nor too strong: the same general
+inequality (<code>Stars.edge_bound</code> in <code>Stars.lean</code>) proves f(4) ≤ 24 and f(5) ≤ 56, which are the
+exact values, and f(6) ≤ 133 and f(7) ≤ 306 against the true 132 and 304; and 690 lies above the 682 construction.
+The kernel checks that the proof proves this statement. It does not check that the definitions are the right
+reading of “C<sub>4</sub>-free subgraph of the cube”.</p>
+
+<p class="small"><b>Files.</b> <code>prize_work/flagship-erdos-86-f7/lean/Q8Parity.lean</code>,
+<code>Stars.lean</code> and <code>Averaging.lean</code> in the repository github.com/juw12/open-problems-lab,
+archived at doi:10.5281/zenodo.24522415. To re-check: a Lean project with Lean 4 v4.32.0 and Mathlib v4.32.0, then
+<code>lake env lean Q8Parity.lean</code>.</p>
+
+<h2>5. What is not known</h2>
+
+<p><b>Whether 690 is new.</b> We found no upper bound for f(8) in [2], in [3], in the OEIS entry A245762 [4] or on
+the page of problem 86 [1], all read on 25 November 2026; the full text of [2] and [3] was searched for the numbers
+683 and 688 to 696, with no hit. We could not obtain Brass, Harborth and Nienborg [5], Chung [6] or Thomason and
+Wagner [7], so an earlier bound may exist there or elsewhere. Step 1 is the lemma of [2]; only the parity
+Step 4 may be new, and it is short enough that it may be folklore.</p>
+<p><b>The true value of f(8)</b>, and anything about the asymptotic question of problem 86.</p>
+
+<h2>References</h2>
+<ol class="refs">
+<li>Erdős problem 86, https://www.erdosproblems.com/86 (read 25 November 2026).</li>
+<li>Z. Zhou, H. Ma, R. Yang, T. Ren, K. Yang, S. Li, <i>The Four-Cycle Extremal Number of the Seven-Cube</i>, arXiv:2611.27284 (20 November 2026).</li>
+<li>M. Minamoto, <i>C4-Free Subgraphs of the Hypercubes Q6, Q7, and Q8: Odd Squares, Fully Frustrated Models, and Computational Structure</i>, arXiv:2603.29127, version 5.</li>
+<li>OEIS Foundation, sequence A245762, https://oeis.org/A245762 (read 25 November 2026).</li>
+<li>P. Brass, H. Harborth, H. Nienborg, <i>On the maximum number of edges in a C<sub>4</sub>-free subgraph of Q<sub>n</sub></i>, J. Graph Theory 19 (1995). Not read.</li>
+<li>F. R. K. Chung, <i>Subgraphs of a hypercube containing no small even cycles</i>, J. Graph Theory 16 (1992). Not read.</li>
+<li>A. Thomason, P. Wagner, <i>Bounding the size of square-free subgraphs of the hypercube</i>, Discrete Math. 309 (2009). Not read.</li>
+</ol>
+
+</body>
+</html>

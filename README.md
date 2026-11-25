@@ -57,6 +57,8 @@ The Windows, Mac and Android apps open the Open Problems Lab guide (https://juw1
 | [erdos86-mod8-caps](notes/2026-11-18-erdos86-mod8-caps.md) | Erdős #86 | Corollary + table | Applies a published congruence (Minamoto, Lemma 12) at every n: the two-point cap drops by 1 at n = 12, 18, 20, 22, 24, with a one-line rule checked for n = 3…600. |
 | [erdos86-f8-upper-bound-690](notes/2026-11-25-erdos86-f8-upper-bound-690.md) | Erdős #86 | Machine-checked proof (Lean 4) | f(8) ≤ 690: a C4-free subgraph of the 8-cube has at most 690 edges. The Lean files are in `prize_work/flagship-erdos-86-f7/lean/`. Novelty not established. |
 
+**Paper.** The Lean-checked note is also written up as a short paper: [A C4-free subgraph of the 8-cube has at most 690 edges: a Lean-checked parity argument](https://juw12.github.io/open-problems-lab/papers/2026-11-25-c4-free-8-cube-690.pdf) (PDF; [web version](https://juw12.github.io/open-problems-lab/papers/2026-11-25-c4-free-8-cube-690.html)). It says the same as the note and carries the same limits.
+
 Each note lists its own limits. Where a note says "first" or "not published", that is the
 result of the lab's literature search on that date, not a guarantee.
 
@@ -67,6 +69,7 @@ result of the lab's literature search on that date, not a guarantee.
   log for each problem (long, unedited).
 - `review_notes/` - the AI referee's re-run report for each computed result (a Lean-checked
   note has its Lean files instead).
+- `docs/papers/` - short papers written from the notes (PDF and web page).
 - [METHOD.md](METHOD.md) - how a result is checked before it gets a note.
 
 ## Reproducing a result
