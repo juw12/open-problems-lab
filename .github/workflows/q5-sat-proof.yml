@@ -1,0 +1,118 @@
+name: Q5 inequality (SAT, every "no" with a checked proof)
+
+# The same case split as q5-inequality.yml, but each case is a formula for a SAT solver (CaDiCaL)
+# and each "no solution" comes with a DRAT proof that drat-trim, a separate small program, checks.
+# So a "no" here rests on the encoder (sources/q5_sat_proof.py) and on drat-trim, not on the solver.
+on:
+  workflow_dispatch:
+    inputs:
+      seconds:
+        description: "solver time limit per case, seconds"
+        default: "7200"
+
+jobs:
+  selftest:
+    name: encoder self-test (brute force on Q3, CP-SAT on Q4, the 800 graphs on Q5)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install python-sat ortools
+      - working-directory: prize_work/flagship-erdos-86-f7/sources
+        run: python q5_sat_proof.py selftest | tee q5_sat_selftest.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sat-selftest
+          path: prize_work/flagship-erdos-86-f7/sources/q5_sat_selftest.json
+
+  case:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: "sat-d4-top1", case: d4, flags: "top=1"}
+          - {name: "sat-d4-top2", case: d4, flags: "top=2"}
+          - {name: "sat-d4-top3", case: d4, flags: "top=3"}
+          - {name: "sat-d4-top4", case: d4, flags: "top=4"}
+          - {name: "sat-d5-top1", case: d5, flags: "top=1"}
+          - {name: "sat-d5-top2", case: d5, flags: "top=2"}
+          - {name: "sat-d5-top3", case: d5, flags: "top=3"}
+          - {name: "sat-d5-top5", case: d5, flags: "top=5"}
+          - {name: "sat-d5-nbr411", case: d5, flags: "nbr=4,1,1"}
+          - {name: "sat-d5-nbr421", case: d5, flags: "nbr=4,2,1"}
+          - {name: "sat-d5-nbr422", case: d5, flags: "nbr=4,2,2"}
+          - {name: "sat-d5-nbr431", case: d5, flags: "nbr=4,3,1"}
+          - {name: "sat-d5-nbr432", case: d5, flags: "nbr=4,3,2"}
+          - {name: "sat-d5-nbr433", case: d5, flags: "nbr=4,3,3"}
+          - {name: "sat-d5-nbr441", case: d5, flags: "nbr=4,4,1"}
+          - {name: "sat-d5-nbr442", case: d5, flags: "nbr=4,4,2"}
+          - {name: "sat-d5-nbr443", case: d5, flags: "nbr=4,4,3"}
+          - {name: "sat-d5-nbr444", case: d5, flags: "nbr=4,4,4"}
+          - {name: "sat-d4-control", case: d4, flags: "control"}
+          - {name: "sat-d5-control", case: d5, flags: "control"}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build the solver (CaDiCaL) and the proof checker (drat-trim)
+        run: |
+          mkdir -p "$HOME/tools" && cd "$HOME/tools"
+          git clone --depth 1 --branch rel-2.1.3 https://github.com/arminbiere/cadical || git clone --depth 1 https://github.com/arminbiere/cadical
+          (cd cadical && ./configure && make -j4 >/dev/null)
+          git clone --depth 1 https://github.com/marijnheule/drat-trim
+          (cd drat-trim && make)
+          echo "DRAT_TRIM_COMMIT=$(git -C drat-trim rev-parse HEAD)" >> "$GITHUB_ENV"
+          echo "$HOME/tools/cadical/build" >> "$GITHUB_PATH"
+          echo "$HOME/tools/drat-trim" >> "$GITHUB_PATH"
+          df -h . | tail -n 1
+      - name: Solve, and check the proof if the answer is no
+        working-directory: prize_work/flagship-erdos-86-f7/sources
+        run: python q5_sat_proof.py case ${{ matrix.case }} "${{ matrix.name }}.json" ${{ inputs.seconds || '7200' }} ${{ matrix.flags }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.name }}
+          path: prize_work/flagship-erdos-86-f7/sources/${{ matrix.name }}.json
+          if-no-files-found: warn
+
+  verdict:
+    name: verdict
+    needs: [selftest, case]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          path: results
+          merge-multiple: true
+      - name: One verdict from the proof-checked runs
+        run: |
+          python prize_work/flagship-erdos-86-f7/sources/q5_verdict.py results q5_sat_verdict.json q5_sat_verdict.md
+          echo "" >> q5_sat_verdict.md
+          echo "Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID (commit $GITHUB_SHA). INFEASIBLE here means: CaDiCaL found no solution and drat-trim verified its proof." >> q5_sat_verdict.md
+          cat q5_sat_verdict.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Keep the runs and the verdict in the repository
+        run: |
+          target=prize_work/flagship-erdos-86-f7/sources/q5_sat_runs
+          mkdir -p "$target"
+          cp results/*.json "$target"/
+          cp q5_sat_verdict.json q5_sat_verdict.md "$target"/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$target"
+          git commit -m "Q5 inequality by SAT with checked proofs: $(python -c "import json; print(json.load(open('q5_sat_verdict.json'))['verdict'])")"
+          git pull --rebase origin main
+          git push origin HEAD:main

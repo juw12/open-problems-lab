@@ -46,9 +46,10 @@ def check(project, lean_file, out_dir):
     (out_dir / (lean_file.stem + ".out.txt")).write_text(output, encoding="utf-8")
 
     axioms = {}
-    for name, rest in re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]", output):
+    # a theorem name may itself end in a prime (adj_flip'), so the name runs to the last quote
+    for name, rest in re.findall(r"^'(.+)' depends on axioms: \[([^\]]*)\]", output, re.M):
         axioms[name] = [a.strip() for a in rest.replace("\n", " ").split(",") if a.strip()]
-    for name in re.findall(r"'([^']+)' does not depend on any axioms", output):
+    for name in re.findall(r"^'(.+)' does not depend on any axioms", output, re.M):
         axioms[name] = []
     errors = [line for line in output.splitlines() if re.search(r":\d+:\d+: error", line)]
     uses_sorry = "sorryAx" in output or "declaration uses 'sorry'" in output
