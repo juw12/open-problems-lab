@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use these computations, please cite this repository."
 title: "Open Problems Lab: reproducible computations on open problems in number theory and combinatorics"
 type: software
-version: "1.1.1"
+version: "1.1.2"
 abstract: >-
   Small, checkable computations on open problems in number theory and combinatorics,
   mostly from erdosproblems.com. Each note is a reproduction of published values, a finite

@@ -38,24 +38,26 @@ table { break-inside: avoid; }
 
 <h1>A C<sub>4</sub>-free subgraph of the 8-cube has at most 690 edges:<br>a Lean-checked parity argument</h1>
 <p class="author">Juwen Lie</p>
-<p class="affil">Independent; ORCID 0009-0008-1384-7901 &nbsp;·&nbsp; 25 November 2026 &nbsp;·&nbsp; version 2 (prior work updated after reading Chung [6]; the theorem and its proof are unchanged)<br>
-Archived with the Lean files: doi:10.5281/zenodo.24338429 (all versions of github.com/juw12/open-problems-lab; version 1 of this paper is in release v1.1.0, doi:10.5281/zenodo.24522415)</p>
+<p class="affil">Independent; ORCID 0009-0008-1384-7901 &nbsp;·&nbsp; 25 November 2026 &nbsp;·&nbsp; version 3 (Thomason and Wagner [7] read: a table in their paper gives f(8) ≤ 689, Section 5; the theorem and its proof are unchanged)<br>
+Archived with the Lean files: doi:10.5281/zenodo.24338429 (all versions of github.com/juw12/open-problems-lab; version 1 of this paper is in release v1.1.0, doi:10.5281/zenodo.24522415, version 2 in v1.1.1, doi:10.5281/zenodo.24523255)</p>
 
 <div class="abstract"><b>Abstract.</b> Let f(n) be the largest number of edges of a subgraph of the n-dimensional
 cube Q<sub>n</sub> that contains no 4-cycle. We show f(8) ≤ 690. The proof combines a star-capacity count that goes back to Chung (1992) and is used in this form by
 Zhou, Ma, Yang, Ren, Yang and Li, which gives 691, with a parity count inside the 16 facets that rules 691 out.
 The statement and its proof were checked by the Lean 4 kernel with Mathlib. With the known construction on 682
-edges this gives 682 ≤ f(8) ≤ 690. The proof was produced by an AI agent and has not been read by a mathematician;
-we did not find the bound 690 in the sources we could read, two older papers remain unread, and we have not
-established that 690 is new.</div>
+edges this gives 682 ≤ f(8) ≤ 690. The proof was produced by an AI agent and has not been read by a mathematician.
+The bound 690 is not the best one that follows from published work: a table printed by Thomason and Wagner (2009),
+the result of a computer enumeration in the 5-cube, gives f(8) ≤ 689 by averaging over sub-5-cubes, although
+the number is not stated in their paper (Section 5). What this paper adds is a proof of 690 that uses no computer
+search and has been checked by a proof assistant.</div>
 
 <div class="box"><b>How this was made, and what to trust.</b> I am a mechanical engineer, not a mathematician.
 The statement, the proof below and its Lean formalisation were written by an AI agent (a large language model) in a
 research lab that I run on my own PC; I did not find the argument myself. What can be trusted is narrow and exact:
 the Lean 4 kernel accepted a proof of the formal statement in Section 4, using only Lean's three standard axioms.
 What has <i>not</i> been checked by a person: that the argument is new, and that the formal definitions say what the
-words say (they are short, and printed in Section 4 so that a reader can judge). A pointer to an earlier source is
-the most useful reply to this paper.</div>
+words say (they are short, and printed in Section 4 so that a reader can judge). The bound itself is not the best
+available; Section 5 says what is. A pointer to an earlier source is the most useful reply to this paper.</div>
 
 <h2>1. The question and what is known</h2>
 
@@ -70,12 +72,14 @@ Ren, Yang and Li [2]. For n = 8 we know of the following bounds.</p>
 <tr><td>f(8) ≥ 682</td><td>a construction from the fully frustrated ground state of Marinari, Parisi and Ritort; edge list in Minamoto [3]</td></tr>
 <tr><td>f(8) ≤ 694</td><td>averaging over the 16 facets from f(7) = 304: 7·e ≤ 16·304</td></tr>
 <tr><td>f(8) ≤ 691</td><td>star capacity (Lemmas 4 and 5 of Chung [6]; Lemma 2.2 of [2]) with C(d,3) ≥ 10d − 40; Step 1 and Step 2 below. The number is not printed in [6] or [2]</td></tr>
-<tr><td><b>f(8) ≤ 690</b></td><td><b>this paper</b></td></tr>
+<tr><td><b>f(8) ≤ 690</b></td><td><b>this paper</b>; no computer search, checked by Lean</td></tr>
+<tr><td>f(8) ≤ 689</td><td>follows from Table 1 of Thomason and Wagner [7], a computer enumeration in Q<sub>5</sub>, by averaging over the 448 sub-5-cubes (Section 5). The number is not printed in [7]; we did not re-compute the table</td></tr>
 </table>
 
 <div class="thm"><b>Theorem.</b> <i>Every subgraph of Q<sub>8</sub> without a 4-cycle has at most 690 edges.</i></div>
 
-<p>So 682 ≤ f(8) ≤ 690. The gap is not closed, and Minamoto [3] lists the exact value of ex(Q<sub>8</sub>, C<sub>4</sub>), and whether it is 682, as open.</p>
+<p>So 682 ≤ f(8) ≤ 690 with a proof that the Lean kernel has checked, and 682 ≤ f(8) ≤ 689 if Table 1 of [7] is
+accepted. The gap is not closed, and Minamoto [3] lists the exact value of ex(Q<sub>8</sub>, C<sub>4</sub>), and whether it is 682, as open.</p>
 
 <h2>2. Notation</h2>
 
@@ -124,9 +128,10 @@ Step 4. So G does not exist. <span class="qed">∎</span></p>
 5 with C(d,3) = 1, 4, 10, of mixed parity, so the argument has no analogue there; this fits the fact that
 f(7) = 304 needed the much longer proof of [2]. (b) For 690 edges the count of Step 2 leaves a slack of 12
 instead of 2, and some configurations pass the parity test, for example four star-less 3-faces with the same free
-coordinates whose fixed values form an affine plane. Reaching 689 needs another idea or a computation.
+coordinates whose fixed values form an affine plane. Reaching 689 this way needs another idea; Section 5 gets 689
+from the computation of [7].
 (c) Averaging over the 18 facets of Q<sub>9</sub> gives 8·f(9) ≤ 18·f(8), hence f(9) ≤ 1552 (from 694 one gets
-1561).</p>
+1561). The table of [7] gives f(9) ≤ 1549.</p>
 
 <h2>4. The formal statement and the machine check</h2>
 
@@ -157,9 +162,32 @@ reading of “C<sub>4</sub>-free subgraph of the cube”.</p>
 archived at doi:10.5281/zenodo.24522415. To re-check: a Lean project with Lean 4 v4.32.0 and Mathlib v4.32.0, then
 <code>lake env lean Q8Parity.lean</code>.</p>
 
-<h2>5. What is not known</h2>
+<h2>5. Earlier work, and what is not known</h2>
 
-<p><b>Whether 690 is new.</b> We found no upper bound for f(8) in [2], in [3], in the OEIS entry A245762 [4] or on
+<p><b>A table of Thomason and Wagner [7] gives 689.</b> Their paper bounds the limit of f(n)/e(Q<sub>n</sub>) by
+0.62256 and states no bound for n = 7 or 8. Its Table 1 lists the 33 extreme points of the convex hull of the
+vectors (s<sub>1</sub>, …, s<sub>5</sub>) of all C<sub>4</sub>-free subgraphs H of Q<sub>5</sub>, where
+s<sub>r</sub> = Σ<sub>v</sub> C(d<sub>H</sub>(v), r) counts the stars with r edges. The table is the result of a
+computer enumeration that took about 17 hours. On each of the 33 points one checks by hand that</p>
+<p class="eq">12·s<sub>1</sub> − 5·s<sub>2</sub> + 11·s<sub>4</sub> − 20·s<sub>5</sub> ≤ 800, &nbsp;&nbsp;&nbsp; (∗)</p>
+<p>with equality at four of them, among them (112, 144, 80, 16, 0), the graph with 56 edges. So (∗) holds for
+every C<sub>4</sub>-free subgraph of Q<sub>5</sub>. Now let G be C<sub>4</sub>-free in Q<sub>8</sub>. There are
+C(8,5)·2<sup>3</sup> = 448 sub-5-cubes, and a star with r edges lies in C(8−r, 5−r) of them, that is in 35, 20,
+10, 4, 1 for r = 1, …, 5. Adding (∗) over the sub-5-cubes gives</p>
+<p class="eq">Σ<sub>v</sub> h(d(v)) ≤ 800·448 = 358 400, &nbsp;&nbsp; h(d) = 420·d − 100·C(d,2) + 44·C(d,4) − 20·C(d,5).</p>
+<p>For d = 0, 1, …, 8 the values of h(d) − 260·d are 0, 160, 220, 180, 84, 0, 0, 140, 440, never negative. The
+degrees add up to 2e, so 520·e ≤ 358 400, e ≤ 8960/13 = 689.23…, and f(8) ≤ 689.</p>
+<p>Three cautions. This derivation was made by an AI agent and has not been read by a mathematician. We did not
+find the number 689 in [7] or elsewhere, and we do not know whether it is written down somewhere. And it rests
+on Table 1, which we copied from the paper and did not re-compute; a direct check of (∗) by integer programming,
+without the table, is not finished (a 45-second run found the value 800 and proved only ≤ 812). The same table
+gives f(5) ≤ 56, f(6) ≤ 133, f(7) ≤ 306, f(9) ≤ 1549 and f(10) ≤ 3398; the scripts
+<code>thomason_wagner_certificate.py</code> and <code>q5_inequality_ilp.py</code> are in the folder
+<code>prize_work/flagship-erdos-86-f7/sources</code> of the repository.</p>
+<p>So the position is this. The bound 690 has a proof of one page with no computer search, checked by Lean (this
+paper). The bound 689 follows from a computation of 2009 that we have not reproduced.</p>
+
+<p><b>Whether 690 was written down before.</b> We found no upper bound for f(8) in [2], in [3], in the OEIS entry A245762 [4] or on
 the page of problem 86 [1], all read on 25 November 2026; the full text of [2] and [3] was searched for the numbers
 683 and 688 to 696, with no hit. The flag-algebra papers [8] give asymptotic densities only.</p>
 
@@ -174,9 +202,8 @@ ends: every 3-face has two vertices of degree 3, so the left side of Lemma 11 is
 So 690 is not stated in [6] and does not follow from what is proved there. The script
 <code>prize_work/flagship-erdos-86-f7/chung_check.py</code> in the repository reproduces these numbers.</p>
 
-<p><b>Not read.</b> We could not obtain Brass, Harborth and Nienborg [5] or Thomason and Wagner [7], so an earlier
-bound may exist there or elsewhere. Only the parity Step 4 may be new, and it is short enough that it may be
-folklore.</p>
+<p><b>Not read.</b> We could not obtain Brass, Harborth and Nienborg [5], so an earlier bound may exist there or
+elsewhere. Only the parity Step 4 may be new, and it is short enough that it may be folklore.</p>
 <p><b>The true value of f(8)</b>, and anything about the asymptotic question of problem 86.</p>
 
 <h2>References</h2>
@@ -187,7 +214,7 @@ folklore.</p>
 <li>OEIS Foundation, sequence A245762, https://oeis.org/A245762 (read 25 November 2026).</li>
 <li>P. Brass, H. Harborth, H. Nienborg, <i>On the maximum number of edges in a C<sub>4</sub>-free subgraph of Q<sub>n</sub></i>, J. Graph Theory 19 (1995). Not read.</li>
 <li>F. R. K. Chung, <i>Subgraphs of a hypercube containing no small even cycles</i>, J. Graph Theory 16 (1992), 273–286. Read on 25 November 2026 (copy on the author's page).</li>
-<li>A. Thomason, P. Wagner, <i>Bounding the size of square-free subgraphs of the hypercube</i>, Discrete Math. 309 (2009). Not read.</li>
+<li>A. Thomason, P. Wagner, <i>Bounding the size of square-free subgraphs of the hypercube</i>, Discrete Math. 309 (2009), 1730–1735. Read on 25 November 2026.</li>
 <li>J. Balogh, P. Hu, B. Lidický, H. Liu, <i>Upper bounds on the size of 4- and 6-cycle-free subgraphs of the hypercube</i>, arXiv:1201.0209; R. Baber, <i>Turán densities of hypercubes</i>, arXiv:1201.3587. Asymptotic bounds only.</li>
 </ol>
 

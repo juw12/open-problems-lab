@@ -1,12 +1,17 @@
 ---
 Target: the lab's public notes repo; later, if no earlier source turns up, a comment on erdosproblems.com problem 86
 Date: 2026-11-25
-Status: proof checked by Lean; no referee and no human reader yet; whether the bound is new is not established
+Status: proof checked by Lean; no referee and no human reader yet; the bound 690 is NOT the best that follows
+  from published work (see the second update)
 Updated: 2026-11-25, same day: Chung (1992) was read. Step 1 and the bound 691 are credited to her Lemmas 4-5;
   the bound 690 is not in her paper. See "What is not known".
+Updated: 2026-11-25, afternoon: Thomason and Wagner (2009) was read. A table printed in their paper gives
+  f(8) <= 689 by averaging over sub-5-cubes; the number is not stated there. So 690 is weaker than a consequence
+  of data published in 2009. See "Thomason-Wagner's table gives 689". The proof below is unchanged.
 Flagship: F2, F4, F5
-Scope: one finite statement about the 8-cube. Claimed: f(8) <= 690, with a Lean 4 proof. Not claimed: that 690 is
-  new, that 690 is the true value, or anything about the asymptotic question of problem 86.
+Scope: one finite statement about the 8-cube. Claimed: f(8) <= 690, with a Lean 4 proof and no computer search.
+  Not claimed: that 690 is new or the best known bound (it is not, see the second update), that it is the true
+  value, or anything about the asymptotic question of problem 86.
 AI-assisted: yes (statement, hand proof and Lean proof were written by an AI agent)
 ---
 
@@ -14,8 +19,9 @@ AI-assisted: yes (statement, hand proof and Lean proof were written by an AI age
 > Juwen Lie. The proof was written by an AI agent and checked by the Lean 4 kernel with
 > Mathlib (standard axioms only); the Lean files are in this repository under `prize_work/`.
 > The kernel checks the proof, not whether the formal statement says what this note says:
-> please read the definitions. **No human mathematician has reviewed it**, the lab does not
-> know whether the result is new, and it has not been posted to the problem's own site.
+> please read the definitions. **No human mathematician has reviewed it**. The bound is
+> not the best that follows from published work: a table of Thomason and Wagner (2009) gives
+> 689 (section "Thomason-Wagner's table gives 689"). It has not been posted to the problem's own site.
 > "I" below means the lab. Nothing here settles the open problem itself. Corrections and
 > references are welcome: please open an issue.
 
@@ -30,9 +36,11 @@ how f(n) grows; the small values are f(4) = 24, f(5) = 56, f(6) = 132 and, since
 | f(8) >= 682 | odd-square set from the fully frustrated ground state of Marinari, Parisi and Ritort; edge list and proof of the odd-square optimum in Minamoto, arXiv:2603.29127 v5 |
 | f(8) <= 694 | averaging over the 16 facets from f(7) = 304: 7 e <= 16 * 304 |
 | f(8) <= 691 | star capacity (Chung 1992, Lemmas 4-5; per parity class it is Lemma 2.2 of arXiv:2611.27284; step 1 below) with C(d,3) >= 10 d - 40; `Stars.bound_8_691` |
-| **f(8) <= 690** | **this note; `Q8Parity.bound_8_690`** |
+| **f(8) <= 690** | **this note; `Q8Parity.bound_8_690`**; no computer search, checked by Lean |
+| f(8) <= 689 | follows from Table 1 of Thomason-Wagner (2009), a computer enumeration in Q5, by averaging over the 448 sub-5-cubes; the number is not printed there and the table was not re-computed here; section "Thomason-Wagner's table gives 689" |
 
-So 682 <= f(8) <= 690. The gap is not closed.
+So 682 <= f(8) <= 690 with a proof the Lean kernel has checked, and 682 <= f(8) <= 689 if that table is
+accepted. The gap is not closed.
 
 ## What was checked, and by what
 
@@ -96,12 +104,42 @@ So no C4-free subgraph of Q_8 has 691 edges. The Lean proof follows the same ste
 ## A consequence by arithmetic
 
 With `Averaging.averaging_c4free`, 8 * f(9) <= 18 * f(8) <= 18 * 690 = 12420, so f(9) <= 1552; the same step from
-694 gives 1561. This line is arithmetic on top of two checked files. It is not one Lean statement, because the two
+694 gives 1561. (Thomason-Wagner's table gives f(9) <= 1549 directly, see below.) This line is arithmetic on top of two checked files. It is not one Lean statement, because the two
 files each carry their own copy of the definitions.
+
+## Thomason-Wagner's table gives 689
+
+A. Thomason and P. Wagner, Bounding the size of square-free subgraphs of the hypercube, Discrete Math. 309
+(2009) 1730-1735, read on 2026-11-25. The paper bounds the limit density by 0.62256 and states no bound for
+n = 7 or 8. Its Table 1 lists the 33 extreme points of the convex hull of the star vectors (s1, ..., s5),
+s_r = sum over v of C(d(v), r), of all C4-free subgraphs of Q5. The table comes from a computer run of about
+17 hours. On all 33 points
+
+    12 s1 - 5 s2 + 11 s4 - 20 s5 <= 800                                   (*)
+
+with equality at four of them, among them (112, 144, 80, 16, 0), the 56-edge graph. So (*) holds for every
+C4-free subgraph of Q5. Let G be C4-free in Q8. There are C(8,5) * 2^3 = 448 sub-5-cubes, and a star with r
+edges lies in C(8-r, 5-r) = 35, 20, 10, 4, 1 of them (r = 1..5). Adding (*) over the sub-5-cubes:
+
+    sum over v of h(d(v)) <= 800 * 448 = 358400,   h(d) = 420 d - 100 C(d,2) + 44 C(d,4) - 20 C(d,5).
+
+For d = 0..8 the values of h(d) - 260 d are 0, 160, 220, 180, 84, 0, 0, 140, 440, never negative. So
+520 e <= 358400, e <= 8960/13 = 689.23..., and f(8) <= 689.
+
+- This derivation was made by an AI agent and has not been read by a mathematician. The lab did not find the
+  number 689 in the paper or anywhere else, and does not know whether it is written down somewhere.
+- It rests on Table 1, which was copied from the paper and not re-computed. A direct check of (*) by integer
+  programming, without the table, is not finished: a 45-second run found the value 800 and proved only <= 812.
+- The same table gives f(5) <= 56, f(6) <= 133, f(7) <= 306, f(9) <= 1549 and f(10) <= 3398.
+- Scripts: `prize_work/flagship-erdos-86-f7/sources/thomason_wagner_certificate.py` (exact multipliers, checked
+  in fractions), `thomason_wagner_star_lp.py` (the linear program), `q5_inequality_ilp.py` (the unfinished check).
+
+What this note still offers: 690 by a proof of about one page with no computer search, checked by the Lean
+kernel.
 
 ## What is not known
 
-- **Whether 690 is new.** The lab found no upper bound for f(8) in arXiv:2611.27284, arXiv:2603.29127, the OEIS
+- **Whether 690 was written down before.** The lab found no upper bound for f(8) in arXiv:2611.27284, arXiv:2603.29127, the OEIS
   entry A245762 or the page of problem 86 (all read on 2026-11-25; the full text of both papers was searched for
   690 to 694, no hit; arXiv:2603.29127 lists "determine ex(Q_8, C_4) exactly, is it 682?" as open). The two
   flag-algebra papers arXiv:1201.0209 and arXiv:1201.3587 give asymptotic densities only.
@@ -114,10 +152,11 @@ files each carry their own copy of the definitions.
   Q_4 for the 14-edge forest made of the edges {0000,0001} and {1110,1111} with all edges at their four ends
   (left side 0, right side 3/4). So 690 is not stated in her paper and does not follow from what is proved
   there. Script: `prize_work/flagship-erdos-86-f7/chung_check.py`.
-- **Still not read:** Brass, Harborth and Nienborg (J. Graph Theory 19, 1995) and Thomason and Wagner (Discrete
-  Math. 309, 2009). An earlier bound may be there or elsewhere. Only the parity step 4 may be new, and it is short
-  enough that it may well be folklore. A reference to an earlier source is the most useful reply to this note.
+- **Still not read:** Brass, Harborth and Nienborg (J. Graph Theory 19, 1995). An earlier bound may be there or
+  elsewhere. Only the parity step 4 may be new, and it is short enough that it may well be folklore. A reference
+  to an earlier source is the most useful reply to this note.
 - **The true value.** For 690 edges the same count leaves a slack of 12 instead of 2, and configurations such as
   four star-less faces with the same free coordinates, whose fixed values form an affine plane, pass the parity
-  test. Reaching 689 needs another idea or a computation.
+  test. Reaching 689 this way needs another idea; the section above gets 689 from the computation of
+  Thomason and Wagner.
 - Nothing here bears on the asymptotic question of problem 86.

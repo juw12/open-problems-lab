@@ -1,0 +1,13 @@
+{
+ "claim": "12 s1 - 5 s2 + 11 s4 - 20 s5 <= 800 for every C4-free subgraph of Q5",
+ "status": 1,
+ "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+ "best_found": 800.0000000000138,
+ "proven_upper_bound": 812.0,
+ "nodes": 4220,
+ "seconds": 45.0,
+ "time_limit": 45.0,
+ "symmetry_breaking": true,
+ "cutoff_801": false,
+ "claim_proved_by_solver": false
+}
