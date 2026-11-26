@@ -3,7 +3,7 @@
  "verdict": "checked",
  "exit": 0,
  "timed_out": false,
- "seconds": 9.0,
+ "seconds": 8.2,
  "theorems": 56,
  "theorems_with_axiom_report": 56,
  "axioms_used": [
