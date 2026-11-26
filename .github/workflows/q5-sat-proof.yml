@@ -10,6 +10,9 @@ on:
         description: "solver time limit per case, seconds"
         default: "7200"
 
+permissions:
+  contents: read
+
 jobs:
   selftest:
     name: encoder self-test (brute force on Q3, CP-SAT on Q4, the 800 graphs on Q5)
