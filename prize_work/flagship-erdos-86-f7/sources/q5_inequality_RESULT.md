@@ -10,13 +10,30 @@ sum_v g(d(v)) <= 800 with g = (0, 12, 19, 21, 29, 45). It gives f(8) <= 689 by a
 edge set K of Q5, the sum of g(degree) over the 32 vertices is at most 800. So f(8) <= 689 now needs exactly
 this one statement and nothing else. Lean does not check the statement; the runs below do.
 
-A third kind of run was started at 18:29: `q5_sat_proof.py` writes each case as a CNF formula, CaDiCaL 2.1.3
-answers, and for each "no" drat-trim checks the solver's DRAT proof (only VERIFIED counts). Workflow
-`.github/workflows/q5-sat-proof.yml`, run https://github.com/juw12/open-problems-lab/actions/runs/45604846118; its files and verdict go to `q5_sat_runs/`.
-The first run of that workflow (45604007728) failed before solving anything: drat-trim did not compile
-with its own makefile on the runner; fixed in commit c9f722a.
+## SAT run with checked proofs (finished 2026-11-25 19:14): HOLDS, every case verified
 
-## Verdict (2026-11-25 17:50): HOLDS, by CP-SAT. A solver verdict, not a formal proof.
+`q5_sat_proof.py` writes each case as a CNF formula, CaDiCaL 2.1.3 answers, and for each "no" drat-trim
+checks the solver's DRAT proof (only VERIFIED counts). Workflow `.github/workflows/q5-sat-proof.yml`,
+run https://github.com/juw12/open-problems-lab/actions/runs/45604846118.
+
+- **All 18 cases at target 801: INFEASIBLE, and drat-trim says VERIFIED for each proof.** Both controls at
+  target 800 are FEASIBLE. The encoder's self-test passed (brute force on Q3, CP-SAT on Q4).
+- Sizes: about 5800 s of solving and 9.4 GB of proofs in total. Hardest case, a vertex of degree 5 with
+  neighbour degrees 4, 3, 3: 990 s to solve, a 1.47 GB proof, 1274 s to check.
+- The proofs were not kept (too large). Each JSON file in `q5_sat_runs/` has the SHA-256 of formula and
+  proof, the sizes and the checker's last lines. Table: `q5_sat_runs/q5_sat_verdict.md`.
+- The whole problem with no case split and no symmetry (https://github.com/juw12/open-problems-lab/actions/runs/45606831102,
+  workflow `q5-sat-proof-all.yml`): no answer in 9000 s. It decides nothing.
+- **What this rests on:** the encoder `q5_sat_proof.py`, the case split (vertex 0 has the largest degree, its
+  edges go in the first directions, its neighbours are in order of degree; largest degree <= 3 gives at most
+  32 x 21 = 672) and drat-trim. Not on the solver. It is not a Lean proof of (*), drat-trim is not a
+  formally verified checker, and no person has read the encoder or the case split.
+- History: the first run of the workflow (45604007728) failed before solving anything, because drat-trim did
+  not compile with its own makefile on the runner (fixed in commit c9f722a). The last job of run 45604846118
+  failed on a merge conflict while committing its files; they were added from the run's artifacts in
+  commit 7cdf09a.
+
+## Exact solvers (final, 2026-11-25 22:30): HOLDS, by CP-SAT and by HiGHS. Solver verdicts, no proof file.
 
 - **How.** `q5_inequality_cases.py` turns (*) into feasibility questions: is there a C4-free subgraph of Q5 with
   sum >= 801 in this case? Cases: largest degree <= 3 (no run: sum <= 672), `d4` (largest degree 4), `d5` (a vertex
@@ -24,13 +41,14 @@ with its own makefile on the runner; fixed in commit c9f722a.
   JSON files and states one verdict. Every FEASIBLE graph is re-checked from its edge list alone.
 - **CP-SAT (OR-Tools 9.15, 4 threads): INFEASIBLE in every case.** d4 whole (20 s) and split in four; d5 whole
   (1199 s), split by d(e_0) = 1..5 (the slow one is d(e_0) = 4: 1225 s), and that one split again in ten.
-- **HiGHS (SciPy 1.18): INFEASIBLE in every case it has finished** - all of d4 (whole: 617 s) and d5 with
-  d(e_0) = 1, 2, 3, 5. For d5 with d(e_0) = 4 it was still running at 17:50 on the sub-cases (4,2,2), (4,3,2), (4,3,3), (4,4,2), (4,4,3)
-  (limit 5.3 h each). So HiGHS has not yet confirmed that one sub-case; nothing contradicts CP-SAT.
+- **HiGHS (SciPy 1.18): INFEASIBLE in every case of the split** - all of d4 (whole: 617 s) and d5 with
+  d(e_0) = 1, 2, 3, 4, 5 (the slow one is d(e_0) = 4: 13763 s). HiGHS on d5 as one question hit the 5.3 h limit
+  (UNKNOWN); the five parts cover it.
 - **Control.** With target 800 instead of 801 both solvers find a graph in d4 and in d5 (re-checked), so the model
   is not infeasible by a modelling error.
-- **Still running at 17:50:** CP-SAT on the whole problem with no case split (`all`) and with no case split and
-  none of the added rows (`all plain`, the run that trusts the least). Not needed for the verdict.
+- **No case split: no answer.** CP-SAT on the whole problem with no case split (`all`) and with no case split
+  and none of the added rows (`all plain`, the run that trusts the least) both hit the 5.3 h limit: UNKNOWN.
+  So the case split is still trusted.
 - **Where it ran.** GitHub Actions on the public repository, not this PC (the PC was over its Cairn load limit):
   https://github.com/juw12/open-problems-lab/actions/runs/45592147713 (28 questions, commit 07c42e2) and
   https://github.com/juw12/open-problems-lab/actions/runs/45596181027 (the finer split, commit 17dfd6a).
@@ -61,7 +79,7 @@ trivial bound from this is 808.
 - An earlier attempt with CP-SAT and no case split found 800 in 240 s and could not decide 801.
 - 2026-11-25 17:08 moved to GitHub Actions with the case split; decided by CP-SAT at 17:30.
 
-## Table at 17:50 (from `q5_verdict.py` over `q5_runs/`)
+## Table at 17:50 (from `q5_verdict.py` over `q5_runs/`; the final table is `q5_runs/q5_verdict.md`)
 
 Solvers that cover every case at target 801: cpsat.  Control (800 is reachable): d4 by cpsat, highs, d5 by cpsat, highs.
 

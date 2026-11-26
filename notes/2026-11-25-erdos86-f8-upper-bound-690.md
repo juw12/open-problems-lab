@@ -15,6 +15,9 @@ Updated: 2026-11-25, night: the step from that one inequality to f(8) <= 689 is 
   (`Q8Bound689.bound_8_689_of_Q5Ineq`). So 689 rests on one statement about the 5-cube, and that statement
   rests on solver runs, not on Lean. A second kind of run (SAT solver, each "no" with a proof file that a
   separate small checker verifies) was started. Same section.
+Updated: 2026-11-26: that run ended. All 18 cases are "no", and the checker (drat-trim) verified every
+  proof. The second exact solver (HiGHS) also finished every case. Still not a Lean proof of the inequality,
+  and no person has read the encoding or the case split. Same section.
 Flagship: F2, F4, F5
 Scope: one finite statement about the 8-cube. Claimed: f(8) <= 690, with a Lean 4 proof and no computer search.
   Not claimed: that 690 is new or the best known bound (it is not, see the second update), that it is the true
@@ -162,18 +165,24 @@ For d = 0..8 the values of h(d) - 260 d are 0, 160, 220, 180, 84, 0, 0, 140, 440
   OR-Tools 9.15) was asked for a C4-free subgraph of Q5 with left side >= 801 and answered "infeasible" in
   every case (largest degree 4: 20 s; a vertex of degree 5: 20 min; largest degree <= 3 needs no run, the sum
   is at most 672). Asked for 800 it finds a graph in both cases, so the model is not empty by mistake. A
-  second solver (HiGHS) agrees on every case it has finished; two sub-cases were still running when this was
-  written. These runs leave no proof file, and the case split uses a symmetry argument nobody has read. Runs:
+  second solver (HiGHS) answered "infeasible" in every case too (the slowest, a vertex of degree 5 with a
+  neighbour of degree 4, took 3.8 h). Three runs that drop the case split (CP-SAT twice, HiGHS once) hit their
+  5.3 h limit with no answer, so they decide nothing. These runs leave no proof file, and the case split uses
+  a symmetry argument nobody has read. Runs:
   https://github.com/juw12/open-problems-lab/actions/runs/45592147713 and .../runs/45596181027; record in
   `prize_work/flagship-erdos-86-f7/sources/q5_inequality_RESULT.md`.
-- **A third run that leaves proofs (started 2026-11-25, not finished when this was written).** The same
-  question as a formula for a SAT solver (`q5_sat_proof.py`, CaDiCaL 2.1.3). For each "no" the solver writes
-  a DRAT proof and drat-trim, a separate small program, checks it; a case counts only if the checker says
-  VERIFIED. Then a "no" rests on the encoder (tested against brute force on Q3 and against CP-SAT on Q4) and
-  on the checker, not on the solver. The easy cases are verified; the hard ones may not finish in the time
-  limit. Run: https://github.com/juw12/open-problems-lab/actions/runs/45604846118; verdict, when the run ends, in
-  `prize_work/flagship-erdos-86-f7/sources/q5_sat_runs/q5_sat_verdict.md`. Even a full pass would not be a
-  Lean proof of (*): the encoder and the case split would still be trusted.
+- **A third run that leaves proofs (finished 2026-11-25, 12:14 UTC).** The same question as a formula for a
+  SAT solver (`q5_sat_proof.py`, CaDiCaL 2.1.3), cut into 18 cases. For each "no" the solver writes a DRAT
+  proof and drat-trim, a separate small program, checks it; a case counts only if the checker says VERIFIED.
+  Result: all 18 cases are "no" and all 18 proofs are VERIFIED (9.4 GB of proofs together; the hardest case
+  took 16 min to solve and 21 min to check). Asked for 800 the solver finds a graph in both controls. So a
+  "no" rests on the encoder (tested against brute force on Q3 and against CP-SAT on Q4), on the case split
+  and on the checker, not on the solver. The proofs were too large to keep; each result file has the SHA-256
+  of formula and proof and the checker's last lines, and the run can be repeated by anyone. One more run
+  asked the whole question with no case split: no answer in 2.5 h. Runs: https://github.com/juw12/open-problems-lab/actions/runs/45604846118
+  and https://github.com/juw12/open-problems-lab/actions/runs/45606831102; table in
+  `prize_work/flagship-erdos-86-f7/sources/q5_sat_runs/q5_sat_verdict.md`. This is still not a Lean proof
+  of (*): the encoder and the case split are trusted, and no person has read them.
 - (*) is not a fact about one parity class: the largest sum of g(d) = 12 d - 5 C(d,2) + 11 C(d,4) - 20 C(d,5)
   over the 16 vertices of one class is 404, not 400 (`q5_class_bound.py`; the other class then has 382).
 - The same table gives f(5) <= 56, f(6) <= 133, f(7) <= 306, f(9) <= 1549 and f(10) <= 3398.
@@ -206,6 +215,8 @@ kernel.
 - **The true value.** For 690 edges the same count leaves a slack of 12 instead of 2, and configurations such as
   four star-less faces with the same free coordinates, whose fixed values form an affine plane, pass the parity
   test. Reaching 689 this way needs another idea; the section above gets 689 from the computation of
-  Thomason and Wagner. A proof of (*) that Lean or a person can check (from verified SAT proofs, or a short
-  argument by hand) would make 689 unconditional; the lab does not have one.
+  Thomason and Wagner. A proof of (*) that Lean or a person can check (a short argument by hand, or the
+  SAT proofs re-checked by a verified checker together with a checked encoding) would make 689
+  unconditional; the lab does not have one. What it has: three solvers that agree, and SAT proofs of every
+  case verified by an independent checker.
 - Nothing here bears on the asymptotic question of problem 86.
