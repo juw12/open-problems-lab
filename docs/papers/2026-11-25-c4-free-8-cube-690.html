@@ -38,8 +38,8 @@ table { break-inside: avoid; }
 
 <h1>A C<sub>4</sub>-free subgraph of the 8-cube has at most 690 edges:<br>a Lean-checked parity argument</h1>
 <p class="author">Juwen Lie</p>
-<p class="affil">Independent; ORCID 0009-0008-1384-7901 &nbsp;·&nbsp; 25 November 2026 &nbsp;·&nbsp; version 3 (Thomason and Wagner [7] read: a table in their paper gives f(8) ≤ 689, Section 5; the theorem and its proof are unchanged)<br>
-Archived with the Lean files: doi:10.5281/zenodo.24338429 (all versions of github.com/juw12/open-problems-lab; version 1 of this paper is in release v1.1.0, doi:10.5281/zenodo.24522415, version 2 in v1.1.1, doi:10.5281/zenodo.24523255)</p>
+<p class="affil">Independent; ORCID 0009-0008-1384-7901 &nbsp;·&nbsp; 26 November 2026 &nbsp;·&nbsp; version 4 (new in Sections 4 and 5: Lean now checks the step from one inequality in the 5-cube to f(8) ≤ 689, and that inequality was checked by two exact solvers and by a SAT solver whose proofs an independent checker verified; the theorem and its proof are unchanged)<br>
+Archived with the Lean files: doi:10.5281/zenodo.24338429 (all versions of github.com/juw12/open-problems-lab; version 1 of this paper is in release v1.1.0, doi:10.5281/zenodo.24522415, version 2 in v1.1.1, doi:10.5281/zenodo.24523255, version 3 in v1.1.2, doi:10.5281/zenodo.24525686, version 4 in v1.2.0)</p>
 
 <div class="abstract"><b>Abstract.</b> Let f(n) be the largest number of edges of a subgraph of the n-dimensional
 cube Q<sub>n</sub> that contains no 4-cycle. We show f(8) ≤ 690. The proof combines a star-capacity count that goes back to Chung (1992) and is used in this form by
@@ -48,8 +48,11 @@ The statement and its proof were checked by the Lean 4 kernel with Mathlib. With
 edges this gives 682 ≤ f(8) ≤ 690. The proof was produced by an AI agent and has not been read by a mathematician.
 The bound 690 is not the best one that follows from published work: a table printed by Thomason and Wagner (2009),
 the result of a computer enumeration in the 5-cube, gives f(8) ≤ 689 by averaging over sub-5-cubes, although
-the number is not stated in their paper (Section 5). What this paper adds is a proof of 690 that uses no computer
-search and has been checked by a proof assistant.</div>
+the number is not stated in their paper (Section 5). Lean also checks the step from one inequality about the
+5-cube to f(8) ≤ 689. That inequality is not proved in Lean: two exact solvers confirm it, and so does a SAT
+solver whose proofs of all 18 cases were verified by an independent checker. What this paper adds is a proof of
+690 that uses no computer search and has been checked by a proof assistant, and this reduction of 689 to one
+statement about the 5-cube.</div>
 
 <div class="box"><b>How this was made, and what to trust.</b> I am a mechanical engineer, not a mathematician.
 The statement, the proof below and its Lean formalisation were written by an AI agent (a large language model) in a
@@ -73,13 +76,13 @@ Ren, Yang and Li [2]. For n = 8 we know of the following bounds.</p>
 <tr><td>f(8) ≤ 694</td><td>averaging over the 16 facets from f(7) = 304: 7·e ≤ 16·304</td></tr>
 <tr><td>f(8) ≤ 691</td><td>star capacity (Lemmas 4 and 5 of Chung [6]; Lemma 2.2 of [2]) with C(d,3) ≥ 10d − 40; Step 1 and Step 2 below. The number is not printed in [6] or [2]</td></tr>
 <tr><td><b>f(8) ≤ 690</b></td><td><b>this paper</b>; no computer search, checked by Lean</td></tr>
-<tr><td>f(8) ≤ 689</td><td>follows from Table 1 of Thomason and Wagner [7], a computer enumeration in Q<sub>5</sub>, by averaging over the 448 sub-5-cubes (Section 5). The number is not printed in [7]; we did not re-compute the table</td></tr>
+<tr><td>f(8) ≤ 689</td><td>follows from one inequality in Q<sub>5</sub>, (∗) in Section 5, by averaging over the 448 sub-5-cubes; Lean checks this step. (∗) follows from Table 1 of Thomason and Wagner [7], a computer enumeration that we did not re-compute, and was confirmed here by two exact solvers and by SAT proofs that an independent checker verified. The number is not printed in [7]</td></tr>
 </table>
 
 <div class="thm"><b>Theorem.</b> <i>Every subgraph of Q<sub>8</sub> without a 4-cycle has at most 690 edges.</i></div>
 
-<p>So 682 ≤ f(8) ≤ 690 with a proof that the Lean kernel has checked, and 682 ≤ f(8) ≤ 689 if Table 1 of [7] is
-accepted. The gap is not closed, and Minamoto [3] lists the exact value of ex(Q<sub>8</sub>, C<sub>4</sub>), and whether it is 682, as open.</p>
+<p>So 682 ≤ f(8) ≤ 690 with a proof that the Lean kernel has checked, and 682 ≤ f(8) ≤ 689 if the inequality (∗)
+of Section 5 is accepted: Lean checks that (∗) implies 689, and (∗) itself rests on computations. The gap is not closed, and Minamoto [3] lists the exact value of ex(Q<sub>8</sub>, C<sub>4</sub>), and whether it is 682, as open.</p>
 
 <h2>2. Notation</h2>
 
@@ -129,7 +132,7 @@ Step 4. So G does not exist. <span class="qed">∎</span></p>
 f(7) = 304 needed the much longer proof of [2]. (b) For 690 edges the count of Step 2 leaves a slack of 12
 instead of 2, and some configurations pass the parity test, for example four star-less 3-faces with the same free
 coordinates whose fixed values form an affine plane. Reaching 689 this way needs another idea; Section 5 gets 689
-from the computation of [7].
+from one inequality in Q<sub>5</sub>, the one that the table of [7] gives.
 (c) Averaging over the 18 facets of Q<sub>9</sub> gives 8·f(9) ≤ 18·f(8), hence f(9) ≤ 1552 (from 694 one gets
 1561). The table of [7] gives f(9) ≤ 1549.</p>
 
@@ -157,10 +160,29 @@ exact values, and f(6) ≤ 133 and f(7) ≤ 306 against the true 132 and 304; an
 The kernel checks that the proof proves this statement. It does not check that the definitions are the right
 reading of “C<sub>4</sub>-free subgraph of the cube”.</p>
 
-<p class="small"><b>Files.</b> <code>prize_work/flagship-erdos-86-f7/lean/Q8Parity.lean</code>,
-<code>Stars.lean</code> and <code>Averaging.lean</code> in the repository github.com/juw12/open-problems-lab,
-archived at doi:10.5281/zenodo.24522415. To re-check: a Lean project with Lean 4 v4.32.0 and Mathlib v4.32.0, then
-<code>lake env lean Q8Parity.lean</code>.</p>
+<p><b>A second, conditional statement.</b> The file <code>Q8Bound689.lean</code> also stands alone, has 82
+theorems, was checked in the same way with the same three axioms, and ends with a theorem that turns one
+statement about Q<sub>5</sub> into the bound 689. In it <code>nbr K u</code> is the set of directions i such that
+the edge at u in direction i belongs to K, so its size is the degree of u, and g takes the values
+0, 12, 19, 21, 29, 45 for d = 0, …, 5:</p>
+
+<pre>def g (d : Nat) : Int := 12 * d - 5 * choose d 2 + 11 * choose d 4 - 20 * choose d 5
+def Q5Ineq : Prop :=
+  forall K : Finset (Finset (V 5)), not (HasC4 K) -&gt;
+    (sum over u : V 5 of g (nbr K u).card) &lt;= 800
+theorem bound_8_689_of_Q5Ineq (h : Q5Ineq) : Bound 8 689</pre>
+
+<p><code>Q5Ineq</code> is the inequality (∗) of Section 5, written vertex by vertex. Lean checks the
+implication. It does not check <code>Q5Ineq</code>, which is a hypothesis of the theorem; Section 5 says what
+it rests on.</p>
+
+<p class="small"><b>Files.</b> <code>Q8Parity.lean</code>, <code>Q8Bound689.lean</code>, <code>Stars.lean</code>
+and <code>Averaging.lean</code> in the folder <code>prize_work/flagship-erdos-86-f7/lean</code> of the repository
+github.com/juw12/open-problems-lab, archived at doi:10.5281/zenodo.24338429 (this version: release v1.2.0). The
+folder <code>lean/project</code> pins Lean 4 v4.32.0 and Mathlib v4.32.0. The workflow
+<code>.github/workflows/lean-check.yml</code> compiles the four files on a public runner and writes the record
+<code>lean/check/lean_check.md</code>. To re-check by hand: in that project,
+<code>lake env lean Q8Bound689.lean</code>.</p>
 
 <h2>5. Earlier work, and what is not known</h2>
 
@@ -177,15 +199,33 @@ C(8,5)·2<sup>3</sup> = 448 sub-5-cubes, and a star with r edges lies in C(8−r
 <p class="eq">Σ<sub>v</sub> h(d(v)) ≤ 800·448 = 358 400, &nbsp;&nbsp; h(d) = 420·d − 100·C(d,2) + 44·C(d,4) − 20·C(d,5).</p>
 <p>For d = 0, 1, …, 8 the values of h(d) − 260·d are 0, 160, 220, 180, 84, 0, 0, 140, 440, never negative. The
 degrees add up to 2e, so 520·e ≤ 358 400, e ≤ 8960/13 = 689.23…, and f(8) ≤ 689.</p>
-<p>Three cautions. This derivation was made by an AI agent and has not been read by a mathematician. We did not
-find the number 689 in [7] or elsewhere, and we do not know whether it is written down somewhere. And it rests
-on Table 1, which we copied from the paper and did not re-compute; a direct check of (∗) by integer programming,
-without the table, is not finished (a 45-second run found the value 800 and proved only ≤ 812). The same table
-gives f(5) ≤ 56, f(6) ≤ 133, f(7) ≤ 306, f(9) ≤ 1549 and f(10) ≤ 3398; the scripts
-<code>thomason_wagner_certificate.py</code> and <code>q5_inequality_ilp.py</code> are in the folder
-<code>prize_work/flagship-erdos-86-f7/sources</code> of the repository.</p>
+<p><b>What Lean checks of this.</b> Everything after (∗). The theorem <code>bound_8_689_of_Q5Ineq</code> of
+Section 4 is the averaging just described: each sub-5-cube of Q<sub>8</sub> is a copy of Q<sub>5</sub>, the 448
+copies are added up, and the kernel checks h(d) ≥ 260·d. So f(8) ≤ 689 needs (∗) and nothing else.</p>
+<p><b>What (∗) rests on.</b> Not on a proof that Lean or a person has checked. It rests on computations of three
+kinds. (i) Table 1 of [7], which we copied from the paper and did not re-compute. (ii) Two exact solvers, asked
+directly and without the table for a C<sub>4</sub>-free subgraph of Q<sub>5</sub> whose left side of (∗) is at
+least 801. The question was cut into cases by the largest degree and by the degrees of the neighbours of a vertex
+of largest degree; if the largest degree is at most 3, the left side is at most 32·21 = 672 and no run is needed.
+CP-SAT (OR-Tools 9.15) and HiGHS (SciPy 1.18) both answer “infeasible” in every case, and both find a graph when
+asked for 800. These runs leave no proof. (iii) The same question as a formula for the SAT solver CaDiCaL 2.1.3
+[9], in 18 cases. In each case the solver wrote a DRAT proof that there is no solution, and a separate program,
+drat-trim [10], verified all 18 proofs (9.4 GB together; the hardest case took 16 minutes to solve and 21 minutes
+to check). In (iii) a wrong answer of the solver would have been caught. What is trusted there is the program
+that writes the formulas, the case split, which uses the symmetries of Q<sub>5</sub>, and the checker. Runs with
+no case split (CP-SAT for 5.3 hours, CaDiCaL for 2.5 hours) did not finish and decide nothing. The proofs were too
+large to keep; the program, the SHA-256 of every formula and proof and the output of the checker are in the
+repository, and the runs can be repeated on a public runner.</p>
+<p><b>Two more cautions.</b> The derivation, the formulas and the case split were made by an AI agent and have not
+been read by a mathematician. We did not find the number 689 in [7] or elsewhere, and we do not know whether it is
+written down somewhere. The same table gives f(5) ≤ 56, f(6) ≤ 133, f(7) ≤ 306, f(9) ≤ 1549 and f(10) ≤ 3398.
+Scripts and records are in the folder <code>prize_work/flagship-erdos-86-f7/sources</code> of the repository:
+<code>thomason_wagner_certificate.py</code>, <code>q5_inequality_cases.py</code>, <code>q5_sat_proof.py</code>,
+<code>q5_inequality_RESULT.md</code> and the folders <code>q5_runs</code> and <code>q5_sat_runs</code>.</p>
 <p>So the position is this. The bound 690 has a proof of one page with no computer search, checked by Lean (this
-paper). The bound 689 follows from a computation of 2009 that we have not reproduced.</p>
+paper). The bound 689 is checked by Lean up to one inequality about Q<sub>5</sub>, and that inequality rests on
+computations: a table of 2009 that we have not reproduced, two exact solvers, and SAT proofs verified by an
+independent checker. It is not a theorem that Lean has checked from start to end.</p>
 
 <p><b>Whether 690 was written down before.</b> We found no upper bound for f(8) in [2], in [3], in the OEIS entry A245762 [4] or on
 the page of problem 86 [1], all read on 25 November 2026; the full text of [2] and [3] was searched for the numbers
@@ -216,6 +256,8 @@ elsewhere. Only the parity Step 4 may be new, and it is short enough that it may
 <li>F. R. K. Chung, <i>Subgraphs of a hypercube containing no small even cycles</i>, J. Graph Theory 16 (1992), 273–286. Read on 25 November 2026 (copy on the author's page).</li>
 <li>A. Thomason, P. Wagner, <i>Bounding the size of square-free subgraphs of the hypercube</i>, Discrete Math. 309 (2009), 1730–1735. Read on 25 November 2026.</li>
 <li>J. Balogh, P. Hu, B. Lidický, H. Liu, <i>Upper bounds on the size of 4- and 6-cycle-free subgraphs of the hypercube</i>, arXiv:1201.0209; R. Baber, <i>Turán densities of hypercubes</i>, arXiv:1201.3587. Asymptotic bounds only.</li>
+<li>A. Biere, T. Faller, K. Fazekas, M. Fleury, N. Froleyks, F. Pollitt, <i>CaDiCaL 2.0</i>, Computer Aided Verification (CAV 2024), LNCS 14681, 133–152. Used here: version 2.1.3.</li>
+<li>N. Wetzler, M. J. H. Heule, W. A. Hunt Jr., <i>DRAT-trim: Efficient checking and trimming using expressive clausal proofs</i>, SAT 2014, LNCS 8561, 422–429. Used here: github.com/marijnheule/drat-trim, commit 2e3b2dc.</li>
 </ol>
 
 </body>

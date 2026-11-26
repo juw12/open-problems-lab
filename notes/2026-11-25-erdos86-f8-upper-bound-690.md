@@ -166,8 +166,9 @@ For d = 0..8 the values of h(d) - 260 d are 0, 160, 220, 180, 84, 0, 0, 140, 440
   every case (largest degree 4: 20 s; a vertex of degree 5: 20 min; largest degree <= 3 needs no run, the sum
   is at most 672). Asked for 800 it finds a graph in both cases, so the model is not empty by mistake. A
   second solver (HiGHS) answered "infeasible" in every case too (the slowest, a vertex of degree 5 with a
-  neighbour of degree 4, took 3.8 h). Three runs that drop the case split (CP-SAT twice, HiGHS once) hit their
-  5.3 h limit with no answer, so they decide nothing. These runs leave no proof file, and the case split uses
+  neighbour of degree 4, took 3.8 h). Two CP-SAT runs with no case split at all hit their
+  5.3 h limit with no answer, and so did HiGHS on the degree-5 case taken as one question; these decide
+  nothing. These runs leave no proof file, and the case split uses
   a symmetry argument nobody has read. Runs:
   https://github.com/juw12/open-problems-lab/actions/runs/45592147713 and .../runs/45596181027; record in
   `prize_work/flagship-erdos-86-f7/sources/q5_inequality_RESULT.md`.
