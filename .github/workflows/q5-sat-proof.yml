@@ -93,6 +93,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -100,21 +102,17 @@ jobs:
         with:
           path: results
           merge-multiple: true
-      - name: One verdict from the proof-checked runs
-        run: |
-          python prize_work/flagship-erdos-86-f7/sources/q5_verdict.py results q5_sat_verdict.json q5_sat_verdict.md
-          echo "" >> q5_sat_verdict.md
-          echo "Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID (commit $GITHUB_SHA). INFEASIBLE here means: CaDiCaL found no solution and drat-trim verified its proof." >> q5_sat_verdict.md
-          cat q5_sat_verdict.md >> "$GITHUB_STEP_SUMMARY"
-      - name: Keep the runs and the verdict in the repository
+      - name: Add these runs to the folder and state one verdict over everything in it
         run: |
           target=prize_work/flagship-erdos-86-f7/sources/q5_sat_runs
           mkdir -p "$target"
-          cp results/*.json "$target"/
-          cp q5_sat_verdict.json q5_sat_verdict.md "$target"/
+          cp results/*.json "$target"/ || true
+          python prize_work/flagship-erdos-86-f7/sources/q5_verdict.py "$target" "$target/q5_sat_verdict.json" "$target/q5_sat_verdict.md"
+          echo "" >> "$target/q5_sat_verdict.md"
+          echo "Last run added: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID (the case split). INFEASIBLE here means: CaDiCaL found no solution and drat-trim verified its proof. What it rests on: the encoder q5_sat_proof.py, the case split and drat-trim, not the solver." >> "$target/q5_sat_verdict.md"
+          cat "$target/q5_sat_verdict.md" >> "$GITHUB_STEP_SUMMARY"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add "$target"
-          git commit -m "Q5 inequality by SAT with checked proofs: $(python -c "import json; print(json.load(open('q5_sat_verdict.json'))['verdict'])")"
-          git pull --rebase origin main
+          git commit -m "Q5 inequality by SAT with checked proofs: $(python -c "import json; print(json.load(open('$target/q5_sat_verdict.json'))['verdict'])")" || exit 0
           git push origin HEAD:main

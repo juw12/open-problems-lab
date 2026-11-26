@@ -1,0 +1,40 @@
+{
+ "question": "is there a C4-free subgraph of Q5 in case d4, neighbour degrees of 0 start [3], with sum g(d) >= 801?",
+ "method": "CNF + CaDiCaL + DRAT proof checked by drat-trim",
+ "case": "d4",
+ "nbr": [
+  3
+ ],
+ "top_degree": 3,
+ "target": 801,
+ "variables": 10297,
+ "clauses": 60186,
+ "cnf_sha256": "1a488f8407dd6d551837e48fe011160227942a35bc6efc9de28d8a04f2d08e6a",
+ "solve_seconds": 61.7,
+ "versions": {
+  "python": "3.12.16",
+  "cadical": "2.1.3",
+  "drat-trim": "2e3b2dc0ecf938addbd779d42877b6ed69d9a985"
+ },
+ "solver_answer": "UNSATISFIABLE",
+ "proof_bytes": 110003896,
+ "check_limit": 18938,
+ "check_seconds": 59.2,
+ "checker_says": "VERIFIED",
+ "checker_tail": [
+  "",
+  "c 0 RAT lemmas in core; 488641 redundant literals in core lemmas",
+  "",
+  "s VERIFIED",
+  "",
+  "c verification time: 59.219 seconds"
+ ],
+ "proof_sha256": "d83e29a4ab64d99840b37cfe216d9db92a8be676b7329ee9e7cf334165960429",
+ "verdict": "INFEASIBLE",
+ "proof_checked": true,
+ "seconds": 120.9,
+ "solver": "cadical+drat-trim",
+ "status": "UNSATISFIABLE, proof VERIFIED",
+ "plain": true,
+ "time_limit": 7200.0
+}

@@ -1,12 +1,18 @@
 {
  "claim": "sum_v g(d(v)) <= 800 for every C4-free subgraph of Q5, g = (0, 12, 19, 21, 29, 45)",
- "verdict": "NOT DECIDED",
- "holds_by_solver": [],
+ "verdict": "HOLDS",
+ "holds_by_solver": [
+  "cadical+drat-trim"
+ ],
  "control_feasible_at_800": {
-  "d4": [],
-  "d5": []
+  "d4": [
+   "cadical+drat-trim"
+  ],
+  "d5": [
+   "cadical+drat-trim"
+  ]
  },
- "control_passed": false,
+ "control_passed": true,
  "counterexamples": [],
  "runs": [
   {
@@ -19,6 +25,282 @@
    "verdict": "UNKNOWN",
    "seconds": 9000.0,
    "time_limit": 9000.0
+  },
+  {
+   "file": "sat-d4-control.json",
+   "solver": "cadical+drat-trim",
+   "case": "d4",
+   "nbr": [],
+   "target": 800,
+   "plain": true,
+   "verdict": "FEASIBLE",
+   "seconds": 8.0,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d4-top1.json",
+   "solver": "cadical+drat-trim",
+   "case": "d4",
+   "nbr": [
+    1
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 3.0,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d4-top2.json",
+   "solver": "cadical+drat-trim",
+   "case": "d4",
+   "nbr": [
+    2
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 46.6,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d4-top3.json",
+   "solver": "cadical+drat-trim",
+   "case": "d4",
+   "nbr": [
+    3
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 120.9,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d4-top4.json",
+   "solver": "cadical+drat-trim",
+   "case": "d4",
+   "nbr": [
+    4
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 378.9,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-control.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [],
+   "target": 800,
+   "plain": true,
+   "verdict": "FEASIBLE",
+   "seconds": 38.7,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-nbr411.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [
+    4,
+    1,
+    1
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 31.1,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-nbr421.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [
+    4,
+    2,
+    1
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 92.2,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-nbr422.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [
+    4,
+    2,
+    2
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 1543.1,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-nbr431.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [
+    4,
+    3,
+    1
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 86.0,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-nbr432.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [
+    4,
+    3,
+    2
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 1775.8,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-nbr433.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [
+    4,
+    3,
+    3
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 2263.9,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-nbr441.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [
+    4,
+    4,
+    1
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 111.1,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-nbr442.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [
+    4,
+    4,
+    2
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 1278.4,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-nbr443.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [
+    4,
+    4,
+    3
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 1300.9,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-nbr444.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [
+    4,
+    4,
+    4
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 76.2,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-top1.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [
+    1
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 19.1,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-top2.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [
+    2
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 907.4,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-top3.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [
+    3
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 2118.4,
+   "time_limit": 7200.0
+  },
+  {
+   "file": "sat-d5-top5.json",
+   "solver": "cadical+drat-trim",
+   "case": "d5",
+   "nbr": [
+    5
+   ],
+   "target": 801,
+   "plain": true,
+   "verdict": "INFEASIBLE",
+   "seconds": 394.4,
+   "time_limit": 7200.0
   }
  ]
 }
