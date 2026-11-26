@@ -17,6 +17,9 @@ concurrency:
   group: lean-check
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   file:
     name: ${{ matrix.file }}
