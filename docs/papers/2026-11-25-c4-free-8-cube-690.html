@@ -38,8 +38,8 @@ table { break-inside: avoid; }
 
 <h1>A C<sub>4</sub>-free subgraph of the 8-cube has at most 690 edges:<br>a Lean-checked parity argument</h1>
 <p class="author">Juwen Lie</p>
-<p class="affil">Independent; ORCID 0009-0008-1384-7901 &nbsp;·&nbsp; 26 November 2026 &nbsp;·&nbsp; version 4 (new in Sections 4 and 5: Lean now checks the step from one inequality in the 5-cube to f(8) ≤ 689, and that inequality was checked by two exact solvers and by a SAT solver whose proofs an independent checker verified; the theorem and its proof are unchanged)<br>
-Archived with the Lean files: doi:10.5281/zenodo.24338429 (all versions of github.com/juw12/open-problems-lab; version 1 of this paper is in release v1.1.0, doi:10.5281/zenodo.24522415, version 2 in v1.1.1, doi:10.5281/zenodo.24523255, version 3 in v1.1.2, doi:10.5281/zenodo.24525686, version 4 in v1.2.0)</p>
+<p class="affil">Independent; ORCID 0009-0008-1384-7901 &nbsp;·&nbsp; 26 November 2026 &nbsp;·&nbsp; version 5 (new: the note under the abstract and one row of the table in Section 1. A better bound, f(8) ≤ 683, was public before this paper. The theorem, its proof and Sections 2 to 5 are as in version 4)<br>
+Archived with the Lean files: doi:10.5281/zenodo.24338429 (all versions of github.com/juw12/open-problems-lab; version 1 of this paper is in release v1.1.0, doi:10.5281/zenodo.24522415, version 2 in v1.1.1, doi:10.5281/zenodo.24523255, version 3 in v1.1.2, doi:10.5281/zenodo.24525686, version 4 in v1.2.0, version 5 in the release after it)</p>
 
 <div class="abstract"><b>Abstract.</b> Let f(n) be the largest number of edges of a subgraph of the n-dimensional
 cube Q<sub>n</sub> that contains no 4-cycle. We show f(8) ≤ 690. The proof combines a star-capacity count that goes back to Chung (1992) and is used in this form by
@@ -52,7 +52,19 @@ the number is not stated in their paper (Section 5). Lean also checks the step f
 5-cube to f(8) ≤ 689. That inequality is not proved in Lean: two exact solvers confirm it, and so does a SAT
 solver whose proofs of all 18 cases were verified by an independent checker. What this paper adds is a proof of
 690 that uses no computer search and has been checked by a proof assistant, and this reduction of 689 to one
-statement about the 5-cube.</div>
+statement about the 5-cube. <b>Added in version 5:</b> neither number is the best known bound. Zhou and
+coauthors made 682 ≤ f(8) ≤ 683 public before this paper [11]; see the note below.</div>
+
+<div class="box"><b>Note added on 26 November 2026 (version 5): a better bound was already public.</b>
+Zhou and coauthors list 682 ≤ f(8) ≤ 683 in the repository that goes with [2] (its front page, 18 November
+2026), and a computer-assisted proof of 683 is in a public archive released on 20 November 2026 [11]. Both
+dates are before this paper, and 683 is better than the 690 proved here and than the 689 of Section 5. I had
+not found it: it is on GitHub and not in the arXiv paper [2], and I learned of it on 26 November 2026. I have
+not checked their proof; their archive describes its own review as provisional and lists f(8) ≤ 682 as open.
+The archive also holds four 4-cycle-free subgraphs of Q<sub>8</sub> with 682 edges, which I did check. So this
+paper does not give the best known bound for f(8), and the sentences below that speak of 690 or 689 must be
+read with that in mind. What it still gives is a proof of 690 without computer search that a proof assistant
+has checked from start to end, and the reduction of 689 to one inequality in the 5-cube.</div>
 
 <div class="box"><b>How this was made, and what to trust.</b> I am a mechanical engineer, not a mathematician.
 The statement, the proof below and its Lean formalisation were written by an AI agent (a large language model) in a
@@ -77,12 +89,13 @@ Ren, Yang and Li [2]. For n = 8 we know of the following bounds.</p>
 <tr><td>f(8) ≤ 691</td><td>star capacity (Lemmas 4 and 5 of Chung [6]; Lemma 2.2 of [2]) with C(d,3) ≥ 10d − 40; Step 1 and Step 2 below. The number is not printed in [6] or [2]</td></tr>
 <tr><td><b>f(8) ≤ 690</b></td><td><b>this paper</b>; no computer search, checked by Lean</td></tr>
 <tr><td>f(8) ≤ 689</td><td>follows from one inequality in Q<sub>5</sub>, (∗) in Section 5, by averaging over the 448 sub-5-cubes; Lean checks this step. (∗) follows from Table 1 of Thomason and Wagner [7], a computer enumeration that we did not re-compute, and was confirmed here by two exact solvers and by SAT proofs that an independent checker verified. The number is not printed in [7]</td></tr>
+<tr><td>f(8) ≤ 683</td><td>Zhou and coauthors [11], public on 18–20 November 2026, before this paper; computer-assisted; not checked here. Row added in version 5</td></tr>
 </table>
 
 <div class="thm"><b>Theorem.</b> <i>Every subgraph of Q<sub>8</sub> without a 4-cycle has at most 690 edges.</i></div>
 
 <p>So 682 ≤ f(8) ≤ 690 with a proof that the Lean kernel has checked, and 682 ≤ f(8) ≤ 689 if the inequality (∗)
-of Section 5 is accepted: Lean checks that (∗) implies 689, and (∗) itself rests on computations. The gap is not closed, and Minamoto [3] lists the exact value of ex(Q<sub>8</sub>, C<sub>4</sub>), and whether it is 682, as open.</p>
+of Section 5 is accepted: Lean checks that (∗) implies 689, and (∗) itself rests on computations. The gap is not closed, and Minamoto [3] lists the exact value of ex(Q<sub>8</sub>, C<sub>4</sub>), and whether it is 682, as open. By [11] the value is 682 or 683.</p>
 
 <h2>2. Notation</h2>
 
@@ -258,6 +271,7 @@ elsewhere. Only the parity Step 4 may be new, and it is short enough that it may
 <li>J. Balogh, P. Hu, B. Lidický, H. Liu, <i>Upper bounds on the size of 4- and 6-cycle-free subgraphs of the hypercube</i>, arXiv:1201.0209; R. Baber, <i>Turán densities of hypercubes</i>, arXiv:1201.3587. Asymptotic bounds only.</li>
 <li>A. Biere, T. Faller, K. Fazekas, M. Fleury, N. Froleyks, F. Pollitt, <i>CaDiCaL 2.0</i>, Computer Aided Verification (CAV 2024), LNCS 14681, 133–152. Used here: version 2.1.3.</li>
 <li>N. Wetzler, M. J. H. Heule, W. A. Hunt Jr., <i>DRAT-trim: Efficient checking and trimming using expressive clausal proofs</i>, SAT 2014, LNCS 8561, 422–429. Used here: github.com/marijnheule/drat-trim, commit 2e3b2dc.</li>
+<li>Z. Zhou and coauthors, result list at https://github.com/zhelizhou/hypercube-c4 (front page of 18 November 2026: “682 ≤ ex(Q<sub>8</sub>, C<sub>4</sub>) ≤ 683”), and the proof archive <code>plugins/hypercube-extremal/archive/q8-683</code> in https://github.com/lisresearchgroup/math-rsi, release v6 (20 November 2026). Read on 26 November 2026; the proof of 683 was not checked.</li>
 </ol>
 
 </body>

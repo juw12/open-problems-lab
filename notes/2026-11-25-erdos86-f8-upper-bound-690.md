@@ -1,8 +1,8 @@
 ---
 Target: the lab's public notes repo; later, if no earlier source turns up, a comment on erdosproblems.com problem 86
 Date: 2026-11-25
-Status: proof checked by Lean; no referee and no human reader yet; the bound 690 is NOT the best that follows
-  from published work (see the second update)
+Status: proof checked by Lean; no referee and no human reader yet; NOT the best known bound: 683 was public
+  before this note (see the last update), and 689 follows from published work (see the second update)
 Updated: 2026-11-25, same day: Chung (1992) was read. Step 1 and the bound 691 are credited to her Lemmas 4-5;
   the bound 690 is not in her paper. See "What is not known".
 Updated: 2026-11-25, afternoon: Thomason and Wagner (2009) was read. A table printed in their paper gives
@@ -18,9 +18,15 @@ Updated: 2026-11-25, night: the step from that one inequality to f(8) <= 689 is 
 Updated: 2026-11-26: that run ended. All 18 cases are "no", and the checker (drat-trim) verified every
   proof. The second exact solver (HiGHS) also finished every case. Still not a Lean proof of the inequality,
   and no person has read the encoding or the case split. Same section.
+Updated: 2026-11-26, midday: a better bound is public, and it is older than this note. Zhou and coauthors
+  list 682 <= f(8) <= 683 in the repository of arXiv:2611.27284 (README, 18 Nov 2026); the proof archive is in
+  the MathRSI v6 release of 20 Nov 2026. The lab had not found it on 25 Nov: it is on GitHub, not in the arXiv
+  paper. The lab has not checked their proof of 683; it re-ran the check of their four 682-edge graphs.
+  Nothing in this note is the best known bound. See the table and "What is not known". The proof below is
+  unchanged.
 Flagship: F2, F4, F5
 Scope: one finite statement about the 8-cube. Claimed: f(8) <= 690, with a Lean 4 proof and no computer search.
-  Not claimed: that 690 is new or the best known bound (it is not, see the second update), that it is the true
+  Not claimed: that 690 is new or the best known bound (it is not: 683 is known, see the last update), that it is the true
   value, or anything about the asymptotic question of problem 86.
 AI-assisted: yes (statement, hand proof and Lean proof were written by an AI agent)
 ---
@@ -29,8 +35,9 @@ AI-assisted: yes (statement, hand proof and Lean proof were written by an AI age
 > Juwen Lie. The proof was written by an AI agent and checked by the Lean 4 kernel with
 > Mathlib (standard axioms only); the Lean files are in this repository under `prize_work/`.
 > The kernel checks the proof, not whether the formal statement says what this note says:
-> please read the definitions. **No human mathematician has reviewed it**. The bound is
-> not the best that follows from published work: a table of Thomason and Wagner (2009) gives
+> please read the definitions. **No human mathematician has reviewed it**. **The bound is not
+> the best known: 682 <= f(8) <= 683 was made public by Zhou and coauthors on 18-20 Nov 2026,
+> before this note** (see the table below). Nor is it the best that follows from older published work: a table of Thomason and Wagner (2009) gives
 > 689 (section "Thomason-Wagner's table gives 689"; Lean checks the step from one inequality of
 > that table to 689, not the inequality). It has not been posted to the problem's own site.
 > "I" below means the lab. Nothing here settles the open problem itself. Corrections and
@@ -40,7 +47,8 @@ AI-assisted: yes (statement, hand proof and Lean proof were written by an AI age
 
 f(n) is the largest number of edges in a subgraph of the n-cube Q_n with no 4-cycle. Erdos problem 86 asks
 how f(n) grows; the small values are f(4) = 24, f(5) = 56, f(6) = 132 and, since 20 Nov 2026, f(7) = 304
-(Zhou, Ma, Yang, Ren, Yang, Li, arXiv:2611.27284). For n = 8 the lab knows of:
+(Zhou, Ma, Yang, Ren, Yang, Li, arXiv:2611.27284). For n = 8 the lab knows of (the row for 683 was added on
+26 Nov 2026; the lab did not know it when the note was written):
 
 | Bound | Source |
 |---|---|
@@ -49,10 +57,17 @@ how f(n) grows; the small values are f(4) = 24, f(5) = 56, f(6) = 132 and, since
 | f(8) <= 691 | star capacity (Chung 1992, Lemmas 4-5; per parity class it is Lemma 2.2 of arXiv:2611.27284; step 1 below) with C(d,3) >= 10 d - 40; `Stars.bound_8_691` |
 | **f(8) <= 690** | **this note; `Q8Parity.bound_8_690`**; no computer search, checked by Lean |
 | f(8) <= 689 | follows from one inequality (*) about C4-free subgraphs of Q5, read off Table 1 of Thomason-Wagner (2009), by averaging over the 448 sub-5-cubes; the number is not printed there. The step from (*) to 689 is checked by Lean (`Q8Bound689.bound_8_689_of_Q5Ineq`). (*) itself is not: it rests on their table (a computer enumeration, not re-computed here) or on the lab's exact-solver runs; section "Thomason-Wagner's table gives 689" |
+| f(8) <= 683 | Zhou and coauthors, **public before this note and better than everything in it**: listed as "682 <= ex(Q8, C4) <= 683" in https://github.com/zhelizhou/hypercube-c4 (README, 18 Nov 2026); proof archive `plugins/hypercube-extremal/archive/q8-683/` in https://github.com/lisresearchgroup/math-rsi (release v6, 20 Nov 2026). Computer-assisted: an exact rational combination of 83 inequalities, a complete enumeration in Q4 and 25 certificates for Q6 with proof traces. Their archive calls its own review "provisional" and says f(8) <= 682 is open; it is not in their arXiv paper yet. **Not checked by this lab.** The same archive has four C4-free graphs with 682 edges; the lab re-ran that check with its own script (682 edges, no 4-cycle, all four) |
 
 So 682 <= f(8) <= 690 with a proof the Lean kernel has checked from start to end, and 682 <= f(8) <= 689 with
 a Lean-checked proof from one inequality in the 5-cube, which is accepted on the word of that table or of the
 solver runs. The gap is not closed.
+
+The best known bounds are theirs: 682 <= f(8) <= 683. What is left of this note is narrower. The lab knows of
+no proof of a bound for n = 8 that a proof assistant has checked from start to end other than the 690 here
+(their 683 is checked by their own programs: exact arithmetic, a complete enumeration and proof traces), and
+the argument for 690 uses no computer search. That is a statement about how the bound is checked, not about
+how good it is.
 
 ## What was checked, and by what
 
@@ -197,6 +212,11 @@ kernel.
 
 ## What is not known
 
+- **A better bound was already public (found out on 2026-11-26).** 682 <= f(8) <= 683, Zhou and coauthors,
+  public on GitHub since 18-20 Nov 2026 (links in the table at the top). So the search described in the next
+  point was not wide enough: it read the arXiv papers, the OEIS entry and the problem page, and not the code
+  repositories of the authors of the newest paper. Whether the numbers 690 or 689 themselves were written
+  down before is a smaller question now; the lab still knows of no earlier place that prints them.
 - **Whether 690 was written down before.** The lab found no upper bound for f(8) in arXiv:2611.27284, arXiv:2603.29127, the OEIS
   entry A245762 or the page of problem 86 (all read on 2026-11-25; the full text of both papers was searched for
   690 to 694, no hit; arXiv:2603.29127 lists "determine ex(Q_8, C_4) exactly, is it 682?" as open). The two
@@ -213,7 +233,8 @@ kernel.
 - **Still not read:** Brass, Harborth and Nienborg (J. Graph Theory 19, 1995). An earlier bound may be there or
   elsewhere. Only the parity step 4 may be new, and it is short enough that it may well be folklore. A reference
   to an earlier source is the most useful reply to this note.
-- **The true value.** For 690 edges the same count leaves a slack of 12 instead of 2, and configurations such as
+- **The true value.** It is 682 or 683 if the proof of Zhou and coauthors stands (the lab has not checked it).
+  The method of this note does not get there: for 690 edges the same count leaves a slack of 12 instead of 2, and configurations such as
   four star-less faces with the same free coordinates, whose fixed values form an affine plane, pass the parity
   test. Reaching 689 this way needs another idea; the section above gets 689 from the computation of
   Thomason and Wagner. A proof of (*) that Lean or a person can check (a short argument by hand, or the
