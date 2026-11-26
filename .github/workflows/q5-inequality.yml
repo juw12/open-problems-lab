@@ -49,15 +49,15 @@ jobs:
           - {name: "cpsat-all", solver: cpsat, case: all, seconds: 19200, flags: ""}
           - {name: "cpsat-all-plain", solver: cpsat, case: all, seconds: 19200, flags: "plain"}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: pip install ortools scipy numpy
       - name: Ask the solver
         working-directory: prize_work/flagship-erdos-86-f7/sources
         run: python q5_inequality_cases.py ${{ matrix.solver }} ${{ matrix.case }} ${{ matrix.seconds }} "${{ matrix.name }}.json" 4 ${{ matrix.flags }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: ${{ matrix.name }}
@@ -69,14 +69,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: pip install ortools scipy numpy
       - working-directory: prize_work/flagship-erdos-86-f7/sources
         run: python q5_class_bound.py cpsat 300 q5_class_bound_cpsat.json 4
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: one-class
           path: prize_work/flagship-erdos-86-f7/sources/q5_class_bound_cpsat.json
@@ -89,11 +89,11 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           path: results
           merge-multiple: true
@@ -103,7 +103,7 @@ jobs:
           echo "" >> q5_verdict.md
           echo "Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID (commit $GITHUB_SHA). A solver verdict, not a formal proof." >> q5_verdict.md
           cat q5_verdict.md >> "$GITHUB_STEP_SUMMARY"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: verdict
           path: |

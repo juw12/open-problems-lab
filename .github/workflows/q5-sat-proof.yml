@@ -19,14 +19,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: pip install python-sat ortools
       - working-directory: prize_work/flagship-erdos-86-f7/sources
         run: python q5_sat_proof.py selftest | tee q5_sat_selftest.json
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: sat-selftest
           path: prize_work/flagship-erdos-86-f7/sources/q5_sat_selftest.json
@@ -60,8 +60,8 @@ jobs:
           - {name: "sat-d4-control", case: d4, flags: "control"}
           - {name: "sat-d5-control", case: d5, flags: "control"}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - name: Build the solver (CaDiCaL) and the proof checker (drat-trim)
@@ -80,7 +80,7 @@ jobs:
       - name: Solve, and check the proof if the answer is no
         working-directory: prize_work/flagship-erdos-86-f7/sources
         run: python q5_sat_proof.py case ${{ matrix.case }} "${{ matrix.name }}.json" ${{ inputs.seconds || '7200' }} ${{ matrix.flags }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: ${{ matrix.name }}
@@ -95,13 +95,13 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: main
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           path: results
           merge-multiple: true
