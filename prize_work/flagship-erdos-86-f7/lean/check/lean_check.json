@@ -6,7 +6,7 @@
    "verdict": "checked",
    "exit": 0,
    "timed_out": false,
-   "seconds": 3.9,
+   "seconds": 4.8,
    "theorems": 18,
    "theorems_with_axiom_report": 18,
    "axioms_used": [
@@ -24,7 +24,7 @@
    "verdict": "checked",
    "exit": 0,
    "timed_out": false,
-   "seconds": 21.2,
+   "seconds": 17.4,
    "theorems": 82,
    "theorems_with_axiom_report": 82,
    "axioms_used": [
@@ -42,7 +42,7 @@
    "verdict": "checked",
    "exit": 0,
    "timed_out": false,
-   "seconds": 8.2,
+   "seconds": 9.0,
    "theorems": 56,
    "theorems_with_axiom_report": 56,
    "axioms_used": [
@@ -60,7 +60,7 @@
    "verdict": "checked",
    "exit": 0,
    "timed_out": false,
-   "seconds": 5.2,
+   "seconds": 7.8,
    "theorems": 42,
    "theorems_with_axiom_report": 42,
    "axioms_used": [
