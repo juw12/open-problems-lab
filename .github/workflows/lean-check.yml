@@ -30,7 +30,7 @@ jobs:
       matrix:
         file: [Averaging, Stars, Q8Parity, Q8Bound689]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Lean (elan) and the Mathlib build cache
         working-directory: prize_work/flagship-erdos-86-f7/lean/project
         run: |
@@ -50,7 +50,7 @@ jobs:
         run: |
           grep -n "error" lean_out/${{ matrix.file }}.out.txt | head -60 || true
           tail -n 12 lean_out/${{ matrix.file }}.out.txt || true
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: lean-${{ matrix.file }}
@@ -66,8 +66,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
         with:
           path: lean_out
           merge-multiple: true

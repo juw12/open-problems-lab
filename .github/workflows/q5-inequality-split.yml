@@ -39,15 +39,15 @@ jobs:
           - {name: "cpsat-d5-nbr443", solver: cpsat, flags: "nbr=4,4,3"}
           - {name: "cpsat-d5-nbr444", solver: cpsat, flags: "nbr=4,4,4"}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: pip install ortools scipy numpy
       - name: Ask the solver
         working-directory: prize_work/flagship-erdos-86-f7/sources
         run: python q5_inequality_cases.py ${{ matrix.solver }} d5 19200 "${{ matrix.name }}.json" 4 ${{ matrix.flags }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: ${{ matrix.name }}
